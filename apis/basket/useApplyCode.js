@@ -1,12 +1,10 @@
 import { toast } from 'react-toastify';
 import useSWRMutation from 'swr/mutation';
 import { useSWRConfig } from 'swr';
-import { useTranslations } from 'next-intl';
 import axiosInstance from '@/configs/axiosInstance';
 
 const useApplyCode = closeDiscountModalHandler => {
    const { mutate } = useSWRConfig();
-   const t = useTranslations('basket');
 
    return useSWRMutation('store/cart/get_update/', (url, data) =>
       axiosInstance
@@ -23,7 +21,7 @@ const useApplyCode = closeDiscountModalHandler => {
             mutate('store/cart/get_update/', res.data);
             if (res.status === 200) {
                closeDiscountModalHandler();
-               toast.success(t('Code registered successfully'), {
+               toast.success('کد با موفقیت اعمال شد', {
                   style: {
                      direction: 'rtl',
                      fontFamily: 'dana',
@@ -37,7 +35,7 @@ const useApplyCode = closeDiscountModalHandler => {
          })
          .catch(err => {
             if (err?.response?.status === 400) {
-               toast.error(t('Code is not valid'), {
+               toast.error('کد وارد شده معتبر نیست', {
                   style: {
                      direction: 'rtl',
                      fontFamily: 'dana',
