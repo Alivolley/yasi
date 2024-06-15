@@ -25,7 +25,7 @@ function BoldProducts() {
                   </div>
 
                   <p className="flex items-center gap-2 px-7 py-4">
-                     ست پاییزه یلفان <KeyboardArrowLeftIcon />
+                     ست پاییزه یاسی <KeyboardArrowLeftIcon />
                   </p>
                </Link>
             </Grid>
@@ -40,7 +40,7 @@ function BoldProducts() {
                   </div>
 
                   <p className="flex items-center gap-2 px-7 py-4">
-                     ست پاییزه یلفان <KeyboardArrowLeftIcon />
+                     ست پاییزه یاسی <KeyboardArrowLeftIcon />
                   </p>
                </Link>
             </Grid>
@@ -55,7 +55,7 @@ function BoldProducts() {
                   </div>
 
                   <p className="flex items-center gap-2 px-7 py-4">
-                     ست پاییزه یلفان <KeyboardArrowLeftIcon />
+                     ست پاییزه یاسی <KeyboardArrowLeftIcon />
                   </p>
                </Link>
             </Grid>

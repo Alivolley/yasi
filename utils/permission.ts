@@ -60,6 +60,11 @@ const PERMISSION = {
    BLOCK_USERS: {
       PATCH: '118',
    },
+
+   // Offers banners
+   OFFERS_BANNERS: {
+      PATCH: '119',
+   },
 };
 
 export default PERMISSION;

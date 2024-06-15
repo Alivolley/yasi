@@ -104,7 +104,7 @@ function AboutUs({ categoryList, error }) {
 
          <div className="bg-[#F5F8FC] px-8 py-[70px] customMd:px-16">
             <div className="space-y-5 text-center">
-               <p className="text-2xl font-bold">محصولات فروشگاه یلفان</p>
+               <p className="text-2xl font-bold">محصولات فروشگاه یاسی</p>
                <p className="text-base leading-[30px] text-textColor">
                   لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک{' '}
                </p>

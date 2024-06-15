@@ -117,7 +117,7 @@ function Login() {
                   <div className="mt-10">
                      <p className="text-xl font-bold customMd:text-2xl">ورود - ثبت نام</p>
                      <p className="mt-5 text-sm text-textColor customMd:text-base">
-                        برای ورود به یلفان ابتدا شماره خود را وارد کنید
+                        برای ورود به یاسی ابتدا شماره خود را وارد کنید
                      </p>
                   </div>
 
@@ -173,12 +173,12 @@ function Login() {
                      <MuiOtpInput
                         value={codeValue}
                         onChange={e => setCodeValue(e)}
-                        length={4}
+                        length={5}
                         dir="ltr"
                         TextFieldsProps={{ type: 'number' }}
                         onKeyDown={e => {
                            if (e.key === 'Enter') {
-                              if (codeValue.length === 4) {
+                              if (codeValue.length === 5) {
                                  sendCode();
                               }
                            }

@@ -47,7 +47,7 @@ function Search({ searchResultList, error, suggestsList }) {
    return (
       <>
          <Head>
-            <title>یلفان - {productNameQuery}</title>
+            <title>یاسی - {productNameQuery}</title>
          </Head>
          <div className="bg-[#f6f2f3] p-8 customMd:px-16 customLg:pb-6 customLg:pt-16">
             <p className="text-center text-2xl font-bold">
