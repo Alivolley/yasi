@@ -86,15 +86,7 @@ function Login() {
    };
 
    const showPhonNumberError = () => {
-      toast.error('شماره تلفن معتبر نیست', {
-         style: {
-            direction: 'rtl',
-            fontFamily: 'dana',
-            lineHeight: '25px',
-         },
-         theme: 'colored',
-         autoClose: 5000,
-      });
+      toast.error('شماره تلفن معتبر نیست');
    };
 
    return (

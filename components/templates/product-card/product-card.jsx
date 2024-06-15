@@ -32,16 +32,7 @@ function ProductCard({ detail }) {
       if (isLogin) {
          toggleFavoriteTrigger(detail?.id);
       } else {
-         toast.info('برای افزودن به علاقه مندی ها ، ابتدا وارد حساب کاربری خود شوید', {
-            style: {
-               direction: 'rtl',
-               fontFamily: 'dana',
-               lineHeight: '25px',
-               fontSize: '14px',
-            },
-            theme: 'colored',
-            autoClose: 5000,
-         });
+         toast.info('برای افزودن به علاقه مندی ها ، ابتدا وارد حساب کاربری خود شوید');
       }
    };
 

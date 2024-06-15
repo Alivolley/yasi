@@ -25,7 +25,7 @@ function AppLayout({ children }) {
    return (
       <Provider store={store}>
          <ThemeProvider theme={themeConfig}>
-            <ToastContainer />
+            <ToastContainer style={{ lineHeight: '25px', fontSize: '14px' }} theme="colored" autoClose={5000} />
             <LoadingComponent />
             <RtlProvider>
                {pathname !== '/login' && !pathname.startsWith('/adminPanel') && <Header />}

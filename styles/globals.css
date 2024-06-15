@@ -8,14 +8,9 @@
       src: url('../assets/fonts/DanaFaNum-Regular.ttf') format('truetype');
    }
 
-   @font-face {
-      font-family: 'poppins';
-      src: url('../assets/fonts/Poppins-Regular.ttf') format('truetype');
-   }
-
-   @font-face {
-      font-family: 'rubik';
-      src: url('../assets/fonts/Rubik-Regular.ttf') format('truetype');
+   .Toastify__toast {
+      direction: rtl !important;
+      font-family: dana !important;
    }
 
    .Toastify__toast-container--top-right {

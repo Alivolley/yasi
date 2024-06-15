@@ -21,29 +21,13 @@ const useApplyCode = closeDiscountModalHandler => {
             mutate('store/cart/get_update/', res.data);
             if (res.status === 200) {
                closeDiscountModalHandler();
-               toast.success('کد با موفقیت اعمال شد', {
-                  style: {
-                     direction: 'rtl',
-                     fontFamily: 'dana',
-                     lineHeight: '25px',
-                  },
-                  theme: 'colored',
-                  autoClose: 5000,
-               });
+               toast.success('کد با موفقیت اعمال شد');
             }
             return res.data;
          })
          .catch(err => {
             if (err?.response?.status === 400) {
-               toast.error('کد وارد شده معتبر نیست', {
-                  style: {
-                     direction: 'rtl',
-                     fontFamily: 'dana',
-                     lineHeight: '25px',
-                  },
-                  theme: 'colored',
-                  autoClose: 5000,
-               });
+               toast.error('کد وارد شده معتبر نیست');
             }
          })
    );

@@ -23,15 +23,7 @@ import CategoryCard from '@/components/templates/category-card/category-card';
 function AboutUs({ categoryList, error }) {
    useEffect(() => {
       if (error) {
-         toast.error(error, {
-            style: {
-               direction: 'rtl',
-               fontFamily: 'dana',
-               lineHeight: '25px',
-            },
-            theme: 'colored',
-            autoClose: 5000,
-         });
+         toast.error(error);
       }
    }, [error]);
 

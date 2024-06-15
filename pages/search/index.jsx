@@ -28,15 +28,7 @@ function Search({ searchResultList, error, suggestsList }) {
 
    useEffect(() => {
       if (error) {
-         toast.error(error, {
-            style: {
-               direction: 'rtl',
-               fontFamily: 'dana',
-               lineHeight: '25px',
-            },
-            theme: 'colored',
-            autoClose: 5000,
-         });
+         toast.error(error);
       }
    }, [error]);
 
