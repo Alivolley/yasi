@@ -377,7 +377,7 @@ function ProductDetail({ error, productDetail, categoryItems }) {
 
                         <p className="my-7 text-[15px] font-bold">{productDetail?.title}</p>
 
-                        <p className="text-sm text-textColor">{productDetail?.description}</p>
+                        <pre className="text-sm text-textColor">{productDetail?.description}</pre>
                      </div>
                   </Grid>
                </Grid>
