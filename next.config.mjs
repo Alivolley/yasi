@@ -1,6 +1,18 @@
 /** @type {import('next').NextConfig} */
+
+import withTM from 'next-transpile-modules';
+
 const nextConfig = {
-  reactStrictMode: true,
+   reactStrictMode: true,
+
+   images: {
+      remotePatterns: [
+         {
+            protocol: 'https',
+            hostname: '**',
+         },
+      ],
+   },
 };
 
-export default nextConfig;
+export default withTM(['mui-one-time-password-input'])(nextConfig);

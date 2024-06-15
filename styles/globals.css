@@ -2,32 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer {
+   @font-face {
+      font-family: 'dana';
+      src: url('../assets/fonts/DanaFaNum-Regular.ttf') format('truetype');
+   }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+   @font-face {
+      font-family: 'poppins';
+      src: url('../assets/fonts/Poppins-Regular.ttf') format('truetype');
+   }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+   @font-face {
+      font-family: 'rubik';
+      src: url('../assets/fonts/Rubik-Regular.ttf') format('truetype');
+   }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+   .Toastify__toast-container--top-right {
+      right: 0 !important;
+   }
+
+   html {
+      scroll-behavior: smooth;
+   }
+
+   @media only screen and (max-width: 900px) {
+      * {
+         cursor: default !important;
+      }
+   }
+
+   @media only screen and (min-width: 900px) {
+      ::-webkit-scrollbar {
+         width: 8px;
+         height: 5px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: #ffffff;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: #d14f4d;
+         border-radius: 3px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+         background: #df8482;
+      }
+   }
 }
