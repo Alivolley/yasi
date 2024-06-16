@@ -90,7 +90,7 @@ function ProductCard({ detail }) {
                <p className="h-5 overflow-hidden text-xs text-[#7E95B0] [-webkit-box-orient:vertical] [-webkit-line-clamp:1] [display:-webkit-box] customMd:text-sm">
                   {detail?.category}
                </p>
-               <p className="whitespace-nowrap text-[13px] text-customPinkHigh customMd:text-base">
+               <p className="whitespace-nowrap text-[13px] font-bold text-customPinkHigh customMd:text-base">
                   {detail?.colors ? `${Number(detail?.price).toLocaleString()} تومان` : 'ناموجود'}
                </p>
             </div>

@@ -12,12 +12,12 @@ const MobileMenuStyle = styled.div(() => ({
       },
 
       '::-webkit-scrollbar-thumb': {
-         background: '#d14f4d',
+         background: '#765f8b',
          borderRadius: '3px',
       },
 
       '::-webkit-scrollbar-thumb:hover': {
-         background: '#df8482',
+         background: '#b9a0d2',
       },
    },
 }));

@@ -14,7 +14,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 
 // Assets
 import Link from 'next/link';
-import fakeLogo from '@/assets/images/footerFakeLogo.png';
+import logoPurple from '@/assets/images/logoPurple.png';
 
 function Footer() {
    return (
@@ -24,7 +24,7 @@ function Footer() {
                <Grid item xs={12} md={6}>
                   <div className="flex items-center gap-2 customMd:gap-3">
                      <div className="w-[100px] shrink-0">
-                        <Image src={fakeLogo} alt="logo" className="size-full" />
+                        <Image src={logoPurple} alt="logo" className="size-full" />
                      </div>
                      <div className="space-y-0.5">
                         <p className="text-2xl font-bold">یــاسی</p>

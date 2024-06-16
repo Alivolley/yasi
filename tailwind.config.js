@@ -24,11 +24,11 @@ module.exports = {
          },
 
          colors: {
-            customPink: '#FFA3A1',
+            customPink: '#a888c7',
             customPink2: '#FFD7D6',
             customPink3: '#F7C1CA',
             customPinkLow: '#FFEEED',
-            customPinkHigh: '#D14F4D',
+            customPinkHigh: '#765f8b',
             borderColor: '#BDCEDE',
             textColor: '#626E94',
             customBlue: '#385E8A',

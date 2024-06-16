@@ -42,7 +42,7 @@ function BestSellers({ detail }) {
                      color="white"
                      variant="contained"
                      size="large"
-                     className="!rounded-10 !py-3 !text-customPinkHigh"
+                     className="!rounded-10 !py-3 !text-customPinkHigh hover:!bg-[#dccfe9]"
                      fullWidth
                      startIcon={<ShoppingCartIcon />}
                   >
@@ -86,7 +86,7 @@ function BestSellers({ detail }) {
                color="white"
                variant="contained"
                size="large"
-               className="!rounded-10 !py-3 !text-customPinkHigh"
+               className="!rounded-10 !py-3 !text-customPinkHigh hover:!bg-[#dccfe9]"
                fullWidth
                startIcon={<ShoppingCartIcon />}
             >

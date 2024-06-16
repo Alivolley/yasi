@@ -123,7 +123,7 @@ function ContactUs() {
             <Grid item xs={12} md={7} lg={8.5}>
                <div className="mt-10 rounded-2xl bg-white px-5 py-10 customMd:mt-0 customMd:px-10">
                   <p className="flex items-center gap-2 text-sm font-bold customMd:text-lg">
-                     <MailOutlineIcon color="customPinkHigh" /> ارسال پیغام به تیم یلفان
+                     <MailOutlineIcon color="customPinkHigh" /> ارسال پیغام به تیم یاسی
                   </p>
                   <p className="mt-4 text-xs text-textColor customMd:text-sm">
                      متن پیام و اطلاعات خود را برای ما ارسال کنید تا در کوتاه ترین زمان پاسخگو باشیم

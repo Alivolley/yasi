@@ -25,7 +25,7 @@ function HeaderCategories() {
             {categoryList?.map(item => (
                <Link
                   href={`/categoryDetail?category=${item?.title}`}
-                  className="flex items-center justify-between gap-2 rounded-10 px-3 py-5 transition-all duration-150 hover:bg-[#F5F8FC] hover:text-[#FF817E]"
+                  className="flex items-center justify-between gap-2 rounded-10 px-3 py-5 transition-all duration-150 hover:bg-[#F5F8FC] hover:text-[#b194cd]"
                   id="arrowIcon"
                   key={item.id}
                   onMouseEnter={() => setActiveCategory(item)}
@@ -47,7 +47,7 @@ function HeaderCategories() {
                         <Link
                            href={`/productDetail/${item?.title}`}
                            className="block border-s-2 border-solid border-transparent py-3 ps-1 text-sm transition-all
-                            duration-200 hover:border-[#FF817E] hover:text-[#FF817E]"
+                            duration-200 hover:border-[#b194cd] hover:text-[#b194cd]"
                         >
                            {item?.title}
                         </Link>

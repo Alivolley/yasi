@@ -7,7 +7,7 @@ const getDesignTokens = () => ({
 
    palette: {
       customPink: {
-         main: '#FFA3A1',
+         main: '#a888c7',
       },
       customPink2: {
          main: '#FFD7D6',
@@ -16,10 +16,10 @@ const getDesignTokens = () => ({
          main: '#F7C1CA',
       },
       customPinkLow: {
-         main: '#FFEEED',
+         main: '#eee7f4',
       },
       customPinkHigh: {
-         main: '#D14F4D',
+         main: '#765f8b',
       },
       white: {
          main: '#ffffff',
@@ -49,7 +49,7 @@ const getDesignTokens = () => ({
                zIndex: 1,
                '&:hover': {
                   boxShadow: 'none',
-                  color: '#B1302E',
+                  color: '#977ab3',
                },
             },
          },
@@ -59,7 +59,7 @@ const getDesignTokens = () => ({
          styleOverrides: {
             root: {
                '&:hover': {
-                  color: '#B1302E',
+                  color: '#977ab3',
                },
             },
          },
@@ -75,11 +75,11 @@ const getDesignTokens = () => ({
                   ...(props?.ownerState?.variant !== 'contained'
                      ? {
                           backgroundColor: 'transparent',
-                          color: '#B1302E',
+                          color: '#977ab3',
                        }
                      : {
-                          backgroundColor: '#D1706F',
-                          color: '#fff !important',
+                          backgroundColor: '#655277',
+                          color: '#fff',
                        }),
                },
             }),

@@ -40,7 +40,7 @@ function Newest({ detail }) {
                color="white"
                variant="contained"
                size="large"
-               className="!rounded-10 !py-4 !text-customPinkHigh"
+               className="!rounded-10 !py-4 !text-customPinkHigh hover:!bg-[#dccfe9]"
                fullWidth
                startIcon={<ShoppingCartIcon />}
             >

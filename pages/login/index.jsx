@@ -18,7 +18,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 // Assets
 import { toast } from 'react-toastify';
 import LoginStyle from './login.style';
-import fakeLogo from '@/assets/images/fake-logo.png';
+import logoPurple from '@/assets/images/logoPurple.png';
 
 // Components
 import CountdownLogin from '@/components/templates/countdown-Login/countdown-Login';
@@ -97,7 +97,7 @@ function Login() {
          <div className="h-full max-w-[486px] rounded-2xl bg-white p-7 2xl:max-w-[550px]" id="container">
             <Link href="/" className="flex w-fit items-center gap-2 customMd:gap-3">
                <div className="w-[73px] shrink-0 customMd:h-16">
-                  <Image src={fakeLogo} alt="logo" className="size-full" />
+                  <Image src={logoPurple} alt="logo" className="size-full" />
                </div>
                <div className="space-y-0.5">
                   <p className="text-xl font-bold">یــاسی</p>
@@ -166,7 +166,6 @@ function Login() {
                         value={codeValue}
                         onChange={e => setCodeValue(e)}
                         length={5}
-                        dir="ltr"
                         TextFieldsProps={{ type: 'number' }}
                         onKeyDown={e => {
                            if (e.key === 'Enter') {

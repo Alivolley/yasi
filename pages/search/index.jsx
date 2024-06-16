@@ -112,7 +112,7 @@ export default Search;
 
 export async function getServerSideProps(context) {
    const { query, req } = context;
-   const accessToken = req?.cookies?.yalfan_accessToken;
+   const accessToken = req?.cookies?.yasi_accessToken;
 
    try {
       const searchResultList = await axiosInstance(

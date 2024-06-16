@@ -111,7 +111,6 @@ function Products() {
                   )}
                   {data?.colors?.length > 3 && (
                      <Tooltip
-                        dir="rtl"
                         title={
                            <div className="flex max-w-[90px] flex-wrap items-center gap-2">
                               {data?.colors?.map(

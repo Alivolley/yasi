@@ -16,7 +16,7 @@ import CategoryCard from '@/components/templates/category-card/category-card';
 
 function Categories({ detail = [] }) {
    return (
-      <section className="bg-[#F5F8FC] px-8 py-[70px] customMd:px-16">
+      <section className="bg-[#f6f3f9] px-8 py-[70px] customMd:px-16">
          <div className="flex items-center justify-between border-b border-solid border-[#E4EAF0] pb-2">
             <div className="flex items-center gap-2">
                <Image src={categoriesIcon} alt="categories" />
@@ -38,7 +38,7 @@ function Categories({ detail = [] }) {
                color="white"
                variant="contained"
                size="large"
-               className="!rounded-10 !py-4 !text-customPinkHigh"
+               className="!rounded-10 !py-4 !text-customPinkHigh hover:!bg-[#dccfe9]"
                fullWidth
                startIcon={<ShoppingCartIcon />}
             >

@@ -27,18 +27,16 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalanceWalletOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import IsoIcon from '@mui/icons-material/Iso';
-
-// Icons
+import PercentIcon from '@mui/icons-material/Percent';
 import CloseIcon from '@mui/icons-material/Close';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import WhatshotIcon from '@mui/icons-material/Whatshot';
 import FiberNewIcon from '@mui/icons-material/FiberNew';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import categoriesIcon from '@/assets/icons/menu-categories-icon.svg';
-import discountIcon from '@/assets/icons/discount-icon.svg';
 
 // Assets
-import fakeLogo from '@/assets/images/fake-logo.png';
+import logoPurple from '@/assets/images/logoPurple.png';
 import searchIcon from '@/assets/icons/search-icon.svg';
 
 // Components
@@ -88,7 +86,7 @@ function MobileMenu({ open, onClose, isUserLogin }) {
             <div className="flex items-start justify-between">
                <Link href="/" className="flex items-center gap-2 p-5 customMd:gap-3">
                   <div className="w-[40px] shrink-0 customMd:h-16 customMd:w-[73px]">
-                     <Image src={fakeLogo} alt="logo" className="size-full" />
+                     <Image src={logoPurple} alt="logo" className="size-full" />
                   </div>
                   <div className="space-y-0.5">
                      <p className="text-sm font-bold customMd:text-xl">یــاسی</p>
@@ -261,11 +259,7 @@ function MobileMenu({ open, onClose, isUserLogin }) {
                            </Button>
                         </Link>
                         <Link href="/categoryDetail?has_discount=true">
-                           <Button
-                              size="small"
-                              color="customBlue"
-                              startIcon={<Image src={discountIcon} alt="discount" />}
-                           >
+                           <Button size="small" color="customBlue" startIcon={<PercentIcon />}>
                               تخفیف ها و پیشنهادات
                            </Button>
                         </Link>

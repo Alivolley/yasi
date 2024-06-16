@@ -51,7 +51,7 @@ function AddEditCategoryModalList({ show, onClose }) {
    };
 
    return (
-      <Dialog open={show} onClose={onClose} dir="rtl" fullWidth>
+      <Dialog open={show} onClose={onClose} fullWidth>
          <div className="relative p-5 pt-0">
             <div className="sticky top-0 z-[2] border-b border-solid border-[#E4EAF0] bg-white">
                <div className="flex items-center justify-between pt-3">

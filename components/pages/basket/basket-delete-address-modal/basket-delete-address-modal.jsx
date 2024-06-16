@@ -20,7 +20,7 @@ function BasketDeleteAddressModal({ show, onClose, detail, usersMutate }) {
    };
 
    return (
-      <Dialog open={show} onClose={onClose} dir="rtl">
+      <Dialog open={show} onClose={onClose}>
          <div className="flex flex-col gap-10 bg-white px-10 py-5">
             <p className="text-center text-base font-bold">آیا از حذف این آدرس مطمئن هستید ؟</p>
 

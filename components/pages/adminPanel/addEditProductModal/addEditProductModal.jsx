@@ -506,10 +506,10 @@ function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMu
                                        render={({ field: { onChange, value } }) => (
                                           <FormControl>
                                              <Select value={value} onChange={onChange} className="!text-sm">
-                                                <MenuItem className="!text-sm" value="percent" dir="rtl">
+                                                <MenuItem className="!text-sm" value="percent">
                                                    درصد
                                                 </MenuItem>
-                                                <MenuItem className="!text-sm" value="amount" dir="rtl">
+                                                <MenuItem className="!text-sm" value="amount">
                                                    مقدار
                                                 </MenuItem>
                                              </Select>

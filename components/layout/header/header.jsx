@@ -20,7 +20,7 @@ import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 import PercentIcon from '@mui/icons-material/Percent';
 
 // Assets
-import fakeLogo from '@/assets/images/fake-logo.png';
+import logoPurple from '@/assets/images/logoPurple.png';
 import searchIcon from '@/assets/icons/search-icon.svg';
 import categoriesIcon from '@/assets/icons/menu-categories-icon.svg';
 import callIcon from '@/assets/icons/call-icon.svg';
@@ -98,7 +98,7 @@ function Header() {
                </IconButton>
                <Link href="/" className="flex items-center gap-2 customMd:gap-3">
                   <div className="w-[40px] shrink-0 customMd:h-16 customMd:w-[73px]">
-                     <Image src={fakeLogo} alt="logo" className="size-full" />
+                     <Image src={logoPurple} alt="logo" className="size-full" />
                   </div>
                   <div className="space-y-0.5">
                      <p className="text-sm font-bold customMd:text-xl">یــاسی</p>
@@ -153,7 +153,6 @@ function Header() {
                      >
                         <Badge
                            badgeContent={basketData?.all_orders_count}
-                           color="error"
                            anchorOrigin={{
                               vertical: 'bottom',
                               horizontal: 'left',
@@ -164,6 +163,7 @@ function Header() {
                                  width: 16,
                                  height: 16,
                                  minWidth: 16,
+                                 backgroundColor: '#e5dbee',
                               },
                            }}
                         >
@@ -179,6 +179,7 @@ function Header() {
                         color="customPink"
                         className="!h-[60px] !rounded-10 !text-white"
                         size="large"
+                        sx={{ ':hover': { backgroundColor: '#866d9f' } }}
                      >
                         ورود / ثبت نام
                      </Button>
@@ -187,7 +188,7 @@ function Header() {
                   <>
                      <div
                         className={`flex min-w-[193px] cursor-pointer items-center justify-center gap-5 rounded-10 px-2 text-white transition-all duration-200 ${
-                           profileDropDown ? 'bg-[#D1706F]' : 'bg-customPink'
+                           profileDropDown ? 'bg-[#866d9f]' : 'bg-customPink'
                         }`}
                         ref={profileRef}
                         onMouseEnter={() => setProfileDropDown(true)}
@@ -218,7 +219,7 @@ function Header() {
                            width: '38px',
                            height: '38px',
                            borderRadius: '8px',
-                           color: '#D14F4D',
+                           color: '#866d9f',
                         }}
                         color="customPinkLow"
                      >
@@ -232,13 +233,12 @@ function Header() {
                            width: '38px',
                            height: '38px',
                            borderRadius: '8px',
-                           color: '#D14F4D',
+                           color: '#626E94',
                         }}
                         color="customPinkLow"
                      >
                         <Badge
                            badgeContent={basketData?.all_orders_count}
-                           color="error"
                            anchorOrigin={{
                               vertical: 'bottom',
                               horizontal: 'left',
@@ -249,6 +249,7 @@ function Header() {
                                  width: 16,
                                  height: 16,
                                  minWidth: 16,
+                                 backgroundColor: '#dccfe9',
                               },
                            }}
                         >
@@ -312,16 +313,16 @@ function Header() {
             </div>
 
             <div className="flex items-center gap-4 text-xs text-textColor customLg:gap-6">
-               <Link href="/faqs" className="hidden hover:text-[#B1302E] lg:block">
+               <Link href="/faqs" className="hidden hover:text-[#977ab3] lg:block">
                   سوالی دارید ؟
                </Link>
-               <Link href="/aboutUs" className=" hover:text-[#B1302E]">
+               <Link href="/aboutUs" className=" hover:text-[#977ab3]">
                   درباره ی ما
                </Link>
-               <Link href="/contactUs" className=" hover:text-[#B1302E]">
+               <Link href="/contactUs" className=" hover:text-[#977ab3]">
                   ارتباط با ما
                </Link>
-               <a href="tel:02152687469" className="flex items-center gap-1 hover:text-[#B1302E]">
+               <a href="tel:02152687469" className="flex items-center gap-1 hover:text-[#977ab3]">
                   <p>021-52687469</p>
                   <Image src={callIcon} alt="phone number" />
                </a>
