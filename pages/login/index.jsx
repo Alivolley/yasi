@@ -161,7 +161,7 @@ function Login() {
                         ویرایش شماره
                      </Button>
                   </div>
-                  <div className="mt-12">
+                  <div className="mt-12" dir="ltr">
                      <MuiOtpInput
                         value={codeValue}
                         onChange={e => setCodeValue(e)}

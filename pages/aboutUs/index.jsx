@@ -51,7 +51,8 @@ function AboutUs({ categoryList, error }) {
                               color="customPinkLow"
                               variant="contained"
                               size="large"
-                              className="!w-full !rounded-10 !py-4 !text-customPinkHigh customMd:!font-bold"
+                              className="!w-full !rounded-10 !py-4 customMd:!font-bold"
+                              sx={{ color: '#765f8b', ':hover': { color: 'white' } }}
                               startIcon={<Image src={bagIcon} alt="bag" />}
                            >
                               همین حالا خرید کنید

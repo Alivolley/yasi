@@ -31,7 +31,7 @@ function BasketDeleteAddressModal({ show, onClose, detail, usersMutate }) {
                   fullWidth
                   onClick={deleteAddressHandler}
                   loading={deleteAddressIsMutating}
-                  className="!rounded-10 !py-[9px] !text-[#B1302E]"
+                  className="!rounded-10 !py-[9px]"
                >
                   بله
                </LoadingButton>

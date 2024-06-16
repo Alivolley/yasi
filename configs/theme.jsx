@@ -6,14 +6,17 @@ const getDesignTokens = () => ({
    },
 
    palette: {
+      secondary: {
+         main: '#a888c7',
+      },
       customPink: {
          main: '#a888c7',
       },
       customPink2: {
-         main: '#FFD7D6',
+         main: '#b194cd',
       },
       customPink3: {
-         main: '#F7C1CA',
+         main: '#cbb8dd',
       },
       customPinkLow: {
          main: '#eee7f4',
@@ -82,17 +85,6 @@ const getDesignTokens = () => ({
                           color: '#fff',
                        }),
                },
-            }),
-         },
-      },
-
-      MuiTab: {
-         styleOverrides: {
-            root: props => ({
-               ...(props['aria-selected'] &&
-                  props.custompinkhigh && {
-                     color: '#B1302E !important',
-                  }),
             }),
          },
       },

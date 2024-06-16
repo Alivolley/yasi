@@ -138,7 +138,7 @@ function ProductDetail({ error, productDetail, categoryItems }) {
                            value={productDetail?.average_score}
                            readOnly
                            size="small"
-                           sx={{ color: '#D14D72' }}
+                           sx={{ color: '#FF9F1C' }}
                         />
                      </p>
                      <div className="flex items-center gap-1 text-10">
@@ -207,7 +207,7 @@ function ProductDetail({ error, productDetail, categoryItems }) {
                            value={productDetail?.average_score}
                            readOnly
                            size="small"
-                           sx={{ color: '#D14D72' }}
+                           sx={{ color: '#FF9F1C' }}
                         />
                      </p>
                      <div className="flex items-center gap-1 text-10">
@@ -273,9 +273,7 @@ function ProductDetail({ error, productDetail, categoryItems }) {
                                  </p>
                               </div>
                            ) : null}
-                           <p className="text-xl font-bold text-[#D14D72]">
-                              {Number(productDetail?.price).toLocaleString()} تومان
-                           </p>
+                           <p className="text-xl font-bold">{Number(productDetail?.price).toLocaleString()} تومان</p>
                         </div>
                      </div>
                   )}
@@ -292,7 +290,7 @@ function ProductDetail({ error, productDetail, categoryItems }) {
                               color="customPink3"
                               loading={addToBasketIsMutating || removeFromBasketIsMutating}
                               fullWidth
-                              className="!rounded-10 !p-2 !text-customPinkHigh"
+                              className="!rounded-10 !p-2"
                               onClick={addToBasketHandler}
                            >
                               <div className="flex w-full items-center justify-between transition-all duration-150">
@@ -457,7 +455,7 @@ function ProductDetail({ error, productDetail, categoryItems }) {
                   color="white"
                   variant="contained"
                   size="large"
-                  className="!rounded-10 !py-4 !text-customPinkHigh"
+                  className="!rounded-10 !py-4 !text-customPinkHigh hover:!bg-[#dccfe9]"
                   fullWidth
                   startIcon={<ShoppingCartIcon />}
                >

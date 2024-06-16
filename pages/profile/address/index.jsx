@@ -54,7 +54,7 @@ function Address() {
                            type="submit"
                            size="large"
                            color="customPink2"
-                           className="!mt-3 !rounded-10 !py-3 !text-[#B1302E]"
+                           className="!mt-3 !rounded-10 !py-3"
                            onClick={() => setShowBasketAddressModal(true)}
                            startIcon={<AddLocationAltOutlinedIcon />}
                         >
@@ -75,7 +75,7 @@ function Address() {
                            type="submit"
                            size="large"
                            color="customPink2"
-                           className="!rounded-10 !py-3 !text-[#B1302E]"
+                           className="!rounded-10 !py-3"
                            onClick={() => setShowBasketAddressModal(true)}
                            startIcon={<AddLocationAltOutlinedIcon />}
                            fullWidth

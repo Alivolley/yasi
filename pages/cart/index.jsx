@@ -178,7 +178,7 @@ function Cart() {
                      fullWidth
                      onClick={enableDiscountHandler}
                      loading={applyCodeIsMutating}
-                     className={`!flex-[2] !whitespace-nowrap !rounded-10 !text-[#B1302E] ${
+                     className={`!flex-[2] !whitespace-nowrap !rounded-10 ${
                         applyCodeIsMutating ? '!text-transparent' : ''
                      }`}
                   >

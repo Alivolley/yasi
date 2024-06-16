@@ -102,7 +102,7 @@ function AddComment({ productDetail, commentsMutate }) {
                color="customPink3"
                fullWidth
                loading={addCommentIsMutating}
-               className="!rounded-10 !p-2 !text-customPinkHigh"
+               className="!rounded-10 !p-2"
                type="submit"
             >
                <div className="flex w-full items-center justify-between">

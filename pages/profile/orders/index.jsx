@@ -41,31 +41,20 @@ function Orders() {
                      setPage(1);
                      setTabsValue(newValue);
                   }}
-                  TabIndicatorProps={{ sx: { backgroundColor: '#B1302E' } }}
+                  // TabIndicatorProps={{ sx: { backgroundColor: '#B1302E' } }}
                   variant="scrollable"
+                  textColor="secondary"
+                  indicatorColor="secondary"
                >
-                  <Tab label="همه" value="" custompinkhigh="true" />
-                  <Tab
-                     icon={<LocalShippingOutlinedIcon />}
-                     iconPosition="start"
-                     label="در حال ارسال"
-                     value="sending"
-                     custompinkhigh="true"
-                  />
+                  <Tab label="همه" value="" />
+                  <Tab icon={<LocalShippingOutlinedIcon />} iconPosition="start" label="در حال ارسال" value="sending" />
                   <Tab
                      icon={<CheckCircleOutlinedIcon />}
                      iconPosition="start"
                      label="تحویل داده شده"
                      value="delivered"
-                     custompinkhigh="true"
                   />
-                  <Tab
-                     icon={<ReplayIcon />}
-                     iconPosition="start"
-                     label="مرجوعی"
-                     value="returned"
-                     custompinkhigh="true"
-                  />
+                  <Tab icon={<ReplayIcon />} iconPosition="start" label="مرجوعی" value="returned" />
                </Tabs>
             </div>
 

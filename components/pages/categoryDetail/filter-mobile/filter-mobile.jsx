@@ -21,10 +21,10 @@ import CloseIcon from '@mui/icons-material/Close';
 import WidgetsOutlinedIcon from '@mui/icons-material/WidgetsOutlined';
 import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
 
 // Assets
 import filterIcon from '@/assets/icons/filter-icon.svg';
-import filterIconBold from '@/assets/icons/filterIcon-bold.svg';
 
 // Components
 import AppliedFilters from '../applied-filters/applied-filters';
@@ -133,7 +133,7 @@ function FilterMobile({
                         color="customPinkLow"
                         size="small"
                         variant="contained"
-                        className="!text-xs !text-[#B1302E]"
+                        className="!text-xs"
                         endIcon={<CloseIcon />}
                         onClick={() => toggleCategory(item)}
                      >
@@ -187,7 +187,7 @@ function FilterMobile({
                <div className="mt-3 flex items-center justify-between">
                   <p>تخفیف دار</p>
                   <Switch
-                     color="customBlue"
+                     color="secondary"
                      value={showDiscountProducts}
                      onChange={(e, newValue) => setShowDiscountProducts(newValue)}
                      checked={showDiscountProducts}
@@ -196,7 +196,7 @@ function FilterMobile({
                <div className="mt-3 flex items-center justify-between border-t border-solid border-[#E4EAF0] pt-3">
                   <p>نمایش محصولات موجود</p>
                   <Switch
-                     color="customBlue"
+                     color="secondary"
                      value={showAvailableProducts}
                      onChange={(e, newValue) => setShowAvailableProducts(newValue)}
                      checked={showAvailableProducts}
@@ -217,12 +217,12 @@ function FilterMobile({
                <Button
                   variant="contained"
                   color="customPink2"
-                  className="!rounded-10 !py-3 !text-[#B1302E]"
+                  className="!rounded-10 !py-3"
                   fullWidth
                   onClick={applyFilterHandler}
                >
                   <div className="flex w-full items-center justify-between px-2">
-                     <Image src={filterIconBold} alt="filter" />
+                     <FilterAltOutlinedIcon className="!size-8" />
                      اعمال فیلتر
                   </div>
                </Button>

@@ -78,7 +78,7 @@ function AdminSideBar({ isMobile, onClose }) {
             </div>
             <div className={`space-y-3 transition-all duration-500 ${isSideBarOpen ? '' : 'w-full'}`}>
                <p
-                  className={`font-bold text-[#B1302E] transition-all duration-500 ${
+                  className={`font-bold text-customPink transition-all duration-500 ${
                      isSideBarOpen ? 'text-base' : 'text-center text-xs'
                   }`}
                >
@@ -91,8 +91,8 @@ function AdminSideBar({ isMobile, onClose }) {
          <div className="mb-3 mt-8 flex flex-col gap-3">
             <Link
                href="/adminPanel/products"
-               className={`flex w-full items-center gap-4 rounded-2xl p-3 hover:bg-[#FCF7F7] ${
-                  pathname === '/adminPanel/products' ? 'bg-[#FCF7F7] text-customPinkHigh' : ''
+               className={`flex w-full items-center gap-4 rounded-2xl p-3 transition-all duration-200 hover:bg-[#c2acd8] ${
+                  pathname === '/adminPanel/products' ? 'bg-customPink2 text-white' : ''
                }`}
             >
                <div
@@ -101,15 +101,15 @@ function AdminSideBar({ isMobile, onClose }) {
                   }`}
                >
                   <AutoAwesomeMotionOutlinedIcon
-                     color={pathname === '/adminPanel/products' ? 'customPinkHigh' : 'textColor'}
+                     color={pathname === '/adminPanel/products' ? 'customPink' : 'textColor'}
                   />
                </div>
                {isSideBarOpen && <p className="text-[15px]">محصولات</p>}
             </Link>
             <Link
                href="/adminPanel/orders"
-               className={`flex w-full items-center gap-4 rounded-2xl p-3 hover:bg-[#FCF7F7] ${
-                  pathname === '/adminPanel/orders' ? 'bg-[#FCF7F7] text-customPinkHigh' : ''
+               className={`flex w-full items-center gap-4 rounded-2xl p-3 transition-all duration-200 hover:bg-[#c2acd8] ${
+                  pathname === '/adminPanel/orders' ? 'bg-customPink2 text-white' : ''
                }`}
             >
                <div
@@ -117,16 +117,14 @@ function AdminSideBar({ isMobile, onClose }) {
                      pathname === '/adminPanel/orders' ? 'bg-customPinkLow' : 'bg-[#F5F8FC]'
                   }`}
                >
-                  <TakeoutDiningOutlinedIcon
-                     color={pathname === '/adminPanel/orders' ? 'customPinkHigh' : 'textColor'}
-                  />
+                  <TakeoutDiningOutlinedIcon color={pathname === '/adminPanel/orders' ? 'customPink' : 'textColor'} />
                </div>
                {isSideBarOpen && <p className="text-[15px]">سفارشات</p>}
             </Link>
             <Link
                href="/adminPanel/users"
-               className={`flex w-full items-center gap-4 rounded-2xl p-3 hover:bg-[#FCF7F7] ${
-                  pathname === '/adminPanel/users' ? 'bg-[#FCF7F7] text-customPinkHigh' : ''
+               className={`flex w-full items-center gap-4 rounded-2xl p-3 transition-all duration-200 hover:bg-[#c2acd8] ${
+                  pathname === '/adminPanel/users' ? 'bg-customPink2 text-white' : ''
                }`}
             >
                <div
@@ -134,7 +132,7 @@ function AdminSideBar({ isMobile, onClose }) {
                      pathname === '/adminPanel/users' ? 'bg-customPinkLow' : 'bg-[#F5F8FC]'
                   }`}
                >
-                  <PeopleAltOutlinedIcon color={pathname === '/adminPanel/users' ? 'customPinkHigh' : 'textColor'} />
+                  <PeopleAltOutlinedIcon color={pathname === '/adminPanel/users' ? 'customPink' : 'textColor'} />
                </div>
                {isSideBarOpen && <p className="text-[15px]">کابران</p>}
             </Link>
@@ -142,8 +140,8 @@ function AdminSideBar({ isMobile, onClose }) {
             {(userInfo?.is_super_admin || userInfo?.permissions?.includes(permissions?.VIEW_REPORTS?.LIST)) && (
                <Link
                   href="/adminPanel/reports"
-                  className={`flex w-full items-center gap-4 rounded-2xl p-3 hover:bg-[#FCF7F7] ${
-                     pathname === '/adminPanel/reports' ? 'bg-[#FCF7F7] text-customPinkHigh' : ''
+                  className={`flex w-full items-center gap-4 rounded-2xl p-3 transition-all duration-200 hover:bg-[#c2acd8] ${
+                     pathname === '/adminPanel/reports' ? 'bg-customPink2 text-white' : ''
                   }`}
                >
                   <div
@@ -151,9 +149,7 @@ function AdminSideBar({ isMobile, onClose }) {
                         pathname === '/adminPanel/reports' ? 'bg-customPinkLow' : 'bg-[#F5F8FC]'
                      }`}
                   >
-                     <DescriptionOutlinedIcon
-                        color={pathname === '/adminPanel/reports' ? 'customPinkHigh' : 'textColor'}
-                     />
+                     <DescriptionOutlinedIcon color={pathname === '/adminPanel/reports' ? 'customPink' : 'textColor'} />
                   </div>
                   {isSideBarOpen && <p className="text-[15px]">گزارشات</p>}
                </Link>
@@ -161,8 +157,8 @@ function AdminSideBar({ isMobile, onClose }) {
             {(userInfo?.is_super_admin || userInfo?.permissions?.includes(permissions?.DISCOUNT_CODE?.LIST)) && (
                <Link
                   href="/adminPanel/discounts"
-                  className={`flex w-full items-center gap-4 rounded-2xl p-3 hover:bg-[#FCF7F7] ${
-                     pathname === '/adminPanel/discounts' ? 'bg-[#FCF7F7] text-customPinkHigh' : ''
+                  className={`flex w-full items-center gap-4 rounded-2xl p-3 transition-all duration-200 hover:bg-[#c2acd8] ${
+                     pathname === '/adminPanel/discounts' ? 'bg-customPink2 text-white' : ''
                   }`}
                >
                   <div
@@ -170,7 +166,7 @@ function AdminSideBar({ isMobile, onClose }) {
                         pathname === '/adminPanel/discounts' ? 'bg-customPinkLow' : 'bg-[#F5F8FC]'
                      }`}
                   >
-                     <PercentIcon color={pathname === '/adminPanel/discounts' ? 'customPinkHigh' : 'textColor'} />
+                     <PercentIcon color={pathname === '/adminPanel/discounts' ? 'customPink' : 'textColor'} />
                   </div>
                   {isSideBarOpen && <p className="text-[15px]">تخفیفات</p>}
                </Link>
@@ -178,8 +174,8 @@ function AdminSideBar({ isMobile, onClose }) {
 
             <Link
                href="/adminPanel/tickets"
-               className={`flex w-full items-center gap-4 rounded-2xl p-3 hover:bg-[#FCF7F7] ${
-                  pathname === '/adminPanel/tickets' ? 'bg-[#FCF7F7] text-customPinkHigh' : ''
+               className={`flex w-full items-center gap-4 rounded-2xl p-3 transition-all duration-200 hover:bg-[#c2acd8] ${
+                  pathname === '/adminPanel/tickets' ? 'bg-customPink2 text-white' : ''
                }`}
             >
                <div
@@ -188,15 +184,15 @@ function AdminSideBar({ isMobile, onClose }) {
                   }`}
                >
                   <ConfirmationNumberOutlinedIcon
-                     color={pathname === '/adminPanel/tickets' ? 'customPinkHigh' : 'textColor'}
+                     color={pathname === '/adminPanel/tickets' ? 'customPink' : 'textColor'}
                   />
                </div>
                {isSideBarOpen && <p className="text-[15px]">تیکت ها</p>}
             </Link>
             <Link
                href="/adminPanel/information"
-               className={`flex w-full items-center gap-4 rounded-2xl p-3 hover:bg-[#FCF7F7] ${
-                  pathname === '/adminPanel/information' ? 'bg-[#FCF7F7] text-customPinkHigh' : ''
+               className={`flex w-full items-center gap-4 rounded-2xl p-3 transition-all duration-200 hover:bg-[#c2acd8] ${
+                  pathname === '/adminPanel/information' ? 'bg-customPink2 text-white' : ''
                }`}
             >
                <div
@@ -205,7 +201,7 @@ function AdminSideBar({ isMobile, onClose }) {
                   }`}
                >
                   <RecentActorsOutlinedIcon
-                     color={pathname === '/adminPanel/information' ? 'customPinkHigh' : 'textColor'}
+                     color={pathname === '/adminPanel/information' ? 'customPink' : 'textColor'}
                   />
                </div>
                {isSideBarOpen && <p className="text-[15px]">اطلاعات</p>}
@@ -216,12 +212,13 @@ function AdminSideBar({ isMobile, onClose }) {
             variant="contained"
             size="large"
             color="white"
-            className="!rounded-10 !px-3 !py-2.5 !text-customPinkHigh"
+            className="!rounded-10 !px-3 !py-2.5"
+            sx={{ ':hover': { color: '#000', backgroundColor: '#c2acd8' } }}
             fullWidth
             onClick={() => setShowLogoutModal(true)}
          >
             <div className="flex w-full items-center gap-3">
-               <LogoutOutlinedIcon className="rotate-180 rounded-xl bg-customPinkLow p-2.5 text-customPinkHigh" />
+               <LogoutOutlinedIcon className="rotate-180 rounded-xl bg-[#F5F8FC] p-2.5 text-textColor" />
                {isSideBarOpen && <p>خروج از حساب کاربری</p>}
             </div>
          </Button>

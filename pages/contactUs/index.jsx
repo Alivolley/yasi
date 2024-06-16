@@ -61,14 +61,14 @@ function ContactUs() {
    };
 
    return (
-      <div className="bg-[#fcf7f7] px-8 py-[60px] customMd:px-16">
+      <div className="bg-[#f6f3f9] px-8 py-[60px] customMd:px-16">
          <Head>
             <title>یاسی - تماس با ما</title>
          </Head>
          <Grid container columnSpacing={4}>
             <Grid item xs={12} md={5} lg={3.5}>
                <div className="rounded-2xl bg-white p-5">
-                  <div className="w-full rounded-2xl bg-[#fcf7f7] px-2 pb-2 pt-12">
+                  <div className="w-full rounded-2xl bg-[#f6f3f9] px-2 pb-2 pt-12">
                      <Image src={contactUsPic} alt="contact us" className="size-full" />
                   </div>
                   <p className="mt-14 text-base font-bold customMd:text-xl">منتظر صدای گرمتان هستیم</p>
@@ -133,6 +133,7 @@ function ContactUs() {
                         <div className="flex-1 space-y-3">
                            <p className="text-sm font-bold text-[#713802]">نام</p>
                            <TextField
+                              color="customPink"
                               placeholder="نام خود را وارد کنید"
                               fullWidth
                               {...register('firstName', { required: { value: true, message: 'این فیلد اجباری است' } })}
@@ -143,6 +144,7 @@ function ContactUs() {
                         <div className="flex-1 space-y-3">
                            <p className="text-sm font-bold text-[#713802]">نام خانوادگی</p>
                            <TextField
+                              color="customPink"
                               placeholder="نام خانوادگی خود را وارد کنید"
                               fullWidth
                               {...register('familyName', { required: { value: true, message: 'این فیلد اجباری است' } })}
@@ -157,6 +159,7 @@ function ContactUs() {
 
                            <div className="mt-14">
                               <TextField
+                                 color="customPink"
                                  fullWidth
                                  type="number"
                                  placeholder="شماره تماس خود را وارد کنید"
@@ -182,6 +185,7 @@ function ContactUs() {
                         <div className="flex-1 space-y-3">
                            <p className="text-sm font-bold text-[#713802]">ایمیل</p>
                            <TextField
+                              color="customPink"
                               placeholder="ایمیل خود را وارد کنید"
                               fullWidth
                               {...register('email', {
@@ -198,6 +202,7 @@ function ContactUs() {
                      <div className="flex-1 space-y-3">
                         <p className="text-sm font-bold text-[#713802]">متن پیام</p>
                         <TextField
+                           color="customPink"
                            placeholder="متن پیام خود را وارد کنید"
                            multiline
                            fullWidth
@@ -214,7 +219,7 @@ function ContactUs() {
                         type="submit"
                         size="large"
                         color="customPink2"
-                        className="!mt-14 !text-customPinkHigh"
+                        className="!mt-14"
                         startIcon={<ForwardToInboxIcon />}
                         loading={contactUsIsMutating}
                      >

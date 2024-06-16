@@ -26,7 +26,7 @@ function AppliedFilters() {
                color="customPinkLow"
                size="small"
                variant="contained"
-               className="!text-xs !text-[#B1302E]"
+               className="!text-xs"
                endIcon={<CloseIcon />}
                onClick={() => removeFilter('ordering')}
             >
@@ -38,7 +38,7 @@ function AppliedFilters() {
                color="customPinkLow"
                size="small"
                variant="contained"
-               className="!text-xs !text-[#B1302E]"
+               className="!text-xs"
                endIcon={<CloseIcon />}
                onClick={() => removeFilter('category')}
             >
@@ -50,7 +50,7 @@ function AppliedFilters() {
                color="customPinkLow"
                size="small"
                variant="contained"
-               className="!text-xs !text-[#B1302E]"
+               className="!text-xs"
                endIcon={<CloseIcon />}
                onClick={() => removeFilter('price')}
             >
@@ -62,7 +62,7 @@ function AppliedFilters() {
                color="customPinkLow"
                size="small"
                variant="contained"
-               className="!text-xs !text-[#B1302E]"
+               className="!text-xs"
                endIcon={<CloseIcon />}
                onClick={() => removeFilter('available')}
             >
@@ -74,7 +74,7 @@ function AppliedFilters() {
                color="customPinkLow"
                size="small"
                variant="contained"
-               className="!text-xs !text-[#B1302E]"
+               className="!text-xs"
                endIcon={<CloseIcon />}
                onClick={() => removeFilter('has_discount')}
             >
@@ -86,7 +86,7 @@ function AppliedFilters() {
                color="customPinkLow"
                size="small"
                variant="contained"
-               className="!text-xs !text-[#B1302E]"
+               className="!text-xs"
                endIcon={<CloseIcon />}
                onClick={() => removeFilter('color')}
             >

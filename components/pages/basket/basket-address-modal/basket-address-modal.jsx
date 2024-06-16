@@ -199,7 +199,7 @@ function BasketAddressModal({ show, onClose, isEdit = false, detail, usersMutate
                         color="customPink2"
                         loading={addAddressIsMutating || editAddressIsMutating}
                         fullWidth
-                        className="!rounded-10 !p-3 !text-[#B1302E]"
+                        className="!rounded-10 !p-3"
                      >
                         {isEdit ? 'ویرایش آدرس' : 'افزودن آدرس'}
                      </LoadingButton>
@@ -210,7 +210,7 @@ function BasketAddressModal({ show, onClose, isEdit = false, detail, usersMutate
                         onClick={closeModalHandler}
                         variant="contained"
                         fullWidth
-                        className="!h-full !rounded-10 !py-3 !font-bold !text-textColor"
+                        className="!h-full !rounded-10 !py-3 !font-bold"
                         color="borderColor"
                         disabled={addAddressIsMutating || editAddressIsMutating}
                      >

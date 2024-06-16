@@ -26,13 +26,13 @@ import WidgetsOutlinedIcon from '@mui/icons-material/WidgetsOutlined';
 import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
 
 // Config
 import axiosInstance from '@/configs/axiosInstance';
 
 // Assets
 import filterIcon from '@/assets/icons/filter-icon.svg';
-import filterIconBold from '@/assets/icons/filterIcon-bold.svg';
 
 // Components
 import ProductCard from '@/components/templates/product-card/product-card';
@@ -188,7 +188,7 @@ function CategoryDetail({ error, productsList, mostExpensivePrice, categoryList 
                            color="customPinkLow"
                            size="small"
                            variant="contained"
-                           className="!text-xs !text-[#B1302E]"
+                           className="!text-xs"
                            endIcon={<CloseIcon />}
                            onClick={() => toggleCategory(item)}
                         >
@@ -242,7 +242,7 @@ function CategoryDetail({ error, productsList, mostExpensivePrice, categoryList 
                   <div className="mt-3 flex items-center justify-between">
                      <p>تخفیف دار</p>
                      <Switch
-                        color="customBlue"
+                        color="secondary"
                         value={showDiscountProducts}
                         onChange={(e, newValue) => setShowDiscountProducts(newValue)}
                         checked={showDiscountProducts}
@@ -251,7 +251,7 @@ function CategoryDetail({ error, productsList, mostExpensivePrice, categoryList 
                   <div className="mt-3 flex items-center justify-between border-t border-solid border-[#E4EAF0] pt-3">
                      <p>نمایش محصولات موجود</p>
                      <Switch
-                        color="customBlue"
+                        color="secondary"
                         value={showAvailableProducts}
                         onChange={(e, newValue) => setShowAvailableProducts(newValue)}
                         checked={showAvailableProducts}
@@ -272,12 +272,12 @@ function CategoryDetail({ error, productsList, mostExpensivePrice, categoryList 
                   <Button
                      variant="contained"
                      color="customPink2"
-                     className="!rounded-10 !py-3 !text-[#B1302E]"
+                     className="!rounded-10 !py-3"
                      fullWidth
                      onClick={applyFilterHandler}
                   >
                      <div className="flex w-full items-center justify-between px-2">
-                        <Image src={filterIconBold} alt="filter" />
+                        <FilterAltOutlinedIcon className="!size-8" />
                         اعمال فیلتر
                      </div>
                   </Button>
@@ -296,14 +296,14 @@ function CategoryDetail({ error, productsList, mostExpensivePrice, categoryList 
                         value={sortingValue}
                         onChange={changeTabHandler}
                         indicatorColor="secondary"
-                        TabIndicatorProps={{ sx: { backgroundColor: '#B1302E' } }}
+                        textColor="secondary"
                         variant="scrollable"
                      >
-                        <Tab label="همه" value="" className="!normal-case" custompinkhigh="true" />
-                        <Tab label="جدیدترین" value="created" className="!normal-case" custompinkhigh="true" />
-                        <Tab label="ارزان ترین" value="rial_price" className="!normal-case" custompinkhigh="true" />
-                        <Tab label="گران ترین" value="-rial_price" className="!normal-case" custompinkhigh="true" />
-                        <Tab label="پرفروش ترین" value="sales" className="!normal-case" custompinkhigh="true" />
+                        <Tab label="همه" value="" className="!normal-case" />
+                        <Tab label="جدیدترین" value="created" className="!normal-case" />
+                        <Tab label="ارزان ترین" value="rial_price" className="!normal-case" />
+                        <Tab label="گران ترین" value="-rial_price" className="!normal-case" />
+                        <Tab label="پرفروش ترین" value="sales" className="!normal-case" />
                      </Tabs>
                   </div>
                   <p>تعداد کالاها : {productsList?.total_objects}</p>

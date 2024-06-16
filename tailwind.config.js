@@ -16,6 +16,7 @@ module.exports = {
 
          screens: {
             customXs: '350px',
+            custom400: '400px',
             customSm: '600px',
             customMd: '900px',
             custom1100: '1100px',
@@ -25,9 +26,9 @@ module.exports = {
 
          colors: {
             customPink: '#a888c7',
-            customPink2: '#FFD7D6',
-            customPink3: '#F7C1CA',
-            customPinkLow: '#FFEEED',
+            customPink2: '#b194cd',
+            customPink3: '#cbb8dd',
+            customPinkLow: '#eee7f4',
             customPinkHigh: '#765f8b',
             borderColor: '#BDCEDE',
             textColor: '#626E94',

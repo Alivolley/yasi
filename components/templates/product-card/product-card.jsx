@@ -39,7 +39,7 @@ function ProductCard({ detail }) {
    return (
       <ProductCardStyle
          href={`/productDetail/${detail?.title}`}
-         className="w-[162px] shrink-0 rounded-10 bg-white p-2 customMd:w-[250px]"
+         className="w-full shrink-0 rounded-10 bg-white p-2 custom400:w-[162px] customMd:w-[250px]"
       >
          <div
             className={`relative mb-5 flex h-[140px] items-center justify-center rounded-xl customMd:h-[230px] ${
@@ -48,7 +48,7 @@ function ProductCard({ detail }) {
             id="categoryImage"
          >
             <Link href={`/productDetail/${detail?.title}`} className="relative size-full">
-               <Image src={detail?.cover || noImage} alt={detail?.title} className="rounded-10 object-contain" fill />
+               <Image src={detail?.cover || noImage} alt={detail?.title} className="rounded-10 object-cover" fill />
             </Link>
             <div className="absolute end-1.5 top-1.5 customMd:end-2 customMd:top-2">
                <LoadingButton

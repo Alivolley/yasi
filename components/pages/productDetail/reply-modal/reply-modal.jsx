@@ -59,7 +59,7 @@ function ReplyModal({ closeModal, open, detail, commentsMutate }) {
                   fullWidth
                   {...register('replyMessage', { required: { value: true } })}
                   error={!!errors?.replyMessage}
-                  helperText="نمونه پاسخ"
+                  helperText="مثال : ممنون از نظر شما و..."
                />
 
                <div className="mt-8 flex items-stretch gap-2">

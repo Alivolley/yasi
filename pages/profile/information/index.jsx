@@ -139,7 +139,7 @@ function Information() {
                         size="large"
                         color="customPink2"
                         loading={changeProfileInfoIsMutating}
-                        className="!rounded-10 !py-3 !text-[#B1302E]"
+                        className="!rounded-10 !py-3"
                         fullWidth
                         startIcon={<PublishIcon className="rotate-180" />}
                      >

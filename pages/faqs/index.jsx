@@ -13,7 +13,7 @@ import faqPic from '@/assets/images/faq.png';
 
 function Faqs() {
    return (
-      <div className="bg-[#fcf7f7] px-8 py-[60px] customMd:px-16">
+      <div className="bg-[#f6f3f9] px-8 py-[60px] customMd:px-16">
          <Head>
             <title>یاسی - سوالات متداول</title>
          </Head>
@@ -269,7 +269,7 @@ function Faqs() {
             <p className="text-sm font-bold customMd:text-base">پاسخ سوال خود را پیدا نکردید ؟</p>
             <p className="text-xs text-textColor">با پشتیبانی ما ارتباط بگیرید</p>
             <Link href="/contactUs">
-               <Button color="customPink2" variant="contained" className="!px-10 !text-customPinkHigh">
+               <Button color="customPink2" variant="contained" className="!px-10">
                   تماس با ما
                </Button>
             </Link>

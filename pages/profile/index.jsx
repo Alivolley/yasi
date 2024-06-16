@@ -54,18 +54,16 @@ function Profile() {
             <div className="mb-2 mt-10 flex flex-col gap-2">
                <Link
                   href="/profile/information"
-                  className={`flex w-full items-center gap-4 rounded-2xl border-s-[7px] border-solid py-3.5 pe-5 ps-3 hover:bg-[#FCF7F7] ${
-                     pathName === '/profile/information'
-                        ? 'border-customPinkHigh bg-[#FCF7F7] text-customPinkHigh'
-                        : 'border-transparent'
+                  className={`flex w-full items-center gap-4 rounded-2xl border-s-[7px] border-solid py-3.5 pe-5 ps-3 hover:bg-[#c2acd8] ${
+                     pathName === '/profile/information' ? 'border-[#32293c] bg-[#c2acd8]' : 'border-transparent'
                   }`}
                >
                   <div
                      className={`flex size-11 items-center justify-center rounded-10 ${
-                        pathName === '/profile/information' ? 'bg-[#FFBEBC]' : 'bg-[#F5F8FC]'
+                        pathName === '/profile/information' ? 'bg-[#eee7f4]' : 'bg-[#F5F8FC]'
                      }`}
                   >
-                     <PersonOutlineIcon color={pathName === '/profile/information' ? 'white' : 'textColor'} />
+                     <PersonOutlineIcon color={pathName === '/profile/information' ? 'customPink' : 'textColor'} />
                   </div>
 
                   <p className="text-[15px]">اطلاعات حساب کاربری</p>
@@ -77,18 +75,16 @@ function Profile() {
 
                <Link
                   href="/profile/address"
-                  className={`flex w-full items-center gap-4 rounded-2xl border-s-[7px] border-solid py-3.5 pe-5 ps-3 hover:bg-[#FCF7F7] ${
-                     pathName === '/profile/address'
-                        ? 'border-customPinkHigh bg-[#FCF7F7] text-customPinkHigh'
-                        : 'border-transparent'
+                  className={`flex w-full items-center gap-4 rounded-2xl border-s-[7px] border-solid py-3.5 pe-5 ps-3 hover:bg-[#c2acd8] ${
+                     pathName === '/profile/address' ? 'border-[#32293c] bg-[#c2acd8]' : 'border-transparent'
                   }`}
                >
                   <div
                      className={`flex size-11 items-center justify-center rounded-10 ${
-                        pathName === '/profile/address' ? 'bg-[#FFBEBC]' : 'bg-[#F5F8FC]'
+                        pathName === '/profile/address' ? 'bg-[#eee7f4]' : 'bg-[#F5F8FC]'
                      }`}
                   >
-                     <LocationOnOutlinedIcon color={pathName === '/profile/address' ? 'white' : 'textColor'} />
+                     <LocationOnOutlinedIcon color={pathName === '/profile/address' ? 'customPink' : 'textColor'} />
                   </div>
 
                   <p className="text-[15px]">آدرس های من</p>
@@ -100,18 +96,18 @@ function Profile() {
 
                <Link
                   href="/profile/orders"
-                  className={`flex w-full items-center gap-4 rounded-2xl border-s-[7px] border-solid py-3.5 pe-5 ps-3 hover:bg-[#FCF7F7] ${
-                     pathName === '/profile/orders'
-                        ? 'border-customPinkHigh bg-[#FCF7F7] text-customPinkHigh'
-                        : 'border-transparent'
+                  className={`flex w-full items-center gap-4 rounded-2xl border-s-[7px] border-solid py-3.5 pe-5 ps-3 hover:bg-[#c2acd8] ${
+                     pathName === '/profile/orders' ? 'border-[#32293c] bg-[#c2acd8]' : 'border-transparent'
                   }`}
                >
                   <div
                      className={`flex size-11 items-center justify-center rounded-10 ${
-                        pathName === '/profile/orders' ? 'bg-[#FFBEBC]' : 'bg-[#F5F8FC]'
+                        pathName === '/profile/orders' ? 'bg-[#eee7f4]' : 'bg-[#F5F8FC]'
                      }`}
                   >
-                     <AccountBalanceWalletOutlinedIcon color={pathName === '/profile/orders' ? 'white' : 'textColor'} />
+                     <AccountBalanceWalletOutlinedIcon
+                        color={pathName === '/profile/orders' ? 'customPink' : 'textColor'}
+                     />
                   </div>
 
                   <p className="text-[15px]">پیگیری سفارش ها</p>
@@ -123,18 +119,16 @@ function Profile() {
 
                <Link
                   href="/profile/favorites"
-                  className={`flex w-full items-center gap-4 rounded-2xl border-s-[7px] border-solid py-3.5 pe-5 ps-3 hover:bg-[#FCF7F7] ${
-                     pathName === '/profile/favorites'
-                        ? 'border-customPinkHigh bg-[#FCF7F7] text-customPinkHigh'
-                        : 'border-transparent'
+                  className={`flex w-full items-center gap-4 rounded-2xl border-s-[7px] border-solid py-3.5 pe-5 ps-3 hover:bg-[#c2acd8] ${
+                     pathName === '/profile/favorites' ? 'border-[#32293c] bg-[#c2acd8]' : 'border-transparent'
                   }`}
                >
                   <div
                      className={`flex size-11 items-center justify-center rounded-10 ${
-                        pathName === '/profile/favorites' ? 'bg-[#FFBEBC]' : 'bg-[#F5F8FC]'
+                        pathName === '/profile/favorites' ? 'bg-[#eee7f4]' : 'bg-[#F5F8FC]'
                      }`}
                   >
-                     <FavoriteBorderIcon color={pathName === '/profile/favorites' ? 'white' : 'textColor'} />
+                     <FavoriteBorderIcon color={pathName === '/profile/favorites' ? 'customPink' : 'textColor'} />
                   </div>
 
                   <p className="text-[15px]">علاقه مندی ها</p>
@@ -151,12 +145,13 @@ function Profile() {
                size="large"
                color="white"
                className="!rounded-10 !px-5 !py-3.5"
+               sx={{ ':hover': { color: '#000', backgroundColor: '#c2acd8' } }}
                fullWidth
                onClick={() => setShowLogoutModal(true)}
             >
                <div className="flex w-full items-center gap-3">
-                  <LogoutOutlinedIcon className="rotate-180 rounded-xl bg-customPinkLow p-2 text-customPinkHigh" />
-                  <p className="pt-1 text-customPinkHigh">خروج از حساب کاربری</p>
+                  <LogoutOutlinedIcon className="rotate-180 rounded-xl bg-[#F5F8FC] p-2 text-textColor" />
+                  <p className="pt-1">خروج از حساب کاربری</p>
                </div>
             </Button>
          </div>
