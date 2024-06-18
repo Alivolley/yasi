@@ -33,7 +33,7 @@ function AddEditUserModal({ show, onClose, isEdit = false, detail, usersMutate }
       { title: 'نمایش گزارشات', code: 116 },
       { title: 'ویرایش اطلاعات کاربران', code: 117 },
       { title: 'بلاک کردن کاربران', code: 118 },
-      { title: 'افزودن بنر آفرها', code: 119 },
+      // { title: 'افزودن بنر آفرها', code: 119 },
       { title: 'افزودن سوال متداول', code: 120 },
       { title: 'ویرایش سوال متداول', code: 121 },
       { title: 'حذف سوال متداول', code: 122 },

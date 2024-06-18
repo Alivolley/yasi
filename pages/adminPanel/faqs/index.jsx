@@ -145,3 +145,21 @@ function Faqs() {
 }
 
 export default Faqs;
+
+export async function getServerSideProps(context) {
+   const { req } = context;
+   const accessToken = req?.cookies?.yasi_accessToken;
+   const refreshToken = req?.cookies?.yasi_refreshToken;
+
+   if (accessToken && refreshToken) {
+      return {
+         props: {},
+      };
+   }
+
+   return {
+      redirect: {
+         destination: '/login',
+      },
+   };
+}

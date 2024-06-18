@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import Image from 'next/image';
+import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -7,7 +9,7 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 // MUI
-import { Button, Grid, IconButton } from '@mui/material';
+import { Button, FormControl, Grid, IconButton, InputAdornment, TextField } from '@mui/material';
 
 // Icons
 import QrCodeOutlinedIcon from '@mui/icons-material/QrCodeOutlined';
@@ -19,6 +21,9 @@ import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
 import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
 import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
 
+// Assets
+import searchIcon from '@/assets/icons/search-icon.svg';
+
 // Components
 import AdminLayout from '@/components/layout/admin-layout/admin-layout';
 import Table from '@/components/templates/table/table';
@@ -28,14 +33,16 @@ import EditShippingCostModal from '@/components/pages/adminPanel/editShippingCos
 
 // Apis
 import useGetAllCards from '@/apis/pAdmin/orders/useGetAllCards';
+import useGetSearchCards from '@/apis/pAdmin/orders/useGetSearchCards';
 
 // Utils
 import permissions from '@/utils/permission';
 
 function Orders() {
-   const [chosenFilter, setChosenFilter] = useState('');
    const [pageStatus, setPageStatus] = useState(1);
    const [countValue, setCountValue] = useState(6);
+   const [searchValue, setSearchValue] = useState('');
+   const [chosenFilter, setChosenFilter] = useState('');
    const [chosenOrderForDetail, setChosenOrderForDetail] = useState();
    const [showDetailModal, setShowDetailModal] = useState(false);
    const [showEditStatusModal, setShowEditStatusModal] = useState(false);
@@ -47,8 +54,18 @@ function Orders() {
    const {
       data: cardsData,
       isLoading: cardsIsLoading,
-      mutate: cardMutate,
+      mutate: cardsMutate,
    } = useGetAllCards(chosenFilter, pageStatus, countValue);
+   const {
+      data: searchCardsData,
+      isLoading: searchCardsIsLoading,
+      mutate: searchCardsMutate,
+   } = useGetSearchCards(searchValue, pageStatus, countValue);
+
+   const allCardsMutate = () => {
+      searchCardsMutate();
+      cardsMutate();
+   };
 
    const { back, pathname } = useRouter();
 
@@ -68,6 +85,27 @@ function Orders() {
          toast.warn('شما اجازه دسترسی به این صفحه را ندارید');
       }
    }, [userInfo, pathname]);
+
+   const { register, handleSubmit, reset } = useForm({
+      defaultValues: {
+         searchInput: '',
+      },
+   });
+
+   const formSubmit = data => {
+      setPageStatus(1);
+      setCountValue(6);
+      setChosenFilter('');
+      setSearchValue(data?.searchInput);
+   };
+
+   const removeSearchHandler = () => {
+      reset();
+      setPageStatus(1);
+      setCountValue(6);
+      setChosenFilter('');
+      setSearchValue('');
+   };
 
    const columns = [
       { id: 1, title: 'ردیف', key: 'index' },
@@ -271,15 +309,43 @@ function Orders() {
                </Button>
             </div>
 
+            <div className="mb-8 mt-5 flex flex-wrap items-center gap-4 customSm:gap-8">
+               <form onSubmit={handleSubmit(formSubmit)}>
+                  <FormControl variant="outlined">
+                     <TextField
+                        placeholder="جستجو"
+                        color="customPink"
+                        size="small"
+                        {...register('searchInput', { required: { value: true } })}
+                        InputProps={{
+                           startAdornment: (
+                              <InputAdornment position="start">
+                                 <IconButton type="submit" edge="start">
+                                    <Image src={searchIcon} alt="search Icon" />
+                                 </IconButton>
+                              </InputAdornment>
+                           ),
+                        }}
+                     />
+                  </FormControl>
+               </form>
+
+               {searchValue && (
+                  <Button color="customPinkHigh" variant="outlined" size="small" onClick={removeSearchHandler}>
+                     پاک کردن جست و جو
+                  </Button>
+               )}
+            </div>
+
             <div className="mx-auto mt-6 w-full">
                <Table
                   columns={columns}
-                  rows={cardsData?.result}
+                  rows={searchCardsData?.result || cardsData?.result}
                   pageStatus={pageStatus}
                   setPageStatus={setPageStatus}
-                  totalPages={cardsData?.total_pages}
-                  totalObjects={cardsData?.total_objects}
-                  loading={cardsIsLoading}
+                  totalPages={searchCardsData?.total_pages || cardsData?.total_pages}
+                  totalObjects={searchCardsData?.total_objects || cardsData?.total_objects}
+                  loading={searchCardsIsLoading || cardsIsLoading}
                   countValue={countValue}
                   setCountValue={setCountValue}
                />
@@ -292,7 +358,7 @@ function Orders() {
             show={showEditStatusModal}
             onClose={closeEditStatusModal}
             detail={chosenOrderForEdit}
-            cardMutate={cardMutate}
+            cardsMutate={allCardsMutate}
          />
 
          <EditShippingCostModal show={showEditShippingCostModal} onClose={() => setShowEditShippingCostModal(false)} />

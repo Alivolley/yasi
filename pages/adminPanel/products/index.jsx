@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -8,7 +9,16 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 // MUI
-import { Button, CircularProgress, Grid, IconButton, Tooltip } from '@mui/material';
+import {
+   Button,
+   CircularProgress,
+   FormControl,
+   Grid,
+   IconButton,
+   InputAdornment,
+   TextField,
+   Tooltip,
+} from '@mui/material';
 
 // Icons
 import QrCodeOutlinedIcon from '@mui/icons-material/QrCodeOutlined';
@@ -22,6 +32,7 @@ import ListAltOutlinedIcon from '@mui/icons-material/ListAltOutlined';
 
 // Assets
 import noImage from '@/assets/images/noImage.png';
+import searchIcon from '@/assets/icons/search-icon.svg';
 
 // Components
 import AdminLayout from '@/components/layout/admin-layout/admin-layout';
@@ -34,6 +45,7 @@ import AddEditCategoryModalList from '@/components/pages/adminPanel/addEditCateg
 import useGetProducts from '@/apis/pAdmin/products/useGetProducts';
 import useDeleteProduct from '@/apis/pAdmin/products/useDeleteProduct';
 import useCategories from '@/apis/categories/useCategories';
+import useGetSearchProducts from '@/apis/pAdmin/products/useGetSearchProducts';
 
 // Utils
 import permissions from '@/utils/permission';
@@ -46,6 +58,7 @@ function Products() {
    const [chosenProductForDelete, setChosenProductForDelete] = useState();
    const [chosenProductForEdit, setChosenProductForEdit] = useState();
    const [chosenCategory, setChosenCategory] = useState('');
+   const [searchValue, setSearchValue] = useState('');
    const [pageStatus, setPageStatus] = useState(1);
    const [countValue, setCountValue] = useState(6);
 
@@ -53,10 +66,20 @@ function Products() {
    const { data: categoryList, isLoading: categoryIsLoading } = useCategories();
    const {
       data: productsData,
-      isLoading: productIsLoading,
+      isLoading: productsIsLoading,
       mutate: productsMutate,
    } = useGetProducts(pageStatus, countValue, chosenCategory);
-   const { trigger: deleteProductTrigger, isMutating: deleteProductIsMutating } = useDeleteProduct(productsMutate);
+   const {
+      data: searchProductsData,
+      isLoading: searchProductsIsLoading,
+      mutate: searchProductsMutate,
+   } = useGetSearchProducts(pageStatus, countValue, searchValue);
+
+   const allProductsMutate = () => {
+      searchProductsMutate();
+      productsMutate();
+   };
+   const { trigger: deleteProductTrigger, isMutating: deleteProductIsMutating } = useDeleteProduct(allProductsMutate);
 
    const closeAddEditProductModalHandler = () => {
       setShowAddEditProductModal(false);
@@ -74,12 +97,33 @@ function Products() {
       });
    };
 
+   const { register, handleSubmit, reset } = useForm({
+      defaultValues: {
+         searchInput: '',
+      },
+   });
+
    useEffect(() => {
       if (userInfo?.phone_number && !userInfo?.is_admin) {
          back();
          toast.warn('شما اجازه دسترسی به این صفحه را ندارید');
       }
    }, [userInfo, pathname]);
+
+   const formSubmit = data => {
+      setPageStatus(1);
+      setCountValue(6);
+      setChosenCategory('');
+      setSearchValue(data?.searchInput);
+   };
+
+   const removeSearchHandler = () => {
+      reset();
+      setPageStatus(1);
+      setCountValue(6);
+      setChosenCategory('');
+      setSearchValue('');
+   };
 
    const columns = [
       { id: 1, title: 'رددیف', key: 'index' },
@@ -285,15 +329,43 @@ function Products() {
                </Button>
             </div>
 
+            <div className="mb-8 mt-5 flex flex-wrap items-center gap-4 customSm:gap-8">
+               <form onSubmit={handleSubmit(formSubmit)}>
+                  <FormControl variant="outlined">
+                     <TextField
+                        placeholder="جستجو"
+                        color="customPink"
+                        size="small"
+                        {...register('searchInput', { required: { value: true } })}
+                        InputProps={{
+                           startAdornment: (
+                              <InputAdornment position="start">
+                                 <IconButton type="submit" edge="start">
+                                    <Image src={searchIcon} alt="search Icon" />
+                                 </IconButton>
+                              </InputAdornment>
+                           ),
+                        }}
+                     />
+                  </FormControl>
+               </form>
+
+               {searchValue && (
+                  <Button color="customPinkHigh" variant="outlined" size="small" onClick={removeSearchHandler}>
+                     پاک کردن جست و جو
+                  </Button>
+               )}
+            </div>
+
             <div className="mx-auto mt-6 w-full">
                <Table
                   columns={columns}
-                  rows={productsData?.result}
+                  rows={searchProductsData?.result || productsData?.result}
                   pageStatus={pageStatus}
                   setPageStatus={setPageStatus}
-                  totalPages={productsData?.total_pages}
-                  totalObjects={productsData?.total_objects}
-                  loading={productIsLoading}
+                  totalPages={searchProductsData?.total_pages || productsData?.total_pages}
+                  totalObjects={searchProductsData?.total_objects || productsData?.total_objects}
+                  loading={searchProductsIsLoading || productsIsLoading}
                   countValue={countValue}
                   setCountValue={setCountValue}
                />
@@ -313,7 +385,7 @@ function Products() {
             onClose={closeAddEditProductModalHandler}
             isEdit={!!chosenProductForEdit}
             detail={chosenProductForEdit}
-            productsMutate={productsMutate}
+            productsMutate={allProductsMutate}
          />
 
          <AddEditCategoryModalList show={showAddEditCategoryModal} onClose={() => setShowAddEditCategoryModal(false)} />

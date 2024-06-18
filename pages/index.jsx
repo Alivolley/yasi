@@ -4,7 +4,7 @@ import axiosInstance from '@/configs/axiosInstance';
 // Components
 import Banner from '@/components/pages/home/banner/banner';
 import Categories from '@/components/pages/home/categories/categories';
-import OffersBanner from '@/components/pages/home/offers-banner/offers-banner';
+// import OffersBanner from '@/components/pages/home/offers-banner/offers-banner';
 import Introduce from '@/components/pages/home/Introduce/Introduce';
 import Newest from '@/components/pages/home/newest/newest';
 import BoldProducts from '@/components/pages/home/bold-products/bold-products';
@@ -18,7 +18,7 @@ export default function Home({ categoryList, newestList, bestSellersList, boldPr
          </Head>
          <Banner />
          <Categories detail={categoryList} />
-         <OffersBanner />
+         {/* <OffersBanner /> */}
          <Introduce />
          <Newest detail={newestList} />
          <BoldProducts detail={boldProducts} />

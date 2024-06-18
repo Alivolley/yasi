@@ -352,16 +352,12 @@ function ProductDetail({ error, productDetail, categoryItems }) {
                         </div>
                         <div className="mt-8">
                            <div className="flex items-center justify-between rounded-10 bg-[#F5F8FC] px-3 py-5 text-sm">
-                              <p className="text-textColor">جنس</p>
-                              <p>مخمل کیفیت بالا</p>
+                              <p className="text-textColor">وزن</p>
+                              <p>300 گرم</p>
                            </div>
                            <div className="flex items-center justify-between rounded-10 px-3 py-5 text-sm">
                               <p className="text-textColor">ابعاد</p>
                               <p>{productDetail?.dimensions}</p>
-                           </div>
-                           <div className="flex items-center justify-between rounded-10 bg-[#F5F8FC] px-3 py-5 text-sm">
-                              <p className="text-textColor">قابلیت شست و شو</p>
-                              <p>دارد</p>
                            </div>
                         </div>
                      </div>
@@ -375,7 +371,7 @@ function ProductDetail({ error, productDetail, categoryItems }) {
 
                         <p className="my-7 text-[15px] font-bold">{productDetail?.title}</p>
 
-                        <pre className="text-sm text-textColor">{productDetail?.description}</pre>
+                        <pre className="whitespace-pre-line text-sm text-textColor">{productDetail?.description}</pre>
                      </div>
                   </Grid>
                </Grid>

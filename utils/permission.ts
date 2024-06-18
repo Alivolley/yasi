@@ -63,7 +63,7 @@ const PERMISSION = {
 
    // Offers banners
    OFFERS_BANNERS: {
-      PATCH: '119',
+      // PATCH: '119',
    },
 
    // Faqs

@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -8,7 +9,7 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 // MUI
-import { Button, IconButton } from '@mui/material';
+import { Button, FormControl, IconButton, InputAdornment, TextField } from '@mui/material';
 
 // Icons
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
@@ -21,6 +22,7 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 
 // Assets
 import userProfilePic from '@/assets/images/userProfile.png';
+import searchIcon from '@/assets/icons/search-icon.svg';
 
 // Components
 import AdminLayout from '@/components/layout/admin-layout/admin-layout';
@@ -32,12 +34,14 @@ import UserDetailModal from '@/components/pages/adminPanel/userDetailModal/userD
 // Apis
 import useGetAllUsers from '@/apis/pAdmin/users/useGetAllUsers';
 import useBlockUser from '@/apis/pAdmin/users/useBlockUser';
+import useGetSearchUsers from '@/apis/pAdmin/users/useGetSearchUsers';
 
 // Utils
 import permissions from '@/utils/permission';
 
 function Users() {
    const [chosenCategory, setChosenCategory] = useState('');
+   const [searchValue, setSearchValue] = useState('');
    const [pageStatus, setPageStatus] = useState(1);
    const [countValue, setCountValue] = useState(6);
    const [showAddEditUserModal, setShowAddEditUserModal] = useState(false);
@@ -55,6 +59,17 @@ function Users() {
       isLoading: usersIsLoading,
       mutate: usersMutate,
    } = useGetAllUsers(pageStatus, countValue, chosenCategory);
+   const {
+      data: usersSearchData,
+      isLoading: usersSearchIsLoading,
+      mutate: usersSearchMutate,
+   } = useGetSearchUsers(pageStatus, countValue, searchValue);
+
+   const allUsersMutate = () => {
+      usersSearchMutate();
+      usersMutate();
+   };
+
    const { trigger: blockTrigger, isMutating: blockIsMutating } = useBlockUser();
 
    const closeAddEditProductModalHandler = () => {
@@ -77,7 +92,7 @@ function Users() {
          { phone_number: chosenUserForBlock?.phone_number, active: chosenUserForBlock?.role === 'blocked' },
          {
             onSuccess: () => {
-               usersMutate();
+               allUsersMutate();
                closeBlockUserModal();
             },
          }
@@ -97,6 +112,27 @@ function Users() {
          toast.warn('شما اجازه دسترسی به این صفحه را ندارید');
       }
    }, [userInfo, pathname]);
+
+   const { register, handleSubmit, reset } = useForm({
+      defaultValues: {
+         searchInput: '',
+      },
+   });
+
+   const formSubmit = data => {
+      setPageStatus(1);
+      setCountValue(6);
+      setChosenCategory('');
+      setSearchValue(data?.searchInput);
+   };
+
+   const removeSearchHandler = () => {
+      reset();
+      setPageStatus(1);
+      setCountValue(6);
+      setChosenCategory('');
+      setSearchValue('');
+   };
 
    const columns = [
       { id: 1, title: 'ردیف', key: 'index' },
@@ -313,15 +349,43 @@ function Users() {
                </Button>
             </div>
 
+            <div className="mb-8 mt-5 flex flex-wrap items-center gap-4 customSm:gap-8">
+               <form onSubmit={handleSubmit(formSubmit)}>
+                  <FormControl variant="outlined">
+                     <TextField
+                        placeholder="جستجو"
+                        color="customPink"
+                        size="small"
+                        {...register('searchInput', { required: { value: true } })}
+                        InputProps={{
+                           startAdornment: (
+                              <InputAdornment position="start">
+                                 <IconButton type="submit" edge="start">
+                                    <Image src={searchIcon} alt="search Icon" />
+                                 </IconButton>
+                              </InputAdornment>
+                           ),
+                        }}
+                     />
+                  </FormControl>
+               </form>
+
+               {searchValue && (
+                  <Button color="customPinkHigh" variant="outlined" size="small" onClick={removeSearchHandler}>
+                     پاک کردن جست و جو
+                  </Button>
+               )}
+            </div>
+
             <div className="mx-auto mt-6 w-full">
                <Table
                   columns={columns}
-                  rows={usersData?.result}
+                  rows={usersSearchData?.result || usersData?.result}
                   pageStatus={pageStatus}
                   setPageStatus={setPageStatus}
-                  totalPages={usersData?.total_pages}
-                  totalObjects={usersData?.total_objects}
-                  loading={usersIsLoading}
+                  totalPages={usersSearchData?.total_pages || usersData?.total_pages}
+                  totalObjects={usersSearchData?.total_objects || usersData?.total_objects}
+                  loading={usersSearchIsLoading || usersIsLoading}
                   countValue={countValue}
                   setCountValue={setCountValue}
                />
@@ -333,14 +397,14 @@ function Users() {
             onClose={closeAddEditProductModalHandler}
             isEdit={!!chosenUserForEdit}
             detail={chosenUserForEdit}
-            usersMutate={usersMutate}
+            usersMutate={allUsersMutate}
          />
 
          <UserDetailModal
             show={showUserDetailModal}
             onClose={closeUserDetailModal}
             detail={chosenUserForDetail}
-            usersMutate={usersMutate}
+            usersMutate={allUsersMutate}
          />
 
          <ConfirmModal
