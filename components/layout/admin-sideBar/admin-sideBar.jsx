@@ -16,6 +16,7 @@ import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
 import RecentActorsOutlinedIcon from '@mui/icons-material/RecentActorsOutlined';
 import PercentIcon from '@mui/icons-material/Percent';
 import ConfirmationNumberOutlinedIcon from '@mui/icons-material/ConfirmationNumberOutlined';
+import QuizOutlinedIcon from '@mui/icons-material/QuizOutlined';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
@@ -205,6 +206,21 @@ function AdminSideBar({ isMobile, onClose }) {
                   />
                </div>
                {isSideBarOpen && <p className="text-[15px]">اطلاعات</p>}
+            </Link>
+            <Link
+               href="/adminPanel/faqs"
+               className={`flex w-full items-center gap-4 rounded-2xl p-3 transition-all duration-200 hover:bg-[#c2acd8] ${
+                  pathname === '/adminPanel/faqs' ? 'bg-customPink2 text-white' : ''
+               }`}
+            >
+               <div
+                  className={`flex size-11 items-center justify-center rounded-10 ${
+                     pathname === '/adminPanel/faqs' ? 'bg-customPinkLow' : 'bg-[#F5F8FC]'
+                  }`}
+               >
+                  <QuizOutlinedIcon color={pathname === '/adminPanel/faqs' ? 'customPink' : 'textColor'} />
+               </div>
+               {isSideBarOpen && <p className="text-[15px]">سوالات متداول</p>}
             </Link>
          </div>
 

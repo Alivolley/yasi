@@ -65,6 +65,13 @@ const PERMISSION = {
    OFFERS_BANNERS: {
       PATCH: '119',
    },
+
+   // Faqs
+   FAQS: {
+      POST: '120',
+      PATCH: '121',
+      DELETE: '122',
+   },
 };
 
 export default PERMISSION;

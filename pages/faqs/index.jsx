@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Head from 'next/head';
 import Image from 'next/image';
 
@@ -7,11 +8,13 @@ import { Accordion, AccordionDetails, AccordionSummary, Button } from '@mui/mate
 // Icons
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
+// Configs
+import axiosInstance from '@/configs/axiosInstance';
+
 // Assets
-import Link from 'next/link';
 import faqPic from '@/assets/images/faq.png';
 
-function Faqs() {
+function Faqs({ questionsList }) {
    return (
       <div className="bg-[#f6f3f9] px-8 py-[60px] customMd:px-16">
          <Head>
@@ -22,246 +25,26 @@ function Faqs() {
             <div className="hidden h-[435px] w-[300px] shrink-0 -scale-x-100 border-s border-solid border-[#E4EAF0] ps-5 customMd:block">
                <Image src={faqPic} alt="faq" className="size-full" />
             </div>
-            <div className="bg-white px-1 py-5 customMd:grow customMd:px-10">
-               <Accordion
-                  sx={{
-                     boxShadow: 'none',
-                  }}
-               >
-                  <AccordionSummary
-                     expandIcon={
-                        <div className="flex items-center justify-center rounded-md bg-customPinkLow p-1 text-customPinkHigh">
-                           <ExpandMoreIcon />
+            <div className="bg-white px-1 py-5 max-customMd:w-full customMd:grow customMd:px-10">
+               {questionsList?.map(item => (
+                  <Accordion sx={{ boxShadow: 'none' }} key={item?.id}>
+                     <AccordionSummary
+                        expandIcon={
+                           <div className="flex items-center justify-center rounded-md bg-customPinkLow p-1 text-customPinkHigh">
+                              <ExpandMoreIcon />
+                           </div>
+                        }
+                     >
+                        <div className="flex items-center gap-2">
+                           <div className="size-3 shrink-0 rounded-full bg-customPink3" />
+                           <pre className="text-sm font-bold customMd:text-base">{item?.question}</pre>
                         </div>
-                     }
-                  >
-                     <div className="flex items-center gap-2">
-                        <div className="size-3 shrink-0 rounded-full bg-customPink3" />
-                        <p className="text-sm font-bold customMd:text-base">چگونه میتوانم سفارش خود را بازگردانم</p>
-                     </div>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                     <p className="text-sm">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلیلورم ایپسوم
-                        متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون
-                        بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلیلورم ایپسوم متن ساختگی با
-                        تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و
-                        مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
-                     </p>
-                  </AccordionDetails>
-               </Accordion>
-               <Accordion
-                  sx={{
-                     boxShadow: 'none',
-                     marginTop: '10px',
-                  }}
-               >
-                  <AccordionSummary
-                     expandIcon={
-                        <div className="flex items-center justify-center rounded-md bg-customPinkLow p-1 text-customPinkHigh">
-                           <ExpandMoreIcon />
-                        </div>
-                     }
-                  >
-                     <div className="flex items-center gap-2">
-                        <div className="size-3 shrink-0 rounded-full bg-customPink3" />
-                        <p className="text-sm font-bold customMd:text-base">
-                           نحوه ارسال به چه صورت است و چه مقدار زمان میبرد
-                        </p>
-                     </div>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                     <p className="text-sm">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلیلورم ایپسوم
-                        متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون
-                        بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلیلورم ایپسوم متن ساختگی با
-                        تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و
-                        مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
-                     </p>
-                  </AccordionDetails>
-               </Accordion>
-               <Accordion
-                  sx={{
-                     boxShadow: 'none',
-                     marginTop: '10px',
-                  }}
-               >
-                  <AccordionSummary
-                     expandIcon={
-                        <div className="flex items-center justify-center rounded-md bg-customPinkLow p-1 text-customPinkHigh">
-                           <ExpandMoreIcon />
-                        </div>
-                     }
-                  >
-                     <div className="flex items-center gap-2">
-                        <div className="size-3 shrink-0 rounded-full bg-customPink3" />
-                        <p className="text-sm font-bold customMd:text-base">چگونه میتوانم سفارش خود را بازگردانم</p>
-                     </div>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                     <p className="text-sm">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلیلورم ایپسوم
-                        متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون
-                        بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلیلورم ایپسوم متن ساختگی با
-                        تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و
-                        مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
-                     </p>
-                  </AccordionDetails>
-               </Accordion>
-               <Accordion
-                  sx={{
-                     boxShadow: 'none',
-                     marginTop: '10px',
-                  }}
-               >
-                  <AccordionSummary
-                     expandIcon={
-                        <div className="flex items-center justify-center rounded-md bg-customPinkLow p-1 text-customPinkHigh">
-                           <ExpandMoreIcon />
-                        </div>
-                     }
-                  >
-                     <div className="flex items-center gap-2">
-                        <div className="size-3 shrink-0 rounded-full bg-customPink3" />
-                        <p className="text-sm font-bold customMd:text-base">
-                           نحوه ارسال به چه صورت است و چه مقدار زمان میبرد
-                        </p>
-                     </div>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                     <p className="text-sm">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلیلورم ایپسوم
-                        متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون
-                        بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلیلورم ایپسوم متن ساختگی با
-                        تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و
-                        مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
-                     </p>
-                  </AccordionDetails>
-               </Accordion>
-               <Accordion
-                  sx={{
-                     boxShadow: 'none',
-                     marginTop: '10px',
-                  }}
-               >
-                  <AccordionSummary
-                     expandIcon={
-                        <div className="flex items-center justify-center rounded-md bg-customPinkLow p-1 text-customPinkHigh">
-                           <ExpandMoreIcon />
-                        </div>
-                     }
-                  >
-                     <div className="flex items-center gap-2">
-                        <div className="size-3 shrink-0 rounded-full bg-customPink3" />
-                        <p className="text-sm font-bold customMd:text-base">چگونه میتوانم سفارش خود را بازگردانم</p>
-                     </div>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                     <p className="text-sm">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلیلورم ایپسوم
-                        متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون
-                        بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلیلورم ایپسوم متن ساختگی با
-                        تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و
-                        مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
-                     </p>
-                  </AccordionDetails>
-               </Accordion>
-               <Accordion
-                  sx={{
-                     boxShadow: 'none',
-                     marginTop: '10px',
-                  }}
-               >
-                  <AccordionSummary
-                     expandIcon={
-                        <div className="flex items-center justify-center rounded-md bg-customPinkLow p-1 text-customPinkHigh">
-                           <ExpandMoreIcon />
-                        </div>
-                     }
-                  >
-                     <div className="flex items-center gap-2">
-                        <div className="size-3 shrink-0 rounded-full bg-customPink3" />
-                        <p className="text-sm font-bold customMd:text-base">
-                           نحوه ارسال به چه صورت است و چه مقدار زمان میبرد
-                        </p>
-                     </div>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                     <p className="text-sm">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلیلورم ایپسوم
-                        متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون
-                        بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلیلورم ایپسوم متن ساختگی با
-                        تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و
-                        مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
-                     </p>
-                  </AccordionDetails>
-               </Accordion>
-               <Accordion
-                  sx={{
-                     boxShadow: 'none',
-                     marginTop: '10px',
-                  }}
-               >
-                  <AccordionSummary
-                     expandIcon={
-                        <div className="flex items-center justify-center rounded-md bg-customPinkLow p-1 text-customPinkHigh">
-                           <ExpandMoreIcon />
-                        </div>
-                     }
-                  >
-                     <div className="flex items-center gap-2">
-                        <div className="size-3 shrink-0 rounded-full bg-customPink3" />
-                        <p className="text-sm font-bold customMd:text-base">چگونه میتوانم سفارش خود را بازگردانم</p>
-                     </div>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                     <p className="text-sm">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلیلورم ایپسوم
-                        متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون
-                        بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلیلورم ایپسوم متن ساختگی با
-                        تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و
-                        مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
-                     </p>
-                  </AccordionDetails>
-               </Accordion>
-               <Accordion
-                  sx={{
-                     boxShadow: 'none',
-                     marginTop: '10px',
-                  }}
-               >
-                  <AccordionSummary
-                     expandIcon={
-                        <div className="flex items-center justify-center rounded-md bg-customPinkLow p-1 text-customPinkHigh">
-                           <ExpandMoreIcon />
-                        </div>
-                     }
-                  >
-                     <div className="flex items-center gap-2">
-                        <div className="size-3 shrink-0 rounded-full bg-customPink3" />
-                        <p className="text-sm font-bold customMd:text-base">
-                           نحوه ارسال به چه صورت است و چه مقدار زمان میبرد
-                        </p>
-                     </div>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                     <p className="text-sm">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلیلورم ایپسوم
-                        متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون
-                        بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلیلورم ایپسوم متن ساختگی با
-                        تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و
-                        مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
-                     </p>
-                  </AccordionDetails>
-               </Accordion>
+                     </AccordionSummary>
+                     <AccordionDetails>
+                        <pre className="text-sm">{item?.answer}</pre>
+                     </AccordionDetails>
+                  </Accordion>
+               ))}
             </div>
          </div>
 
@@ -279,3 +62,14 @@ function Faqs() {
 }
 
 export default Faqs;
+
+export async function getStaticProps() {
+   const questionsList = await axiosInstance(`accounts/questions/list_create/`).then(res => res.data);
+
+   return {
+      props: {
+         questionsList,
+      },
+      revalidate: 300,
+   };
+}

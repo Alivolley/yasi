@@ -81,6 +81,7 @@ function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMu
          discountType: 'percent',
          discount: '',
          showProduct: true,
+         isBold: false,
       },
       mode: 'onSubmit',
    });
@@ -92,6 +93,7 @@ function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMu
          setValue('dimensions', productDetail?.dimensions);
          setValue('description', productDetail?.description);
          setValue('showProduct', productDetail?.public);
+         setValue('isBold', productDetail?.is_bold);
          if (productDetail?.discount_amount > 0) {
             setValue('discountType', 'amount');
             setValue('discount', productDetail?.discount_amount);
@@ -140,6 +142,7 @@ function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMu
          newProduct.append('dimensions', data.dimensions);
          newProduct.append('price', data.price);
          newProduct.append('public', data.showProduct);
+         newProduct.append('is_bold', data.isBold);
          if (productDetail?.cover !== coverImage) {
             newProduct.append('cover', coverImage);
          }
@@ -561,7 +564,7 @@ function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMu
                      <br />
                      <Grid container spacing={4}>
                         <Grid item xs={12} md={6} lg={4}>
-                           <div className="flex h-full items-end">
+                           <div className="flex flex-col gap-3">
                               <Controller
                                  control={control}
                                  name="showProduct"
@@ -569,6 +572,19 @@ function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMu
                                     <FormControlLabel
                                        control={<Checkbox checked={value} />}
                                        label="نمایش محصول به کاربران"
+                                       value={value}
+                                       onChange={onChange}
+                                    />
+                                 )}
+                              />
+
+                              <Controller
+                                 control={control}
+                                 name="isBold"
+                                 render={({ field: { onChange, value } }) => (
+                                    <FormControlLabel
+                                       control={<Checkbox checked={value} />}
+                                       label="محصول بولد"
                                        value={value}
                                        onChange={onChange}
                                     />
