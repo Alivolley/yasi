@@ -129,7 +129,7 @@ function CategoryDetail({ error, productsList, mostExpensivePrice, categoryList 
    return (
       <div className="bg-[#f6f2f3] px-3 py-8 customMd:px-16 customLg:py-16">
          <Head>
-            <title>یاسی - دسته بندی ها</title>
+            <title>یاسی هوم - دسته بندی ها</title>
          </Head>
          <div className="flex gap-8">
             <div className="hidden h-fit w-[370px] shrink-0 rounded-2xl bg-white p-5 customLg:block">

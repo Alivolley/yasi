@@ -30,14 +30,14 @@ function AboutUs({ categoryList, error }) {
    return (
       <>
          <Head>
-            <title>یـاسـی - درباره ما</title>
+            <title>یاسی هوم - درباره ما</title>
          </Head>
          <div className="bg-[#fcf7f7] px-8 py-16 customMd:px-16">
             <Grid container spacing={4}>
                <Grid item xs={12} md={7} order={{ xs: 2, md: 1 }}>
                   <div className="flex h-full flex-col justify-center">
                      <p className="text-xl font-bold text-[#000B2C] customMd:text-4xl">
-                        بـا یــاسی آشپزخانه ای خاص داشته باش
+                        بـا یاسی هوم آشپزخانه ای خاص داشته باش
                      </p>
                      <p className="my-8 text-sm leading-[30px] customMd:text-lg customMd:leading-[40px]">
                         لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
@@ -121,7 +121,7 @@ function AboutUs({ categoryList, error }) {
                <Grid item xs={12} md={7}>
                   <div className="mt-7 flex h-full flex-col justify-center customMd:mt-0">
                      <p className="text-xl font-bold text-[#000B2C] customMd:text-4xl">
-                        بـا یــاسی آشپزخانه ای خاص داشته باش
+                        بـا یاسی هوم آشپزخانه ای خاص داشته باش
                      </p>
                      <p className="my-8 text-sm leading-[30px] customMd:text-lg customMd:leading-[40px]">
                         لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است

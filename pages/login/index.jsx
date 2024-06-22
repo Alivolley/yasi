@@ -92,7 +92,7 @@ function Login() {
    return (
       <LoginStyle className="fixed inset-0 px-5 py-12 customMd:p-16">
          <Head>
-            <title>یاسی - ورود</title>
+            <title>یاسی هوم - ورود</title>
          </Head>
          <div className="h-full max-w-[486px] rounded-2xl bg-white p-7 2xl:max-w-[550px]" id="container">
             <Link href="/" className="flex w-fit items-center gap-2 customMd:gap-3">
@@ -100,7 +100,7 @@ function Login() {
                   <Image src={logoPurple} alt="logo" className="size-full" />
                </div>
                <div className="space-y-0.5">
-                  <p className="text-xl font-bold">یــاسی</p>
+                  <p className="text-xl font-bold">یاسی هوم</p>
                   <p className="text-xs text-[#58595B]">فروشگاه آنلاین لوازم آشپزخانه</p>
                </div>
             </Link>

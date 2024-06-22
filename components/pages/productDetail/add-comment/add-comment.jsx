@@ -59,7 +59,7 @@ function AddComment({ productDetail, commentsMutate }) {
       <form onSubmit={handleSubmit(formSubmit)}>
          <div className="flex flex-col items-center">
             <p className="mb-4 mt-20 text-center text-base customMd:mt-0">
-               به سفارشتان از فروشگاه یاسی چه امتیازی میدهید ؟
+               به سفارشتان از فروشگاه یاسی هوم چه امتیازی میدهید ؟
             </p>
             <p className="mb-3 rounded bg-[#C1F7EE] px-4 py-1.5 text-sm text-[#139983]">
                {rateValue === '5'

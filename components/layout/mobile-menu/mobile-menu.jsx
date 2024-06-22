@@ -89,7 +89,7 @@ function MobileMenu({ open, onClose, isUserLogin }) {
                      <Image src={logoPurple} alt="logo" className="size-full" />
                   </div>
                   <div className="space-y-0.5">
-                     <p className="text-sm font-bold customMd:text-xl">یــاسی</p>
+                     <p className="text-sm font-bold customMd:text-xl">یاسی هوم</p>
                      <p className="text-[8px] text-[#58595B] customMd:text-xs">فروشگاه آنلاین لوازم آشپزخانه</p>
                   </div>
                </Link>

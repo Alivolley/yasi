@@ -149,7 +149,7 @@ function Discounts() {
    return (
       <AdminLayout>
          <Head>
-            <title>یاسی - پنل ادمین</title>
+            <title>یاسی هوم - پنل ادمین</title>
          </Head>
          <div className="w-full bg-white p-5">
             <div className="flex flex-wrap items-center justify-between gap-3">

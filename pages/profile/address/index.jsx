@@ -26,7 +26,7 @@ function Address() {
    return (
       <ProfileLayout>
          <Head>
-            <title>یاسی - آدرس های من</title>
+            <title>یاسی هوم - آدرس های من</title>
          </Head>
          <div>
             <div className="flex items-center gap-2 rounded-2xl bg-white p-7">

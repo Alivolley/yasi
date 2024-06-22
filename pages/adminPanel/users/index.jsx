@@ -231,7 +231,7 @@ function Users() {
    return (
       <AdminLayout>
          <Head>
-            <title>یاسی - پنل ادمین</title>
+            <title>یاسی هوم هوم - پنل ادمین</title>
          </Head>
          <div className="bg-white p-5">
             <div className="flex items-center gap-1.5">

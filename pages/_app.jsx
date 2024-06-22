@@ -7,10 +7,10 @@ export default function App({ Component, pageProps }) {
    return (
       <>
          <Head>
-            <title>یاسی</title>
+            <title>یاسی هوم</title>
             <meta name="description" content="Your website description here" />
             <meta name="keywords" content="comma, separated, keywords" />
-            <meta name="author" content="یاسی" />
+            <meta name="author" content="یاسی هوم" />
          </Head>
          <AppLayout>
             <Component {...pageProps} />

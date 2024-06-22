@@ -101,7 +101,7 @@ function Header() {
                      <Image src={logoPurple} alt="logo" className="size-full" />
                   </div>
                   <div className="space-y-0.5">
-                     <p className="text-sm font-bold customMd:text-xl">یــاسی</p>
+                     <p className="text-sm font-bold customMd:text-xl">یاسی هوم</p>
                      <p className="text-[8px] text-[#58595B] customMd:text-xs">فروشگاه آنلاین لوازم آشپزخانه</p>
                   </div>
                </Link>
@@ -322,8 +322,8 @@ function Header() {
                <Link href="/contactUs" className=" hover:text-[#977ab3]">
                   ارتباط با ما
                </Link>
-               <a href="tel:02152687469" className="flex items-center gap-1 hover:text-[#977ab3]">
-                  <p>021-52687469</p>
+               <a href="tel:09907801869" className="flex items-center gap-1 hover:text-[#977ab3]">
+                  <p>09907801869</p>
                   <Image src={callIcon} alt="phone number" />
                </a>
             </div>

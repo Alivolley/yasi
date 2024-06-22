@@ -85,7 +85,7 @@ function Tickets() {
    return (
       <AdminLayout>
          <Head>
-            <title>یاسی - پنل ادمین</title>
+            <title>یاسی هوم - پنل ادمین</title>
          </Head>
 
          <div className="w-full bg-white p-5">

@@ -138,7 +138,7 @@ function Reports() {
    return (
       <AdminLayout>
          <Head>
-            <title>یاسی - پنل ادمین</title>
+            <title>یاسی هوم - پنل ادمین</title>
          </Head>
          <div className="flex flex-col gap-2 customSm:flex-row customSm:items-center customSm:gap-4">
             <button

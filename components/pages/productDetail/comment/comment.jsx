@@ -106,7 +106,7 @@ function Comment({ detail, commentsMutate }) {
                   </div>
                   <div>
                      <div className="flex flex-wrap items-center gap-2 text-textColor customSm:flex-nowrap">
-                        <p className="whitespace-nowrap text-sm font-bold">پاسخ یاسی</p>
+                        <p className="whitespace-nowrap text-sm font-bold">پاسخ یاسی هوم</p>
                         <p className="text-10">{detail?.reply_elapsed_time}</p>
                      </div>
                      <pre className="mt-4 whitespace-normal text-sm text-textColor">{detail?.reply_message}</pre>

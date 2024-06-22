@@ -20,7 +20,7 @@ function Introduce() {
          <Grid container spacing={4}>
             <Grid item xs={12} md={5}>
                <p className="mb-8 text-center text-xl font-bold customMd:hidden">
-                  بـا یــاسی آشپزخانه ای خاص داشته باش
+                  بـا یاسی هوم آشپزخانه ای خاص داشته باش
                </p>
                <div className="relative size-full">
                   <Image
@@ -35,7 +35,7 @@ function Introduce() {
                <div className="flex h-full flex-col justify-center">
                   <p className="hidden text-xl font-bold text-[#385e8a] customMd:block">* * *</p>
                   <div className="relative hidden customMd:block">
-                     <p className="text-4xl font-bold">بـا یــاسی آشپزخانه ای خاص داشته باش</p>
+                     <p className="text-4xl font-bold">بـا یاسی هوم آشپزخانه ای خاص داشته باش</p>
                      <span className="absolute -inset-y-3 start-0 z-[-1] w-[250px] rounded-e-full bg-customPinkLow" />
                   </div>
                   <p className="my-8 max-w-[732px] text-sm leading-[30px] text-[#62768C] customMd:text-lg customMd:leading-[40px]">

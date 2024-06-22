@@ -34,7 +34,7 @@ function Profile() {
    return (
       <main>
          <Head>
-            <title>یاسی - پروفایل</title>
+            <title>یاسی هوم - پروفایل</title>
          </Head>
          <div className="hidden customMd:block">
             <ProfileLayout />
@@ -60,7 +60,7 @@ function Profile() {
                >
                   <div
                      className={`flex size-11 items-center justify-center rounded-10 ${
-                        pathName === '/profile/information' ? 'bg-[#eee7f4]' : 'bg-[#F5F8FC]'
+                        pathName === '/profile/information' ? 'bg-customPinkLow' : 'bg-[#F5F8FC]'
                      }`}
                   >
                      <PersonOutlineIcon color={pathName === '/profile/information' ? 'customPink' : 'textColor'} />
@@ -81,7 +81,7 @@ function Profile() {
                >
                   <div
                      className={`flex size-11 items-center justify-center rounded-10 ${
-                        pathName === '/profile/address' ? 'bg-[#eee7f4]' : 'bg-[#F5F8FC]'
+                        pathName === '/profile/address' ? 'bg-customPinkLow' : 'bg-[#F5F8FC]'
                      }`}
                   >
                      <LocationOnOutlinedIcon color={pathName === '/profile/address' ? 'customPink' : 'textColor'} />
@@ -102,7 +102,7 @@ function Profile() {
                >
                   <div
                      className={`flex size-11 items-center justify-center rounded-10 ${
-                        pathName === '/profile/orders' ? 'bg-[#eee7f4]' : 'bg-[#F5F8FC]'
+                        pathName === '/profile/orders' ? 'bg-customPinkLow' : 'bg-[#F5F8FC]'
                      }`}
                   >
                      <AccountBalanceWalletOutlinedIcon
@@ -125,7 +125,7 @@ function Profile() {
                >
                   <div
                      className={`flex size-11 items-center justify-center rounded-10 ${
-                        pathName === '/profile/favorites' ? 'bg-[#eee7f4]' : 'bg-[#F5F8FC]'
+                        pathName === '/profile/favorites' ? 'bg-customPinkLow' : 'bg-[#F5F8FC]'
                      }`}
                   >
                      <FavoriteBorderIcon color={pathName === '/profile/favorites' ? 'customPink' : 'textColor'} />

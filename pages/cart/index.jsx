@@ -68,7 +68,7 @@ function Cart() {
    return (
       <div className="bg-[#fcf7f7] p-8 customMd:px-16 customLg:py-16">
          <Head>
-            <title>یاسی - سبد خرید</title>
+            <title>یاسی هوم - سبد خرید</title>
          </Head>
          {loading ? (
             <div className="my-12 flex w-full items-center justify-center">

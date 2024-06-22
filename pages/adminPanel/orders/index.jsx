@@ -180,7 +180,7 @@ function Orders() {
    return (
       <AdminLayout>
          <Head>
-            <title>یاسی - پنل ادمین</title>
+            <title>یاسی هوم - پنل ادمین</title>
          </Head>
          <div>
             <Grid container spacing={2}>

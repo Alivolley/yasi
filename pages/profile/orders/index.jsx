@@ -29,7 +29,7 @@ function Orders() {
    return (
       <ProfileLayout>
          <Head>
-            <title>یاسی - سفارش های من</title>
+            <title>یاسی هوم - سفارش های من</title>
          </Head>
          <div className="rounded-2xl bg-white p-7">
             <p className="text-lg font-bold text-[#050F2C]">پیگیری سفارش ها</p>
@@ -41,7 +41,6 @@ function Orders() {
                      setPage(1);
                      setTabsValue(newValue);
                   }}
-                  // TabIndicatorProps={{ sx: { backgroundColor: '#B1302E' } }}
                   variant="scrollable"
                   textColor="secondary"
                   indicatorColor="secondary"

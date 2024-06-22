@@ -79,7 +79,7 @@ function Information() {
    return (
       <AdminLayout>
          <Head>
-            <title>یاسی - پنل ادمین</title>
+            <title>یاسی هوم - پنل ادمین</title>
          </Head>
          <div>
             <p className="flex items-center gap-2 rounded bg-white p-7 text-lg font-bold">

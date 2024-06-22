@@ -18,7 +18,7 @@ function Faqs({ questionsList }) {
    return (
       <div className="bg-[#f6f3f9] px-8 py-[60px] customMd:px-16">
          <Head>
-            <title>یاسی - سوالات متداول</title>
+            <title>یاسی هوم - سوالات متداول</title>
          </Head>
 
          <div className="flex items-start gap-5">

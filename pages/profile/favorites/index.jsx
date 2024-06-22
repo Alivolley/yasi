@@ -22,7 +22,7 @@ function Favorites() {
    return (
       <ProfileLayout>
          <Head>
-            <title>یاسی - علاقه مندی ها</title>
+            <title>یاسی هوم - علاقه مندی ها</title>
          </Head>
          <div>
             <div className="flex items-center gap-2 rounded-2xl bg-white p-7">

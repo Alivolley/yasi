@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-html-link-for-pages */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import Head from 'next/head';
 import { useForm } from 'react-hook-form';
@@ -12,7 +11,6 @@ import { LoadingButton } from '@mui/lab';
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined';
 import TelegramIcon from '@mui/icons-material/Telegram';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import SettingsCellOutlinedIcon from '@mui/icons-material/SettingsCellOutlined';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
@@ -63,7 +61,7 @@ function ContactUs() {
    return (
       <div className="bg-[#f6f3f9] px-8 py-[60px] customMd:px-16">
          <Head>
-            <title>یاسی - تماس با ما</title>
+            <title>یاسی هوم - تماس با ما</title>
          </Head>
          <Grid container columnSpacing={4}>
             <Grid item xs={12} md={5} lg={3.5}>
@@ -83,7 +81,7 @@ function ContactUs() {
                         </p>
                         <div className="space-y-2">
                            <p>شماره تماس</p>
-                           <p className="text-sm text-textColor">09383935719</p>
+                           <p className="text-sm text-textColor">09907801869</p>
                         </div>
                      </a>
                      <div className="flex items-center gap-4">
@@ -103,15 +101,11 @@ function ContactUs() {
                         <div className="space-y-2">
                            <p>شبکه های اجتماعی</p>
                            <div className="flex items-center gap-5 text-textColor">
-                              <a href="/">
+                              <a href="https://T.me/yasii_home" target="_blank" rel="noreferrer">
                                  <TelegramIcon fontSize="small" />
                               </a>
 
-                              <a href="/">
-                                 <WhatsAppIcon fontSize="small" />
-                              </a>
-
-                              <a href="/">
+                              <a href="https://Www.instagram.com//yasii_home" target="_blank" rel="noreferrer">
                                  <InstagramIcon fontSize="small" />
                               </a>
                            </div>
@@ -123,7 +117,7 @@ function ContactUs() {
             <Grid item xs={12} md={7} lg={8.5}>
                <div className="mt-10 rounded-2xl bg-white px-5 py-10 customMd:mt-0 customMd:px-10">
                   <p className="flex items-center gap-2 text-sm font-bold customMd:text-lg">
-                     <MailOutlineIcon color="customPinkHigh" /> ارسال پیغام به تیم یاسی
+                     <MailOutlineIcon color="customPinkHigh" /> ارسال پیغام به تیم یاسی هوم
                   </p>
                   <p className="mt-4 text-xs text-textColor customMd:text-sm">
                      متن پیام و اطلاعات خود را برای ما ارسال کنید تا در کوتاه ترین زمان پاسخگو باشیم

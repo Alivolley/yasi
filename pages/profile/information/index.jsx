@@ -67,7 +67,7 @@ function Information() {
    return (
       <ProfileLayout>
          <Head>
-            <title>یاسی - اطلاعات حساب</title>
+            <title>یاسی هوم - اطلاعات حساب</title>
          </Head>
          <div>
             <p className="rounded-2xl bg-white p-7 text-lg font-bold text-[#050F2C]">اطلاعات حساب کاربری</p>

@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-html-link-for-pages */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import Image from 'next/image';
 
@@ -9,7 +8,6 @@ import { Grid } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
 import TelegramIcon from '@mui/icons-material/Telegram';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
 // Assets
@@ -27,7 +25,7 @@ function Footer() {
                         <Image src={logoPurple} alt="logo" className="size-full" />
                      </div>
                      <div className="space-y-0.5">
-                        <p className="text-2xl font-bold">یــاسی</p>
+                        <p className="text-2xl font-bold">یاسی هوم</p>
                         <p className="text-sm">فروشگاه آنلاین لوازم آشپزخانه</p>
                      </div>
                   </div>
@@ -58,24 +56,30 @@ function Footer() {
                            </p>
                            <p>مشهد خیابان رضا کوچه سادات</p>
                         </div>
-                        <a href="tel:02152687469">
+                        <a href="tel:09907801869">
                            <p className="mb-3 flex items-center gap-2.5">
                               <PhoneEnabledIcon fontSize="small" /> شماره تلفن
                            </p>
-                           <p>021-52687469</p>
+                           <p>09907801869</p>
                         </a>
                         <div className="flex items-center gap-16">
                            <p>شبکه های اجتماعی : </p>
                            <div className="flex items-center gap-5">
-                              <a href="/" className="transition-all duration-150 hover:text-blue-500">
+                              <a
+                                 href="https://T.me/yasii_home"
+                                 target="_blank"
+                                 className="transition-all duration-150 hover:text-blue-500"
+                                 rel="noreferrer"
+                              >
                                  <TelegramIcon />
                               </a>
 
-                              <a href="/" className="transition-all duration-150 hover:text-green-500">
-                                 <WhatsAppIcon />
-                              </a>
-
-                              <a href="/" className="transition-all duration-150 hover:text-purple-500">
+                              <a
+                                 href="https://Www.instagram.com//yasii_home"
+                                 target="_blank"
+                                 className="transition-all duration-150 hover:text-purple-500"
+                                 rel="noreferrer"
+                              >
                                  <InstagramIcon />
                               </a>
                            </div>
