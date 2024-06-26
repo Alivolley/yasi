@@ -18,6 +18,7 @@ import FiberNewIcon from '@mui/icons-material/FiberNew';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 import PercentIcon from '@mui/icons-material/Percent';
+import SearchIcon from '@mui/icons-material/Search';
 
 // Assets
 import logoPurple from '@/assets/images/logoPurple.png';
@@ -41,6 +42,7 @@ function Header() {
    const [showCategoriesMenu, setShowCategoriesMenu] = useState(false);
    const [isUserLogin, setIsUserLogin] = useState();
    const [profileDropDown, setProfileDropDown] = useState(false);
+   const [shouldFocus, setShouldFocus] = useState(false);
    const profileRef = useRef();
    const userInfo = useSelector(state => state?.userInfoReducer);
    const isLogin = useSelector(state => state?.loginStatusReducer);
@@ -211,7 +213,23 @@ function Header() {
                )}
             </div>
 
-            <div className="flex items-center customMd:hidden">
+            <div className="flex items-center gap-2 customMd:hidden">
+               <Fab
+                  sx={{
+                     width: '38px',
+                     height: '38px',
+                     borderRadius: '8px',
+                     color: '#626E94',
+                  }}
+                  color="customPinkLow"
+                  onClick={() => {
+                     setShowMobileMenu(true);
+                     setShouldFocus(true);
+                  }}
+               >
+                  <SearchIcon />
+               </Fab>
+
                {!isUserLogin ? (
                   <Link href="/login">
                      <Fab
@@ -219,7 +237,7 @@ function Header() {
                            width: '38px',
                            height: '38px',
                            borderRadius: '8px',
-                           color: '#866d9f',
+                           color: '#626E94',
                         }}
                         color="customPinkLow"
                      >
@@ -332,7 +350,15 @@ function Header() {
             className={`fixed inset-x-0 bottom-0 top-[155px] bg-[#0000004D] transition-all duration-300
             ${showSearchSection || showCategoriesMenu ? 'visible opacity-100' : 'invisible opacity-0'}`}
          />
-         <MobileMenu open={showMobileMenu} onClose={() => setShowMobileMenu(false)} isUserLogin={isUserLogin} />
+         <MobileMenu
+            open={showMobileMenu}
+            onClose={() => {
+               setShowMobileMenu(false);
+               setShouldFocus(false);
+            }}
+            isUserLogin={isUserLogin}
+            shouldFocus={shouldFocus}
+         />
       </header>
    );
 }

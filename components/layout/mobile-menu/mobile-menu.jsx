@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -47,9 +47,10 @@ import MobileMenuStyle from './mobile-menu.style';
 import useCategories from '@/apis/categories/useCategories';
 import useGetProductsCategory from '@/apis/categories/useGetProductsCategory';
 
-function MobileMenu({ open, onClose, isUserLogin }) {
+function MobileMenu({ open, onClose, isUserLogin, shouldFocus }) {
    const [showLogoutModal, setShowLogoutModal] = useState(false);
    const [expanded, setExpanded] = useState(false);
+   const inputRef = useRef();
 
    const { query, push } = useRouter();
    const userInfo = useSelector(state => state?.userInfoReducer);
@@ -75,6 +76,14 @@ function MobileMenu({ open, onClose, isUserLogin }) {
          setValue('searchInput', '');
       }
    }, [query]);
+
+   useEffect(() => {
+      if (shouldFocus && inputRef?.current) {
+         inputRef?.current?.fucus();
+      }
+   }, [shouldFocus]);
+
+   console.log(inputRef);
 
    const handleAccordionChange = panel => (event, isExpanded) => {
       setExpanded(isExpanded ? panel : false);
@@ -121,7 +130,10 @@ function MobileMenu({ open, onClose, isUserLogin }) {
                                     </IconButton>
                                  </InputAdornment>
                               ),
+                              // ref: inputRef,
                            }}
+                           // ref={inputRef}
+                           inputRef={inputRef}
                         />
                      </FormControl>
                   </form>
