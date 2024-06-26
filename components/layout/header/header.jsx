@@ -42,7 +42,6 @@ function Header() {
    const [showCategoriesMenu, setShowCategoriesMenu] = useState(false);
    const [isUserLogin, setIsUserLogin] = useState();
    const [profileDropDown, setProfileDropDown] = useState(false);
-   const [shouldFocus, setShouldFocus] = useState(false);
    const profileRef = useRef();
    const userInfo = useSelector(state => state?.userInfoReducer);
    const isLogin = useSelector(state => state?.loginStatusReducer);
@@ -222,10 +221,7 @@ function Header() {
                      color: '#626E94',
                   }}
                   color="customPinkLow"
-                  onClick={() => {
-                     setShowMobileMenu(true);
-                     setShouldFocus(true);
-                  }}
+                  onClick={() => setShowMobileMenu(true)}
                >
                   <SearchIcon />
                </Fab>
@@ -350,15 +346,7 @@ function Header() {
             className={`fixed inset-x-0 bottom-0 top-[155px] bg-[#0000004D] transition-all duration-300
             ${showSearchSection || showCategoriesMenu ? 'visible opacity-100' : 'invisible opacity-0'}`}
          />
-         <MobileMenu
-            open={showMobileMenu}
-            onClose={() => {
-               setShowMobileMenu(false);
-               setShouldFocus(false);
-            }}
-            isUserLogin={isUserLogin}
-            shouldFocus={shouldFocus}
-         />
+         <MobileMenu open={showMobileMenu} onClose={() => setShowMobileMenu(false)} isUserLogin={isUserLogin} />
       </header>
    );
 }
