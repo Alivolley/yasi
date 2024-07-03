@@ -125,7 +125,7 @@ function ContactUs() {
                   <form className="mt-10 space-y-6" onSubmit={handleSubmit(formSubmit)}>
                      <div className="flex flex-col justify-between gap-8 customMd:flex-row customMd:items-start">
                         <div className="flex-1 space-y-3">
-                           <p className="text-sm font-bold text-[#713802]">نام</p>
+                           <p className="text-sm font-bold text-[#713802]">نام *</p>
                            <TextField
                               color="customPink"
                               placeholder="نام خود را وارد کنید"
@@ -136,7 +136,7 @@ function ContactUs() {
                            />
                         </div>
                         <div className="flex-1 space-y-3">
-                           <p className="text-sm font-bold text-[#713802]">نام خانوادگی</p>
+                           <p className="text-sm font-bold text-[#713802]">نام خانوادگی *</p>
                            <TextField
                               color="customPink"
                               placeholder="نام خانوادگی خود را وارد کنید"
@@ -149,7 +149,7 @@ function ContactUs() {
                      </div>
                      <div className="flex flex-col justify-between gap-8 customMd:flex-row customMd:items-start">
                         <div className="flex-1 space-y-3">
-                           <p className="text-sm font-bold text-[#713802]">شماره تماس</p>
+                           <p className="text-sm font-bold text-[#713802]">شماره تماس *</p>
 
                            <div className="mt-14">
                               <TextField
@@ -194,7 +194,7 @@ function ContactUs() {
                         </div>
                      </div>
                      <div className="flex-1 space-y-3">
-                        <p className="text-sm font-bold text-[#713802]">متن پیام</p>
+                        <p className="text-sm font-bold text-[#713802]">متن پیام *</p>
                         <TextField
                            color="customPink"
                            placeholder="متن پیام خود را وارد کنید"

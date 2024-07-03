@@ -135,7 +135,7 @@ function AdminSideBar({ isMobile, onClose }) {
                >
                   <PeopleAltOutlinedIcon color={pathname === '/adminPanel/users' ? 'customPink' : 'textColor'} />
                </div>
-               {isSideBarOpen && <p className="text-[15px]">کابران</p>}
+               {isSideBarOpen && <p className="text-[15px]">کاربران</p>}
             </Link>
 
             {(userInfo?.is_super_admin || userInfo?.permissions?.includes(permissions?.VIEW_REPORTS?.LIST)) && (

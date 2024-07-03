@@ -142,7 +142,7 @@ function UserDetailModal({ show, onClose, detail, usersMutate }) {
                            size="large"
                            color="customPink2"
                            loading={changeProfileInfoIsMutating}
-                           className="!h-full !rounded-10 !text-[#B1302E]"
+                           className="!h-full !rounded-10"
                            fullWidth
                            startIcon={<PublishIcon className="rotate-180" />}
                         >
@@ -161,7 +161,7 @@ function UserDetailModal({ show, onClose, detail, usersMutate }) {
                      type="submit"
                      size="large"
                      color="customPink2"
-                     className="!rounded-10 !text-[#B1302E]"
+                     className="!rounded-10"
                      onClick={() => setShowBasketAddressModal(true)}
                      startIcon={<AddLocationAltOutlinedIcon />}
                   >
