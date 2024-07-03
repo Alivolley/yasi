@@ -21,10 +21,9 @@ import {
 import { useSelector } from 'react-redux';
 
 // MUI
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { LoadingButton } from '@mui/lab';
-import { AdapterDateFnsJalali } from '@mui/x-date-pickers/AdapterDateFnsJalali';
+import { AdapterDateFnsJalali } from '@mui/x-date-pickers/AdapterDateFnsJalaliV3';
 import { CircularProgress } from '@mui/material';
 
 // Icons

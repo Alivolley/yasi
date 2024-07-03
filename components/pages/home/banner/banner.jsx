@@ -18,8 +18,8 @@ function Banner() {
             <Grid container>
                <Grid item xs={12} md={6}>
                   <div className="flex size-full flex-col justify-center py-6 customMd:py-12">
-                     <p className="text-xl font-bold text-[#284566] customMd:text-5xl">بـا یاسی هوم</p>
-                     <p className="text-xl font-bold text-[#284566] customMd:mt-5 customMd:text-5xl">
+                     <p className="text-xl font-bold text-black customMd:text-5xl">بـا یاسی هوم</p>
+                     <p className="text-xl font-bold text-black customMd:mt-5 customMd:text-5xl">
                         آشپزخانه ای خاص داشته باش
                      </p>
                      <p className="mt-8 hidden leading-[30px] customMd:block">
