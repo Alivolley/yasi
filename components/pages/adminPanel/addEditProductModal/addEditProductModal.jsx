@@ -37,6 +37,17 @@ import useAddProduct from '@/apis/pAdmin/products/useAddProduct';
 import useGetProductDetail from '@/apis/pAdmin/products/useGetProductDetail';
 import useEditProduct from '@/apis/pAdmin/products/useEditProduct';
 
+const numberTypeSx = {
+   input: {
+      MozAppearance: 'textfield',
+      appearance: 'textfield',
+      '&::-webkit-inner-spin-button': {
+         WebkitAppearance: 'none',
+         appearance: 'none',
+      },
+   },
+};
+
 function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMutate }) {
    const [coverImage, setCoverImage] = useState();
    const [coverImageURL, setCoverImageURL] = useState();
@@ -76,8 +87,11 @@ function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMu
          productName: '',
          price: '',
          categoryId: '',
-         dimensions: '',
+         dimensionsLength: '',
+         dimensionsWidth: '',
+         dimensionsHeight: '',
          description: '',
+         weight: '',
          discountType: 'percent',
          discount: '',
          showProduct: true,
@@ -90,10 +104,16 @@ function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMu
       if (isEdit && productDetail) {
          setValue('productName', productDetail?.title);
          setValue('price', productDetail?.price);
-         setValue('dimensions', productDetail?.dimensions);
          setValue('description', productDetail?.description);
+         setValue('weight', productDetail?.weight);
          setValue('showProduct', productDetail?.public);
          setValue('isBold', productDetail?.is_bold);
+
+         const dimensionsArray = productDetail?.dimensions?.split('*');
+         setValue('dimensionsLength', dimensionsArray?.[0]?.trim() || '');
+         setValue('dimensionsWidth', dimensionsArray?.[1]?.trim() || '');
+         setValue('dimensionsHeight', dimensionsArray?.[2]?.trim() || '');
+
          if (productDetail?.discount_amount > 0) {
             setValue('discountType', 'amount');
             setValue('discount', productDetail?.discount_amount);
@@ -139,10 +159,14 @@ function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMu
          newProduct.append('category', data.categoryId);
          newProduct.append('title', data.productName);
          newProduct.append('description', data.description);
-         newProduct.append('dimensions', data.dimensions);
+         newProduct.append('weight', data.weight);
          newProduct.append('price', data.price);
          newProduct.append('public', data.showProduct);
          newProduct.append('is_bold', data.isBold);
+
+         const dimensionsString = `${data?.dimensionsLength}*${data?.dimensionsWidth}*${data?.dimensionsHeight}`;
+         newProduct.append('dimensions', dimensionsString);
+
          if (productDetail?.cover !== coverImage) {
             newProduct.append('cover', coverImage);
          }
@@ -462,16 +486,7 @@ function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMu
                               <TextField
                                  fullWidth
                                  type="number"
-                                 sx={{
-                                    input: {
-                                       MozAppearance: 'textfield',
-                                       appearance: 'textfield',
-                                       '&::-webkit-inner-spin-button': {
-                                          WebkitAppearance: 'none',
-                                          appearance: 'none',
-                                       },
-                                    },
-                                 }}
+                                 sx={numberTypeSx}
                                  {...register('price', { required: { value: true, message: 'این فیلد اجباری است' } })}
                                  error={!!errors?.price}
                                  helperText={errors?.price?.message}
@@ -485,15 +500,44 @@ function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMu
                      <Grid container spacing={4}>
                         <Grid item xs={12} md={6} lg={4}>
                            <div className="flex flex-1 flex-col gap-1">
-                              <p className="mb-2 text-sm text-textColor">ابعاد</p>
-                              <TextField
-                                 fullWidth
-                                 {...register('dimensions', {
-                                    required: { value: true, message: 'این فیلد اجباری است' },
-                                 })}
-                                 error={!!errors?.dimensions}
-                                 helperText={errors?.dimensions?.message}
-                              />
+                              <p className="mb-2 text-sm text-textColor">ابعاد (cm)</p>
+                              <div className="flex items-start justify-between gap-5">
+                                 <TextField
+                                    label="طول"
+                                    fullWidth
+                                    {...register('dimensionsLength', {
+                                       required: { value: true, message: 'اجباری' },
+                                    })}
+                                    error={!!errors?.dimensionsLength}
+                                    helperText={errors?.dimensionsLength?.message}
+                                    type="number"
+                                    sx={numberTypeSx}
+                                 />
+
+                                 <TextField
+                                    label="عرض"
+                                    fullWidth
+                                    {...register('dimensionsWidth', {
+                                       required: { value: true, message: 'اجباری' },
+                                    })}
+                                    error={!!errors?.dimensionsWidth}
+                                    helperText={errors?.dimensionsWidth?.message}
+                                    type="number"
+                                    sx={numberTypeSx}
+                                 />
+
+                                 <TextField
+                                    label="ارتفاع"
+                                    fullWidth
+                                    {...register('dimensionsHeight', {
+                                       required: { value: true, message: 'اجباری' },
+                                    })}
+                                    error={!!errors?.dimensionsHeight}
+                                    helperText={errors?.dimensionsHeight?.message}
+                                    type="number"
+                                    sx={numberTypeSx}
+                                 />
+                              </div>
                            </div>
                         </Grid>
 
@@ -524,16 +568,7 @@ function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMu
                                     <TextField
                                        fullWidth
                                        type="number"
-                                       sx={{
-                                          input: {
-                                             MozAppearance: 'textfield',
-                                             appearance: 'textfield',
-                                             '&::-webkit-inner-spin-button': {
-                                                WebkitAppearance: 'none',
-                                                appearance: 'none',
-                                             },
-                                          },
-                                       }}
+                                       sx={numberTypeSx}
                                        {...register('discount')}
                                        error={!!errors?.discount}
                                        helperText={errors?.discount?.message}
@@ -545,16 +580,16 @@ function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMu
 
                         <Grid item xs={12} md={6} lg={4}>
                            <div className="flex flex-1 flex-col gap-1">
-                              <p className="mb-2 text-sm text-textColor">توضیحات</p>
+                              <p className="mb-2 text-sm text-textColor">وزن (گرم)</p>
                               <TextField
                                  fullWidth
-                                 multiline
-                                 rows={6}
-                                 {...register('description', {
+                                 {...register('weight', {
                                     required: { value: true, message: 'این فیلد اجباری است' },
                                  })}
-                                 error={!!errors?.description}
-                                 helperText={errors?.description?.message}
+                                 error={!!errors?.weight}
+                                 helperText={errors?.weight?.message}
+                                 type="number"
+                                 sx={numberTypeSx}
                               />
                            </div>
                         </Grid>
@@ -589,6 +624,22 @@ function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMu
                                        onChange={onChange}
                                     />
                                  )}
+                              />
+                           </div>
+                        </Grid>
+
+                        <Grid item xs={12} md={6} lg={4}>
+                           <div className="flex flex-1 flex-col gap-1">
+                              <p className="mb-2 text-sm text-textColor">توضیحات</p>
+                              <TextField
+                                 fullWidth
+                                 multiline
+                                 rows={6}
+                                 {...register('description', {
+                                    required: { value: true, message: 'این فیلد اجباری است' },
+                                 })}
+                                 error={!!errors?.description}
+                                 helperText={errors?.description?.message}
                               />
                            </div>
                         </Grid>

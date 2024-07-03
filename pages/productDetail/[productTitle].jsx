@@ -57,6 +57,7 @@ function ProductDetail({ error, productDetail, categoryItems }) {
    const [chosenPicture, setChosenPicture] = useState(productDetail?.images?.[0] || '');
 
    const isLogin = useSelector(state => state?.loginStatusReducer);
+   const dimensionsArray = productDetail?.dimensions?.split('*');
 
    const { trigger: toggleFavoriteTrigger, isMutating: toggleFavoriteIsMutating } = useToggleFavorites();
    const { data: favoritesData } = useGetFavorites(isLogin);
@@ -360,11 +361,19 @@ function ProductDetail({ error, productDetail, categoryItems }) {
                         <div className="mt-8">
                            <div className="flex items-center justify-between rounded-10 bg-[#F5F8FC] px-3 py-5 text-sm">
                               <p className="text-textColor">وزن</p>
-                              <p>300 گرم</p>
+                              <p>{productDetail?.weight} گرم</p>
                            </div>
                            <div className="flex items-center justify-between rounded-10 px-3 py-5 text-sm">
-                              <p className="text-textColor">ابعاد</p>
-                              <p>{productDetail?.dimensions}</p>
+                              <p className="text-textColor">طول</p>
+                              <p>{dimensionsArray?.[0]?.trim() || ''} سانتی متر</p>
+                           </div>
+                           <div className="flex items-center justify-between rounded-10 bg-[#F5F8FC] px-3 py-5 text-sm">
+                              <p className="text-textColor">عرض</p>
+                              <p>{dimensionsArray?.[1]?.trim() || ''} سانتی متر</p>
+                           </div>
+                           <div className="flex items-center justify-between rounded-10 px-3 py-5 text-sm">
+                              <p className="text-textColor">ارتفاع</p>
+                              <p>{dimensionsArray?.[2]?.trim() || ''} سانتی متر</p>
                            </div>
                         </div>
                      </div>

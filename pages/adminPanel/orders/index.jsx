@@ -19,7 +19,7 @@ import ReplayIcon from '@mui/icons-material/Replay';
 import MoneyOffCsredOutlinedIcon from '@mui/icons-material/MoneyOffCsredOutlined';
 import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
 import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
-import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
+// import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
 
 // Assets
 import searchIcon from '@/assets/icons/search-icon.svg';
@@ -297,7 +297,7 @@ function Orders() {
                   <p className="font-bold">لیست سفارشات</p>
                </div>
 
-               <Button
+               {/* <Button
                   startIcon={<AddCircleOutlinedIcon />}
                   color="customPinkHigh"
                   onClick={() => setShowEditShippingCostModal(true)}
@@ -306,7 +306,7 @@ function Orders() {
                   }
                >
                   تغییر هزینه ارسال
-               </Button>
+               </Button> */}
             </div>
 
             <div className="mb-8 mt-5 flex flex-wrap items-center gap-4 customSm:gap-8">
