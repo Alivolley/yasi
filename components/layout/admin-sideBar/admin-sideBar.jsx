@@ -17,6 +17,7 @@ import RecentActorsOutlinedIcon from '@mui/icons-material/RecentActorsOutlined';
 import PercentIcon from '@mui/icons-material/Percent';
 import ConfirmationNumberOutlinedIcon from '@mui/icons-material/ConfirmationNumberOutlined';
 import QuizOutlinedIcon from '@mui/icons-material/QuizOutlined';
+import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
@@ -170,6 +171,26 @@ function AdminSideBar({ isMobile, onClose }) {
                      <PercentIcon color={pathname === '/adminPanel/discounts' ? 'customPink' : 'textColor'} />
                   </div>
                   {isSideBarOpen && <p className="text-[15px]">تخفیفات</p>}
+               </Link>
+            )}
+
+            {(userInfo?.is_super_admin || userInfo?.permissions?.includes(permissions?.SHIPPING_COST?.PATCH)) && (
+               <Link
+                  href="/adminPanel/shipping-cost"
+                  className={`flex w-full items-center gap-4 rounded-2xl p-3 transition-all duration-200 hover:bg-[#c2acd8] ${
+                     pathname === '/adminPanel/shipping-cost' ? 'bg-customPink2 text-white' : ''
+                  }`}
+               >
+                  <div
+                     className={`flex size-11 items-center justify-center rounded-10 ${
+                        pathname === '/adminPanel/shipping-cost' ? 'bg-customPinkLow' : 'bg-[#F5F8FC]'
+                     }`}
+                  >
+                     <LocalShippingOutlinedIcon
+                        color={pathname === '/adminPanel/shipping-cost' ? 'customPink' : 'textColor'}
+                     />
+                  </div>
+                  {isSideBarOpen && <p className="text-[15px]">هزینه ارسال</p>}
                </Link>
             )}
 

@@ -136,7 +136,7 @@ function Faqs() {
          <ConfirmModal
             open={showDeleteModal}
             closeModal={closeDeleteQuestionModal}
-            title="آیا از حذف این کد تخفیف مطمئن هستید ؟"
+            title="آیا از حذف این سوال مطمئن هستید ؟"
             confirmHandler={deleteQuestionHandler}
             confirmLoading={deleteQuestionIsMutating}
          />

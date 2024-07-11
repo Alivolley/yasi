@@ -11,7 +11,7 @@ import { LoadingButton } from '@mui/lab';
 // Icons
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import StarIcon from '@mui/icons-material/Star';
+// import StarIcon from '@mui/icons-material/Star';
 
 // Assets
 import ProductCardStyle from './product-card.style';
@@ -71,9 +71,9 @@ function ProductCard({ detail }) {
                </p>
             ) : null}
 
-            <p className="absolute bottom-1 end-1 flex items-center rounded-lg bg-white px-1.5 py-0.5 text-xs font-bold customMd:bottom-2 customMd:end-2">
+            {/* <p className="absolute bottom-1 end-1 flex items-center rounded-lg bg-white px-1.5 py-0.5 text-xs font-bold customMd:bottom-2 customMd:end-2">
                {detail?.average_score} <StarIcon fontSize="small" color="customGold" />
-            </p>
+            </p> */}
          </div>
          <Link href={`/productDetail/${detail?.title}`}>
             <div className="flex items-center justify-between gap-1">
