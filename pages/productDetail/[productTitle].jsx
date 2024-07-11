@@ -53,8 +53,13 @@ import useRemoveFromBasket from '@/apis/basket/useRemoveFromBasket';
 import useGetBasket from '@/apis/basket/useGetBasket';
 
 function ProductDetail({ error, productDetail, categoryItems }) {
-   const [chosenColor, setChosenColor] = useState(productDetail?.colors?.find(item => item.stock > 0) || '');
-   const [chosenPicture, setChosenPicture] = useState(productDetail?.images?.[0] || '');
+   const [chosenColor, setChosenColor] = useState('');
+   const [chosenPicture, setChosenPicture] = useState('');
+
+   useEffect(() => {
+      setChosenColor(productDetail?.colors?.find(item => item.stock > 0) || '');
+      setChosenPicture(productDetail?.images?.[0] || '');
+   }, [productDetail]);
 
    const isLogin = useSelector(state => state?.loginStatusReducer);
    const dimensionsArray = productDetail?.dimensions?.split('*');
