@@ -28,7 +28,7 @@ import permissions from '@/utils/permission';
 
 function ShippingCost() {
    const [pageStatus, setPageStatus] = useState(1);
-   const [countValue, setCountValue] = useState(6);
+   const [countValue, setCountValue] = useState(14);
    const [showAddEditCostModal, setShowAddEditCostModal] = useState(false);
    const [chosenCostForDelete, setChosenCostForDelete] = useState();
    const [showDeleteModal, setShowDeleteModal] = useState(false);
