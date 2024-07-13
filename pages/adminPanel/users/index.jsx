@@ -146,7 +146,9 @@ function Users() {
                   <Image src={data.image || userProfilePic} alt="product" className="rounded-full object-cover" fill />
                </div>
 
-               <p>{data.name}</p>
+               <p className="max-w-[200px] overflow-hidden text-ellipsis" title={data?.name}>
+                  {data.name}
+               </p>
             </div>
          ),
       },

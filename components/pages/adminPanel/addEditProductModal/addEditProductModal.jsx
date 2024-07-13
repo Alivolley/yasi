@@ -103,7 +103,7 @@ function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMu
    useEffect(() => {
       if (isEdit && productDetail) {
          setValue('productName', productDetail?.title);
-         setValue('price', productDetail?.price);
+         setValue('price', productDetail?.before_discount_price);
          setValue('description', productDetail?.description);
          setValue('weight', productDetail?.weight);
          setValue('showProduct', productDetail?.public);
@@ -116,10 +116,10 @@ function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMu
 
          if (productDetail?.discount_amount > 0) {
             setValue('discountType', 'amount');
-            setValue('discount', productDetail?.discount_amount);
+            setValue('discount', productDetail?.discount_amount || '');
          } else if (productDetail?.discount_percent > 0) {
             setValue('discountType', 'percent');
-            setValue('discount', productDetail?.discount_percent);
+            setValue('discount', productDetail?.discount_percent || '');
          }
          const foundedCategory = categoryList?.find(item => item?.title === productDetail?.category);
          setValue('categoryId', foundedCategory?.id);
@@ -141,9 +141,7 @@ function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMu
       setCoverImageURL();
       setColorsAndCount([]);
       setDeletedIds([]);
-      if (!isEdit) {
-         reset();
-      }
+      reset();
    };
    const formSubmit = data => {
       if (!coverImage) {

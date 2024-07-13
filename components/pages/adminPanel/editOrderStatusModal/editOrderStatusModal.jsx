@@ -16,7 +16,7 @@ import MoneyOffCsredOutlinedIcon from '@mui/icons-material/MoneyOffCsredOutlined
 // Apis
 import useChangeStatus from '@/apis/pAdmin/orders/useChangeStatus';
 
-function EditOrderStatusModal({ show, onClose, detail, cardMutate }) {
+function EditOrderStatusModal({ show, onClose, detail, cardsMutate }) {
    const { isMutating: changeStatusIsMutating, trigger: changeStatusTrigger } = useChangeStatus(detail?.order_code);
 
    const {
@@ -46,7 +46,7 @@ function EditOrderStatusModal({ show, onClose, detail, cardMutate }) {
       };
       changeStatusTrigger(newData, {
          onSuccess: () => {
-            cardMutate();
+            cardsMutate();
             closeModalHandler();
             toast.success('وضعیت با موفقیت تغییر یافت');
          },
@@ -143,9 +143,7 @@ function EditOrderStatusModal({ show, onClose, detail, cardMutate }) {
                      fullWidth
                      multiline
                      rows={6}
-                     {...register('changeStatusDescription', {
-                        required: { value: true, message: 'این فیلد اجباری است' },
-                     })}
+                     {...register('changeStatusDescription')}
                      error={!!errors?.changeStatusDescription}
                      helperText={errors?.changeStatusDescription?.message}
                   />

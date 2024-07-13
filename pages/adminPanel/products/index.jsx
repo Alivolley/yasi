@@ -25,9 +25,7 @@ import QrCodeOutlinedIcon from '@mui/icons-material/QrCodeOutlined';
 import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
-import PercentIcon from '@mui/icons-material/Percent';
 import ListAltOutlinedIcon from '@mui/icons-material/ListAltOutlined';
 
 // Assets
@@ -126,7 +124,7 @@ function Products() {
    };
 
    const columns = [
-      { id: 1, title: 'رددیف', key: 'index' },
+      { id: 1, title: 'ردیف', key: 'index' },
       {
          id: 2,
          title: 'نام',
@@ -136,7 +134,9 @@ function Products() {
                <div className="relative size-9 rounded-full bg-[#f5f8fc]">
                   <Image src={data.cover || noImage} alt="product" className="rounded-full object-cover" fill />
                </div>
-               <p>{data.title}</p>
+               <p className="max-w-[200px] overflow-hidden text-ellipsis" title={data?.title}>
+                  {data.title}
+               </p>
             </div>
          ),
       },
@@ -186,7 +186,16 @@ function Products() {
          key: 'stock',
          renderCell: data => <p>{data?.colors?.reduce((sum, item) => sum + item.stock, 0) || 0} عدد</p>,
       },
-      { id: 5, title: 'دسته بندی', key: 'category' },
+      {
+         id: 5,
+         title: 'دسته بندی',
+         key: 'category',
+         renderCell: data => (
+            <p className="max-w-[200px] overflow-hidden text-ellipsis" title={data?.category}>
+               {data.category}
+            </p>
+         ),
+      },
       {
          id: 6,
          title: 'قیمت',
@@ -195,26 +204,33 @@ function Products() {
       },
       {
          id: 7,
+         title: 'قیمت بعد از تخفیف',
+         key: 'price',
+         renderCell: data => (
+            <div className={`flex items-center gap-1 ${data?.percentage > 0 ? 'justify-between' : 'justify-center'}`}>
+               <p>
+                  {data?.price !== data?.before_discount_price ? `${Number(data.price).toLocaleString()} تومان` : '---'}
+               </p>
+
+               {data?.percentage > 0 && (
+                  <p
+                     className={`flex w-[35px] items-center justify-center text-xs text-black ${
+                        data?.percentage ? 'rounded-full bg-green-500 p-0.5 text-white' : ''
+                     }`}
+                     title={data?.percentage ? 'تخفیف دارد' : 'تخفیف ندارد'}
+                  >
+                     {data?.percentage < 10 ? `0${data?.percentage}` : data?.percentage} ٪
+                  </p>
+               )}
+            </div>
+         ),
+      },
+      {
+         id: 8,
          title: 'عملیات',
          key: 'actions',
          renderCell: data => (
             <div className="flex items-center gap-2">
-               <Tooltip
-                  title={
-                     <p
-                        className={`flex items-center justify-center ${
-                           data?.percentage ? 'rounded-full bg-green-500 p-0.5 text-sm' : 'text-base text-black'
-                        }`}
-                     >
-                        <PercentIcon fontSize="inherit" />
-                     </p>
-                  }
-               >
-                  <IconButton size="small">
-                     <MoreVertOutlinedIcon fontSize="small" />
-                  </IconButton>
-               </Tooltip>
-
                <IconButton
                   size="small"
                   onClick={() => {
