@@ -4,7 +4,7 @@ import axiosInstance from '@/configs/axiosInstance';
 const useGetSearchProducts = (pageStatus, countValue, searchValue) =>
    useSWR(
       searchValue
-         ? `store/products/list_create/?page=${pageStatus}&page_size=${countValue}&search=${searchValue}`
+         ? `store/products/list_create/?page=${pageStatus}&page_size=${countValue}&search=${searchValue}&is_admin_panel=true`
          : null,
       url => axiosInstance(url).then(res => res.data)
    );

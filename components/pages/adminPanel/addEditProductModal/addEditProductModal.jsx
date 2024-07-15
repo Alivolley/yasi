@@ -120,6 +120,9 @@ function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMu
          } else if (productDetail?.discount_percent > 0) {
             setValue('discountType', 'percent');
             setValue('discount', productDetail?.discount_percent || '');
+         } else {
+            setValue('discountType', 'percent');
+            setValue('discount', productDetail?.discount_percent || '');
          }
          const foundedCategory = categoryList?.find(item => item?.title === productDetail?.category);
          setValue('categoryId', foundedCategory?.id);
