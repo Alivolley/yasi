@@ -12,7 +12,8 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 
 // Assets
 import Link from 'next/link';
-import logoPurple from '@/assets/images/logoPurple.png';
+import logoPic from '@/assets/images/logo.png';
+import enamadIcon from '@/assets/images/enamadIcon.png';
 
 function Footer() {
    return (
@@ -20,29 +21,43 @@ function Footer() {
          <div className="border-y border-solid border-[#ffffffa2] pb-6 pt-8 customMd:pt-12">
             <Grid container spacing={{ xs: 3, md: 0 }}>
                <Grid item xs={12} md={6}>
-                  <div className="flex items-center gap-2 customMd:gap-3">
-                     <div className="w-[100px] shrink-0">
-                        <Image src={logoPurple} alt="logo" className="size-full" />
+                  <Link href="/" className="flex w-fit items-center gap-2 customMd:gap-3">
+                     <div className="flex size-[100px] shrink-0 items-center justify-center rounded-full bg-white p-2">
+                        <div className="w-full">
+                           <Image src={logoPic} alt="logo" className="size-full" />
+                        </div>
                      </div>
                      <div className="space-y-0.5">
                         <p className="text-2xl font-bold">یاسی هوم</p>
                         <p className="text-sm">فروشگاه آنلاین لوازم آشپزخانه</p>
                      </div>
-                  </div>
+                  </Link>
 
                   <p className="mt-8 max-w-[430px] text-sm leading-[35px] text-[#DBDEEA]">
-                     لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها
-                     و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
+                     فروشگاه اینترنتی یاسی هوم کلی لوازم و اکسسوری و دکوری آشپزخونه داره که میتونی هرجای ایران که هستی
+                     سفارش بدی و درب منزل تحویل بگیری ، پس دیگه نگران خرید جهیزیه نباش
                   </p>
+
+                  <div className="w-24 max-customMd:mt-3">
+                     <Image src={enamadIcon} alt="enamad" className="size-full" />
+                  </div>
                </Grid>
                <Grid item xs={12} sm={6} md={2.5}>
                   <div className="flex flex-col gap-7">
                      <p className="text-xl font-bold">دسترسی آسان</p>
                      <div className="flex flex-col gap-5 text-sm text-[#CCD5E3]">
-                        <Link href="/categoryDetail">دسته بندی ها</Link>
-                        <Link href="/faqs">سوالی دارید ؟</Link>
-                        <Link href="/aboutUs">درباره ما</Link>
-                        <Link href="/contactUs">ارتباط با ما</Link>
+                        <Link href="/categoryDetail" className="w-fit">
+                           دسته بندی ها
+                        </Link>
+                        <Link href="/faqs" className="w-fit">
+                           سوالی دارید ؟
+                        </Link>
+                        <Link href="/aboutUs" className="w-fit">
+                           درباره ما
+                        </Link>
+                        <Link href="/contactUs" className="w-fit">
+                           ارتباط با ما
+                        </Link>
                      </div>
                   </div>
                </Grid>
@@ -50,17 +65,18 @@ function Footer() {
                   <div className="flex flex-col gap-7">
                      <p className="text-xl font-bold">ارتباط با ما</p>
                      <div className="flex flex-col gap-8 text-sm text-[#CCD5E3]">
+                        <p>ساعت پاسخگویی در روزهای غیر تعطیل 8 صبح تا 6 عصر</p>
                         <div>
                            <p className="mb-3 flex items-center gap-2.5">
                               <LocationOnIcon fontSize="small" /> آدرس
                            </p>
-                           <p>مشهد خیابان رضا کوچه سادات</p>
+                           <p>خراسان شمالی شیروان</p>
                         </div>
-                        <a href="tel:09907801869">
+                        <a href="tel:09365584271" className="w-fit">
                            <p className="mb-3 flex items-center gap-2.5">
                               <PhoneEnabledIcon fontSize="small" /> شماره تلفن
                            </p>
-                           <p>09907801869</p>
+                           <p>09365584271</p>
                         </a>
                         <div className="flex items-center gap-16">
                            <p>شبکه های اجتماعی : </p>

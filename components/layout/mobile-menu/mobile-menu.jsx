@@ -36,7 +36,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import categoriesIcon from '@/assets/icons/menu-categories-icon.svg';
 
 // Assets
-import logoPurple from '@/assets/images/logoPurple.png';
+import logoPic from '@/assets/images/logo.png';
 import searchIcon from '@/assets/icons/search-icon.svg';
 
 // Components
@@ -85,8 +85,8 @@ function MobileMenu({ open, onClose, isUserLogin }) {
          <MobileMenuStyle className="w-[300px]">
             <div className="flex items-start justify-between">
                <Link href="/" className="flex items-center gap-2 p-5 customMd:gap-3">
-                  <div className="w-[40px] shrink-0 customMd:h-16 customMd:w-[73px]">
-                     <Image src={logoPurple} alt="logo" className="size-full" />
+                  <div className="w-[40px] shrink-0">
+                     <Image src={logoPic} alt="logo" className="size-full" />
                   </div>
                   <div className="space-y-0.5">
                      <p className="text-sm font-bold customMd:text-xl">یاسی هوم</p>

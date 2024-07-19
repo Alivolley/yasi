@@ -10,7 +10,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 // Assets
-import bestSellersPic from '@/assets/images/bestSellersTest.png';
+import bestSellersPic from '@/assets/images/bestSellersTest.jpg';
 
 // Components
 import ProductCard from '@/components/templates/product-card/product-card';
@@ -34,7 +34,7 @@ function BestSellers({ detail }) {
                   پرفروش ترین محصولات
                </p>
                <div className="mt-7 customMd:mb-3">
-                  <Image src={bestSellersPic} alt="best sellers" className="size-full" />
+                  <Image src={bestSellersPic} alt="best sellers" className="size-full rounded-10" />
                </div>
 
                <Link href="/categoryDetail?ordering=sales" className="mt-8 hidden customMd:block">
@@ -61,7 +61,7 @@ function BestSellers({ detail }) {
                   sx={{
                      backgroundColor: '#fff',
                      boxShadow: '2px 2px 14px 0px #0000000D',
-                     ':hover': { backgroundColor: '#F5F8FC' },
+                     ':hover': { backgroundColor: '#dccfe9' },
                   }}
                   onClick={scrollToStart}
                >
@@ -73,7 +73,7 @@ function BestSellers({ detail }) {
                   sx={{
                      backgroundColor: '#fff',
                      boxShadow: '2px 2px 14px 0px #0000000D',
-                     ':hover': { backgroundColor: '#F5F8FC' },
+                     ':hover': { backgroundColor: '#dccfe9' },
                   }}
                   onClick={scrollToEnd}
                >

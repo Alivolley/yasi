@@ -75,13 +75,13 @@ function ContactUs() {
                   </p>
 
                   <div className="mt-10 space-y-5">
-                     <a href="tel:02152687469" className="flex items-center gap-4">
+                     <a href="tel:09365584271" className="flex w-fit items-center gap-4">
                         <p>
                            <PhoneOutlinedIcon color="customPinkHigh" fontSize="small" />
                         </p>
                         <div className="space-y-2">
                            <p>شماره تماس</p>
-                           <p className="text-sm text-textColor">09907801869</p>
+                           <p className="text-sm text-textColor">09365584271</p>
                         </div>
                      </a>
                      <div className="flex items-center gap-4">
@@ -90,7 +90,7 @@ function ContactUs() {
                         </p>
                         <div className="space-y-2">
                            <p>آدرس</p>
-                           <address className="text-sm text-textColor">مشهد خیابان رضا کوچه عقاقیا</address>
+                           <address className="text-sm text-textColor">خراسان شمالی شیروان</address>
                         </div>
                      </div>
 

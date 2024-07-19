@@ -18,7 +18,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 // Assets
 import { toast } from 'react-toastify';
 import LoginStyle from './login.style';
-import logoPurple from '@/assets/images/logoPurple.png';
+import logoPic from '@/assets/images/logo.png';
 
 // Components
 import CountdownLogin from '@/components/templates/countdown-Login/countdown-Login';
@@ -96,8 +96,8 @@ function Login() {
          </Head>
          <div className="h-full max-w-[486px] rounded-2xl bg-white p-7 2xl:max-w-[550px]" id="container">
             <Link href="/" className="flex w-fit items-center gap-2 customMd:gap-3">
-               <div className="w-[73px] shrink-0 customMd:h-16">
-                  <Image src={logoPurple} alt="logo" className="size-full" />
+               <div className="w-[73px] shrink-0">
+                  <Image src={logoPic} alt="logo" className="size-full" />
                </div>
                <div className="space-y-0.5">
                   <p className="text-xl font-bold">یاسی هوم</p>

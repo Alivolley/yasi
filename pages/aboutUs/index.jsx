@@ -18,6 +18,8 @@ import axiosInstance from '@/configs/axiosInstance';
 import contactUsPic1 from '@/assets/images/contactUsPic1.png';
 import contactUsPic2 from '@/assets/images/contactUsPic2.png';
 import bagIcon from '@/assets/icons/introduce-bag.svg';
+
+// Components
 import CategoryCard from '@/components/templates/category-card/category-card';
 
 function AboutUs({ categoryList, error }) {
@@ -36,14 +38,13 @@ function AboutUs({ categoryList, error }) {
             <Grid container spacing={4}>
                <Grid item xs={12} md={7} order={{ xs: 2, md: 1 }}>
                   <div className="flex h-full flex-col justify-center">
-                     <p className="text-xl font-bold text-[#000B2C] customMd:text-4xl">
-                        بـا یاسی هوم آشپزخانه ای خاص داشته باش
-                     </p>
+                     <p className="text-xl font-bold text-[#000B2C] customMd:text-4xl">خونه با یاسی خونه میشه</p>
                      <p className="my-8 text-sm leading-[30px] customMd:text-lg customMd:leading-[40px]">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی لورم ایپسوم
-                        متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون
-                        بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
+                        فروشگاه اینترنتی یاسی هوم با ارائه انواع لوازم آشپزخانه ، اکسسوری و دکوری آشپزخانه با استقبال بی
+                        نظیز شما عزیزان در مدت زمان کوتاه ، توانست رضایت و اعتماد شما عزیزان را جلب کند. با توجه به حجم
+                        بالای سفارشات و استقبال بی نظیز شما، در جهت بهبود بخشیدن در حوزه فروش آنلاین، سایت فروشگاه یاسی
+                        هوم را راه اندازی کردیم. امیدواریم این امر باعث تسهیل در خرید و انتخاب کالا و ثبت سفارش شما
+                        عزیزان شود
                      </p>
                      <div className="flex flex-col-reverse gap-5 customMd:flex-row customMd:items-center customMd:gap-8">
                         <Link href="/categoryDetail">
@@ -88,7 +89,8 @@ function AboutUs({ categoryList, error }) {
                      <Image
                         src={contactUsPic1}
                         alt="introduce"
-                        className="h-[250px] w-full object-contain customMd:h-full"
+                        className="h-[250px] w-full object-contain customMd:h-[500px]"
+                        unoptimized
                      />
                   </div>
                </Grid>
@@ -99,7 +101,7 @@ function AboutUs({ categoryList, error }) {
             <div className="space-y-5 text-center">
                <p className="text-2xl font-bold">محصولات فروشگاه یاسی</p>
                <p className="text-base leading-[30px] text-textColor">
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک{' '}
+                  در قسمت زیر میتوانید چندین مورد از دسته بندی های ما را ببینید
                </p>
             </div>
             <div className="mt-10 flex items-stretch gap-5 overflow-auto">
@@ -114,22 +116,19 @@ function AboutUs({ categoryList, error }) {
                      <Image
                         src={contactUsPic2}
                         alt="introduce"
-                        className="h-[250px] w-full object-contain customMd:h-full"
+                        className="h-[250px] w-full object-contain customMd:h-[500px]"
+                        unoptimized
                      />
                   </div>
                </Grid>
                <Grid item xs={12} md={7}>
                   <div className="mt-7 flex h-full flex-col justify-center customMd:mt-0">
                      <p className="text-xl font-bold text-[#000B2C] customMd:text-4xl">
-                        بـا یاسی هوم آشپزخانه ای خاص داشته باش
+                        با یاسی هوم خریدی راحت داشته باشید
                      </p>
                      <p className="my-8 text-sm leading-[30px] customMd:text-lg customMd:leading-[40px]">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی لورم ایپسوم
-                        متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون
-                        بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی لورم ایپسوم متن ساختگی با
-                        تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و
-                        مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
+                        چون یاسی هوم ضمانت سلامت کالا داره، اگه محصول دستتون رسید و آسیب دیده بود، از محصول شکسته فیلم
+                        بگیرید و قبل از ۲۴ ساعت فیلم رو برای ما بفرستید یا با پشتیبانی تماس بگیرید
                      </p>
                   </div>
                </Grid>

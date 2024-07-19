@@ -21,7 +21,7 @@ import PercentIcon from '@mui/icons-material/Percent';
 import SearchIcon from '@mui/icons-material/Search';
 
 // Assets
-import logoPurple from '@/assets/images/logoPurple.png';
+import logoPic from '@/assets/images/logo.png';
 import searchIcon from '@/assets/icons/search-icon.svg';
 import categoriesIcon from '@/assets/icons/menu-categories-icon.svg';
 import callIcon from '@/assets/icons/call-icon.svg';
@@ -98,8 +98,8 @@ function Header() {
                   <MenuOutlinedIcon />
                </IconButton>
                <Link href="/" className="flex items-center gap-2 customMd:gap-3">
-                  <div className="w-[40px] shrink-0 customMd:h-16 customMd:w-[73px]">
-                     <Image src={logoPurple} alt="logo" className="size-full" />
+                  <div className="w-[40px] shrink-0 customMd:w-[73px]">
+                     <Image src={logoPic} alt="logo" className="size-full" />
                   </div>
                   <div className="space-y-0.5">
                      <p className="text-sm font-bold customMd:text-xl">یاسی هوم</p>
@@ -336,8 +336,8 @@ function Header() {
                <Link href="/contactUs" className=" hover:text-[#977ab3]">
                   ارتباط با ما
                </Link>
-               <a href="tel:09907801869" className="flex items-center gap-1 hover:text-[#977ab3]">
-                  <p>09907801869</p>
+               <a href="tel:09365584271" className="flex items-center gap-1 hover:text-[#977ab3]">
+                  <p>09365584271</p>
                   <Image src={callIcon} alt="phone number" />
                </a>
             </div>
