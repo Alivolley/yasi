@@ -15,6 +15,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import SettingsCellOutlinedIcon from '@mui/icons-material/SettingsCellOutlined';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import ForwardToInboxIcon from '@mui/icons-material/ForwardToInbox';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 // Assets
 import contactUsPic from '@/assets/images/contactUs-vector.png';
@@ -98,14 +99,33 @@ function ContactUs() {
                         <p>
                            <SettingsCellOutlinedIcon color="customPinkHigh" fontSize="small" />
                         </p>
-                        <div className="space-y-2">
+                        <div className="space-y-3">
                            <p>شبکه های اجتماعی</p>
                            <div className="flex items-center gap-5 text-textColor">
-                              <a href="https://T.me/yasii_home" target="_blank" rel="noreferrer">
+                              <a
+                                 href="https://zil.ink/yasii_home"
+                                 target="_blank"
+                                 rel="noreferrer"
+                                 className="transition-all duration-150 hover:text-green-500"
+                              >
+                                 <WhatsAppIcon fontSize="small" />
+                              </a>
+
+                              <a
+                                 href="https://T.me/yasii_home"
+                                 target="_blank"
+                                 rel="noreferrer"
+                                 className="transition-all duration-150 hover:text-blue-500"
+                              >
                                  <TelegramIcon fontSize="small" />
                               </a>
 
-                              <a href="https://Www.instagram.com//yasii_home" target="_blank" rel="noreferrer">
+                              <a
+                                 href="https://Www.instagram.com//yasii_home"
+                                 target="_blank"
+                                 rel="noreferrer"
+                                 className="transition-all duration-150 hover:text-purple-500"
+                              >
                                  <InstagramIcon fontSize="small" />
                               </a>
                            </div>

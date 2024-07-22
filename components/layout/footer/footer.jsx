@@ -9,6 +9,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 // Assets
 import Link from 'next/link';
@@ -78,9 +79,18 @@ function Footer() {
                            </p>
                            <p>09365584271</p>
                         </a>
-                        <div className="flex items-center gap-16">
+                        <div className="flex items-center gap-5">
                            <p>شبکه های اجتماعی : </p>
                            <div className="flex items-center gap-5">
+                              <a
+                                 href="https://zil.ink/yasii_home"
+                                 target="_blank"
+                                 className="transition-all duration-150 hover:text-green-500"
+                                 rel="noreferrer"
+                              >
+                                 <WhatsAppIcon />
+                              </a>
+
                               <a
                                  href="https://T.me/yasii_home"
                                  target="_blank"
