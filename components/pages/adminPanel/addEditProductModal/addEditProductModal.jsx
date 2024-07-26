@@ -92,6 +92,7 @@ function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMu
          dimensionsHeight: '',
          description: '',
          weight: '',
+         limitation: 100,
          discountType: 'percent',
          discount: '',
          showProduct: true,
@@ -106,6 +107,7 @@ function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMu
          setValue('price', productDetail?.before_discount_price);
          setValue('description', productDetail?.description);
          setValue('weight', productDetail?.weight);
+         setValue('limitation', productDetail?.limitation);
          setValue('showProduct', productDetail?.public);
          setValue('isBold', productDetail?.is_bold);
 
@@ -161,6 +163,7 @@ function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMu
          newProduct.append('title', data.productName);
          newProduct.append('description', data.description);
          newProduct.append('weight', data.weight);
+         newProduct.append('limitation', data.limitation);
          newProduct.append('price', data.price);
          newProduct.append('public', data.showProduct);
          newProduct.append('is_bold', data.isBold);
@@ -641,6 +644,22 @@ function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMu
                                  })}
                                  error={!!errors?.description}
                                  helperText={errors?.description?.message}
+                              />
+                           </div>
+                        </Grid>
+
+                        <Grid item xs={12} md={6} lg={4}>
+                           <div className="flex flex-1 flex-col gap-1">
+                              <p className="mb-2 text-sm text-textColor">محدودیت</p>
+                              <TextField
+                                 fullWidth
+                                 {...register('limitation', {
+                                    required: { value: true, message: 'این فیلد اجباری است' },
+                                 })}
+                                 error={!!errors?.limitation}
+                                 helperText={errors?.limitation?.message}
+                                 type="number"
+                                 sx={numberTypeSx}
                               />
                            </div>
                         </Grid>

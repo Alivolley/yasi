@@ -101,21 +101,21 @@ function OrderDetailModal({ show, onClose, detail }) {
 
                <div className="space-y-4 rounded-sm bg-[#F5F8FC] p-4 text-sm">
                   <div className="flex items-center justify-between gap-1">
-                     <p className="text-textColor">کد تخفیف :</p>
-                     <p>{detail?.percentage_discount_code || 'ندارد'}</p>
+                     <p className="text-textColor">میزان تخفیف :</p>
+                     <p>{detail?.percentage_discount_code ? `${detail?.percentage_discount_code}٪` : 'ندارد'}</p>
                   </div>
 
-                  <div className="flex items-center justify-between gap-1">
+                  {/* <div className="flex items-center justify-between gap-1">
                      <p className="text-textColor">قیمت بدون تخفیف :</p>
                      <p>
-                        {isNaN(detail?.shipping_cost)
+                        {isNaN(detail?.before_discount_price)
                            ? detail?.before_discount_price
                            : (
                                 Number(detail?.before_discount_price) - Number(detail?.shipping_cost)
                              ).toLocaleString()}{' '}
                         تومان
                      </p>
-                  </div>
+                  </div> */}
                   <div className="flex items-center justify-between gap-1">
                      <p className="text-textColor">هزینه ارسال :</p>
                      <p>
