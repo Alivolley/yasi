@@ -301,8 +301,8 @@ function CategoryDetail({ error, productsList, mostExpensivePrice, categoryList 
                      >
                         <Tab label="همه" value="" className="!normal-case" />
                         <Tab label="جدیدترین" value="created" className="!normal-case" />
-                        <Tab label="ارزان ترین" value="rial_price" className="!normal-case" />
-                        <Tab label="گران ترین" value="-rial_price" className="!normal-case" />
+                        <Tab label="ارزان ترین" value="price" className="!normal-case" />
+                        <Tab label="گران ترین" value="-price" className="!normal-case" />
                         <Tab label="پرفروش ترین" value="sales" className="!normal-case" />
                      </Tabs>
                   </div>
@@ -326,9 +326,9 @@ function CategoryDetail({ error, productsList, mostExpensivePrice, categoryList 
                   >
                      {sortingValue === 'created'
                         ? 'جدیدترین'
-                        : sortingValue === `rial_price`
+                        : sortingValue === `price`
                           ? 'ارزان ترین'
-                          : sortingValue === `-rial_price`
+                          : sortingValue === `-price`
                             ? 'گران ترین'
                             : sortingValue === 'sales'
                               ? 'پرفروش ترین'

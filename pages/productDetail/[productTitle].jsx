@@ -82,6 +82,7 @@ function ProductDetail({ error, productDetail, categoryItems }) {
    const isLiked = favoritesData?.find(item => item?.id === productDetail?.id);
    const isInCart = basketData?.orders?.find(item => item?.product_color_id === chosenColor?.id);
    const chosenColorStock = productDetail?.colors?.find(item => item?.id === chosenColor?.id)?.stock;
+   const chosenColorLimitation = productDetail?.colors?.find(item => item?.id === chosenColor?.id)?.limitation;
 
    useEffect(() => {
       if (error) {
@@ -321,7 +322,7 @@ function ProductDetail({ error, productDetail, categoryItems }) {
                                  disabled={
                                     addToBasketIsMutating ||
                                     removeFromBasketIsMutating ||
-                                    chosenColorStock === isInCart?.count
+                                    chosenColorLimitation === isInCart?.count
                                  }
                               >
                                  <AddIcon color="customPinkHigh" className="!text-sm" />
@@ -330,7 +331,7 @@ function ProductDetail({ error, productDetail, categoryItems }) {
                                  <p className="text-xl font-bold">
                                     {addToBasketIsMutating || removeFromBasketIsMutating ? '...' : isInCart?.count}
                                  </p>
-                                 {chosenColorStock === isInCart?.count && (
+                                 {chosenColorLimitation === isInCart?.count && (
                                     <p className="text-[11px] text-textColor">حداکثر</p>
                                  )}
                               </div>

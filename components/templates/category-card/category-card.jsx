@@ -21,7 +21,12 @@ function CategoryCard({ detail }) {
             className="relative mb-5 flex h-[100px] items-center justify-center rounded-xl bg-[#F5F8FC] customMd:h-[180px]"
             id="categoryImage"
          >
-            <Image src={detail?.cover || noImage} alt={detail?.title} className="object-contain" fill />
+            <Image
+               src={detail?.cover || noImage}
+               alt={detail?.title}
+               className="rounded-xl object-cover object-center"
+               fill
+            />
          </div>
 
          <Button fullWidth color="customBlue" startIcon={<LocalMallOutlinedIcon />} endIcon={<KeyboardBackspaceIcon />}>

@@ -39,10 +39,10 @@ function SortingMobile({ open, onClose, setSortingValue }) {
                <Button color="textColor" onClick={() => changeSortHandler('created')}>
                   جدید ترین ها
                </Button>
-               <Button color="textColor" onClick={() => changeSortHandler('rial_price')}>
+               <Button color="textColor" onClick={() => changeSortHandler('price')}>
                   ارزان ترین
                </Button>
-               <Button color="textColor" onClick={() => changeSortHandler('-rial_price')}>
+               <Button color="textColor" onClick={() => changeSortHandler('-price')}>
                   گران ترین
                </Button>
                <Button color="textColor" onClick={() => changeSortHandler('sales')}>

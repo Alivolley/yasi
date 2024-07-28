@@ -85,7 +85,7 @@ function BasketCard({ detail }) {
                         disabled={
                            addToBasketIsMutating ||
                            removeFromBasketIsMutating ||
-                           detail?.count === detail?.product_color?.product_stock
+                           detail?.count === detail?.product_color?.product_limitation
                         }
                      >
                         <AddIcon color="customPink" className="!text-base" />
@@ -95,7 +95,7 @@ function BasketCard({ detail }) {
                         <p className="text-lg font-bold text-customPinkHigh">
                            {addToBasketIsMutating || removeFromBasketIsMutating ? '...' : detail?.count}
                         </p>
-                        {detail?.count === detail?.product_color?.product_stock && (
+                        {detail?.count === detail?.product_color?.product_limitation && (
                            <p className="text-10 text-textColor">حداکثر</p>
                         )}
                      </div>
@@ -143,7 +143,7 @@ function BasketCard({ detail }) {
                         disabled={
                            addToBasketIsMutating ||
                            removeFromBasketIsMutating ||
-                           detail?.count === detail?.product_color?.product_stock
+                           detail?.count === detail?.product_color?.product_limitation
                         }
                      >
                         <AddIcon color="customPink" className="!text-base" />
@@ -153,7 +153,7 @@ function BasketCard({ detail }) {
                         <p className="text-lg font-bold text-customPinkHigh">
                            {addToBasketIsMutating || removeFromBasketIsMutating ? '...' : detail?.count}
                         </p>
-                        {detail?.count === detail?.product_color?.product_stock && (
+                        {detail?.count === detail?.product_color?.product_limitation && (
                            <p className="text-10 text-textColor">حداکثر</p>
                         )}
                      </div>

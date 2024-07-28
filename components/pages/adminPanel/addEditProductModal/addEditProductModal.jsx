@@ -92,7 +92,7 @@ function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMu
          dimensionsHeight: '',
          description: '',
          weight: '',
-         limitation: 100,
+         limitation: '100',
          discountType: 'percent',
          discount: '',
          showProduct: true,
@@ -107,7 +107,7 @@ function AddEditProductModal({ show, onClose, isEdit = false, detail, productsMu
          setValue('price', productDetail?.before_discount_price);
          setValue('description', productDetail?.description);
          setValue('weight', productDetail?.weight);
-         setValue('limitation', productDetail?.limitation);
+         setValue('limitation', productDetail?.limitation || '100');
          setValue('showProduct', productDetail?.public);
          setValue('isBold', productDetail?.is_bold);
 
