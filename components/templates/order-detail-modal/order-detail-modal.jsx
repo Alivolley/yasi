@@ -7,22 +7,28 @@ import { Dialog, Grid, IconButton } from '@mui/material';
 
 // Icons
 import CloseIcon from '@mui/icons-material/Close';
-import TopicOutlinedIcon from '@mui/icons-material/TopicOutlined';
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
 import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 import ReplayIcon from '@mui/icons-material/Replay';
 import MoneyOffCsredOutlinedIcon from '@mui/icons-material/MoneyOffCsredOutlined';
+import PrintIcon from '@mui/icons-material/Print';
 
 // Assets
 import noImage from '@/assets/images/noImage.png';
 
 function OrderDetailModal({ show, onClose, detail }) {
+   const printPageHandler = () => {
+      window.print();
+   };
+
    return (
       <Dialog open={show} onClose={onClose} fullWidth>
          <div className="relative p-3 pt-0 customMd:p-5">
             <div className="sticky top-0 mb-2 flex items-center justify-between border-b border-solid border-[#E4EAF0] bg-white py-2">
                <div className="flex items-center gap-1 font-bold">
-                  <TopicOutlinedIcon fontSize="small" />
+                  <IconButton onClick={printPageHandler}>
+                     <PrintIcon fontSize="small" />
+                  </IconButton>
                   <p>جزییات سفارش</p>
                </div>
                <IconButton onClick={onClose}>

@@ -362,7 +362,7 @@ function ProductDetail({ error, productDetail, categoryItems }) {
                      <div className="border-e border-solid border-[#E4EAF0] pe-4">
                         <div className="flex items-center gap-1 font-bold customMd:text-xl">
                            <SubjectIcon color="textColor" />
-                           <p>ویژگی های محصول</p>
+                           <p>ویژگی های محصول ( حدودی )</p>
                         </div>
                         <div className="mt-8">
                            <div className="flex items-center justify-between rounded-10 bg-[#F5F8FC] px-3 py-5 text-sm">

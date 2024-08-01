@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import loginPic from '@/assets/images/login-pic.png';
+import loginPic from '@/assets/images/aaa.jpg';
 
 const LoginStyle = styled.div(() => ({
    backgroundImage: `url(${loginPic?.src})`,
