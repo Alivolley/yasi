@@ -37,6 +37,7 @@ import useGetUserInfo from '@/apis/userInfo/useGetUserInfo';
 import useGetBasket from '@/apis/basket/useGetBasket';
 
 function Header() {
+   const [shouldShake, setShouldShake] = useState(false);
    const [showMobileMenu, setShowMobileMenu] = useState(false);
    const [showSearchSection, setShowSearchSection] = useState(false);
    const [showCategoriesMenu, setShowCategoriesMenu] = useState(false);
@@ -51,6 +52,16 @@ function Header() {
    const { data: basketData } = useGetBasket(isUserLogin);
 
    const { pathname, query, push } = useRouter();
+
+   useEffect(() => {
+      if (basketData?.all_orders_count && basketData?.all_orders_count > 0) {
+         setShouldShake(true);
+
+         setTimeout(() => {
+            setShouldShake(false);
+         }, 800);
+      }
+   }, [basketData?.all_orders_count]);
 
    useEffect(() => {
       setIsUserLogin(isLogin);
@@ -158,13 +169,15 @@ function Header() {
                               vertical: 'bottom',
                               horizontal: 'left',
                            }}
+                           classes={{ badge: shouldShake ? 'shaker' : '' }}
                            sx={{
                               '& .MuiBadge-badge': {
-                                 fontSize: 10,
-                                 width: 16,
-                                 height: 16,
-                                 minWidth: 16,
-                                 backgroundColor: '#e5dbee',
+                                 fontSize: shouldShake ? 14 : 10,
+                                 width: shouldShake ? 24 : 16,
+                                 height: shouldShake ? 24 : 16,
+                                 minWidth: shouldShake ? 24 : 16,
+                                 backgroundColor: '#f05d5d',
+                                 color: 'white !important',
                               },
                            }}
                         >
@@ -257,13 +270,16 @@ function Header() {
                               vertical: 'bottom',
                               horizontal: 'left',
                            }}
+                           classes={{ badge: shouldShake ? 'shaker' : '' }}
                            sx={{
                               '& .MuiBadge-badge': {
-                                 fontSize: 10,
-                                 width: 16,
-                                 height: 16,
-                                 minWidth: 16,
-                                 backgroundColor: '#dccfe9',
+                                 fontSize: shouldShake ? 14 : 10,
+                                 width: shouldShake ? 23 : 17,
+                                 height: shouldShake ? 23 : 17,
+                                 minWidth: shouldShake ? 23 : 17,
+                                 backgroundColor: '#f05d5d',
+                                 color: 'white !important',
+                                 transition: 'all 0.2s',
                               },
                            }}
                         >

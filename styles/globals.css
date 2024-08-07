@@ -21,6 +21,43 @@
       scroll-behavior: smooth;
    }
 
+   @keyframes shaker {
+      0% {
+         transform: translateX(0);
+      }
+      12% {
+         transform: translateX(-2px);
+      }
+      24% {
+         transform: translateX(2px);
+      }
+      36% {
+         transform: translateX(-2px);
+      }
+      48% {
+         transform: translateX(2px);
+      }
+      60% {
+         transform: translateX(-2px);
+      }
+      72% {
+         transform: translateX(2px);
+      }
+      84% {
+         transform: translateX(-2px);
+      }
+      96% {
+         transform: translateX(2px);
+      }
+      100% {
+         transform: translateX(0);
+      }
+   }
+
+   .shaker {
+      animation: shaker 0.8s linear;
+   }
+
    @media only screen and (max-width: 900px) {
       * {
          cursor: default !important;
