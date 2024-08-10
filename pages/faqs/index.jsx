@@ -37,11 +37,13 @@ function Faqs({ questionsList }) {
                      >
                         <div className="flex items-center gap-2">
                            <div className="size-3 shrink-0 rounded-full bg-customPink3" />
-                           <pre className="text-sm font-bold customMd:text-base">{item?.question}</pre>
+                           <pre className="whitespace-pre-wrap text-sm font-bold customMd:text-base">
+                              {item?.question}
+                           </pre>
                         </div>
                      </AccordionSummary>
                      <AccordionDetails>
-                        <pre className="text-sm">{item?.answer}</pre>
+                        <pre className="whitespace-pre-wrap text-sm">{item?.answer}</pre>
                      </AccordionDetails>
                   </Accordion>
                ))}

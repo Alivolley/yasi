@@ -61,7 +61,7 @@ function Comment({ detail, commentsMutate }) {
                      <div>
                         <Rating value={Number(detail?.score)} max={Number(detail?.score)} size="small" readOnly />
                      </div>
-                     <pre className="whitespace-normal text-sm text-textColor customMd:text-base">
+                     <pre className="whitespace-pre-wrap text-sm text-textColor customMd:text-base">
                         {detail?.message}
                      </pre>
                   </div>
@@ -109,7 +109,7 @@ function Comment({ detail, commentsMutate }) {
                         <p className="whitespace-nowrap text-sm font-bold">پاسخ یاسی هوم</p>
                         <p className="text-10">{detail?.reply_elapsed_time}</p>
                      </div>
-                     <pre className="mt-4 whitespace-normal text-sm text-textColor">{detail?.reply_message}</pre>
+                     <pre className="mt-4 whitespace-pre-wrap text-sm text-textColor">{detail?.reply_message}</pre>
                   </div>
                </div>
             </div>

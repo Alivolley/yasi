@@ -59,7 +59,16 @@ function Faqs() {
 
    const columns = [
       { id: 1, title: 'ردیف', key: 'index' },
-      { id: 2, title: 'سوال', key: 'question' },
+      {
+         id: 2,
+         title: 'سوال',
+         key: 'question',
+         renderCell: data => (
+            <pre className="line-clamp-1 max-w-[450px] whitespace-pre-wrap" title={data?.question}>
+               {data?.question}
+            </pre>
+         ),
+      },
       {
          id: 3,
          title: 'عملیات',

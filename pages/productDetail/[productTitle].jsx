@@ -393,7 +393,7 @@ function ProductDetail({ error, productDetail, categoryItems }) {
 
                         <p className="my-7 text-[15px] font-bold">{productDetail?.title}</p>
 
-                        <pre className="whitespace-pre-line text-sm text-textColor">{productDetail?.description}</pre>
+                        <pre className="whitespace-pre-wrap text-sm text-textColor">{productDetail?.description}</pre>
                      </div>
                   </Grid>
                </Grid>
