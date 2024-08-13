@@ -11,6 +11,7 @@ export default function App({ Component, pageProps }) {
             <meta name="description" content="Your website description here" />
             <meta name="keywords" content="comma, separated, keywords" />
             <meta name="author" content="یاسی هوم" />
+            <link rel="icon" href="/logo.svg" />
          </Head>
          <AppLayout>
             <Component {...pageProps} />

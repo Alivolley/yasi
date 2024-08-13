@@ -116,7 +116,7 @@ function BasketAddressModal({ show, onClose, isEdit = false, detail, usersMutate
                </div>
 
                <div className="flex flex-col gap-1">
-                  <p className="text-sm text-[#7E8AAB]">آدرس دقیق شما</p>
+                  <p className="text-sm text-[#7E8AAB]">آدرس دقیق شما *</p>
                   <TextField
                      variant="outlined"
                      fullWidth
@@ -139,7 +139,7 @@ function BasketAddressModal({ show, onClose, isEdit = false, detail, usersMutate
 
                <div className="flex flex-col gap-3 customSm:flex-row">
                   <div className="flex flex-1 flex-col gap-1">
-                     <p className="text-sm text-[#7E8AAB]">نام کامل تحویل گیرنده</p>
+                     <p className="text-sm text-[#7E8AAB]">نام کامل تحویل گیرنده *</p>
                      <TextField
                         variant="outlined"
                         fullWidth
@@ -157,7 +157,7 @@ function BasketAddressModal({ show, onClose, isEdit = false, detail, usersMutate
                   </div>
 
                   <div className="flex flex-1 flex-col gap-1">
-                     <p className="text-sm text-[#7E8AAB]">شماره تلفن تحویل گیرنده</p>
+                     <p className="text-sm text-[#7E8AAB]">شماره تلفن تحویل گیرنده *</p>
 
                      <TextField
                         fullWidth

@@ -298,21 +298,25 @@ function ProductDetail({ error, productDetail, categoryItems }) {
                   {productDetail?.colors && (
                      <div className="mt-16 w-full customMd:mt-32 customLg:max-w-[390px]">
                         {!isInCart ? (
-                           <LoadingButton
-                              variant="contained"
-                              size="large"
-                              color="customPink3"
-                              loading={addToBasketIsMutating || removeFromBasketIsMutating}
-                              fullWidth
-                              className="!rounded-10 !p-2"
-                              onClick={addToBasketHandler}
-                           >
-                              <div className="flex w-full items-center justify-between transition-all duration-150">
-                                 <p>افزودن به سبد خرید</p>
+                           productDetail?.color && !productDetail?.colors?.every(item => item.stock === 0) ? (
+                              <LoadingButton
+                                 variant="contained"
+                                 size="large"
+                                 color="customPink3"
+                                 loading={addToBasketIsMutating || removeFromBasketIsMutating}
+                                 fullWidth
+                                 className="!rounded-10 !p-2"
+                                 onClick={addToBasketHandler}
+                              >
+                                 <div className="flex w-full items-center justify-between transition-all duration-150">
+                                    <p>افزودن به سبد خرید</p>
 
-                                 <ShoppingBasketOutlinedIcon className="rounded-xl bg-white p-2 text-customPinkHigh" />
-                              </div>
-                           </LoadingButton>
+                                    <ShoppingBasketOutlinedIcon className="rounded-xl bg-white p-2 text-customPinkHigh" />
+                                 </div>
+                              </LoadingButton>
+                           ) : (
+                              <p className="rounded-10 bg-customPink2 p-5 text-center">محصول موجود نیست</p>
+                           )
                         ) : (
                            <div className="flex w-fit items-center gap-2 rounded-10 bg-customPink3 px-7 py-3 customXs:gap-4">
                               <IconButton
