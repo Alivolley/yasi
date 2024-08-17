@@ -14,7 +14,7 @@ import Link from 'next/link';
 import bagIcon from '@/assets/icons/Bag 2.svg';
 import bannerPic1 from '@/assets/images/bannerPic12.jpg';
 import bannerPic2 from '@/assets/images/bannerPic13.jpg';
-import bannerPic3 from '@/assets/images/bannerPic14.jpg';
+import bannerPic4 from '@/assets/images/bannerPic20.jpg';
 
 function Banner() {
    return (
@@ -74,7 +74,7 @@ function Banner() {
                         </SwiperSlide>
                         <SwiperSlide>
                            <div className="w-full rounded-[4px]">
-                              <Image src={bannerPic3} alt="banner" className="size-full rounded-[4px]" />
+                              <Image src={bannerPic4} alt="banner" className="size-full rounded-[4px]" />
                            </div>
                         </SwiperSlide>
                      </Swiper>

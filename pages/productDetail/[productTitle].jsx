@@ -57,7 +57,11 @@ function ProductDetail({ error, productDetail, categoryItems }) {
    const [chosenPicture, setChosenPicture] = useState('');
 
    useEffect(() => {
-      setChosenColor(productDetail?.colors?.find(item => item.stock > 0) || '');
+      if (productDetail?.colors) {
+         setChosenColor(productDetail?.colors?.find(item => item.stock > 0) || productDetail?.colors?.[0]);
+      } else {
+         setChosenColor('');
+      }
       setChosenPicture(productDetail?.images?.[0] || '');
    }, [productDetail]);
 
@@ -247,28 +251,25 @@ function ProductDetail({ error, productDetail, categoryItems }) {
                            <p>رنگ های موجود :</p>
                         </div>
                         <div className="flex flex-wrap items-center gap-3">
-                           {productDetail?.colors?.map(
-                              item =>
-                                 item.stock > 0 && (
-                                    <div
-                                       key={item.id}
-                                       className={
-                                          chosenColor?.id === item.id
-                                             ? 'size-[34px] shrink-0 rounded-full border-2 border-solid border-black p-1'
-                                             : 'size-[34px]'
-                                       }
-                                    >
-                                       <Fab
-                                          className="!h-full !min-h-0 !w-full !rounded-full"
-                                          sx={{
-                                             backgroundColor: item.color,
-                                             ':hover': { backgroundColor: item.color },
-                                          }}
-                                          onClick={() => setChosenColor(item)}
-                                       />
-                                    </div>
-                                 )
-                           )}
+                           {productDetail?.colors?.map(item => (
+                              <div
+                                 key={item.id}
+                                 className={
+                                    chosenColor?.id === item.id
+                                       ? 'size-[34px] shrink-0 rounded-full border-2 border-solid border-black p-1'
+                                       : 'size-[34px]'
+                                 }
+                              >
+                                 <Fab
+                                    className="!h-full !min-h-0 !w-full !rounded-full"
+                                    sx={{
+                                       backgroundColor: item.color,
+                                       ':hover': { backgroundColor: item.color },
+                                    }}
+                                    onClick={() => setChosenColor(item)}
+                                 />
+                              </div>
+                           ))}
                         </div>
                      </div>
                   )}
@@ -292,13 +293,13 @@ function ProductDetail({ error, productDetail, categoryItems }) {
                      </div>
                   )}
                   <p className="mt-5 h-6 text-sm text-customPinkHigh">
-                     {chosenColorStock <= 5 && `تنها ${chosenColorStock} عدد باقی مانده`}
+                     {chosenColorStock !== 0 && chosenColorStock <= 5 && `تنها ${chosenColorStock} عدد باقی مانده`}
                   </p>
 
                   {productDetail?.colors && (
                      <div className="mt-16 w-full customMd:mt-32 customLg:max-w-[390px]">
                         {!isInCart ? (
-                           productDetail?.color && !productDetail?.colors?.every(item => item.stock === 0) ? (
+                           chosenColorStock !== 0 ? (
                               <LoadingButton
                                  variant="contained"
                                  size="large"
@@ -315,7 +316,7 @@ function ProductDetail({ error, productDetail, categoryItems }) {
                                  </div>
                               </LoadingButton>
                            ) : (
-                              <p className="rounded-10 bg-customPink2 p-5 text-center">محصول موجود نیست</p>
+                              <p className="rounded-10 bg-stone-300 p-5 text-center">محصول موجود نیست</p>
                            )
                         ) : (
                            <div className="flex w-fit items-center gap-2 rounded-10 bg-customPink3 px-7 py-3 customXs:gap-4">
@@ -495,9 +496,9 @@ export async function getServerSideProps(context) {
    const { query } = context;
 
    try {
-      const productDetail = await axiosInstance(`store/products/get_update_destroy/?title=${query?.productTitle}`).then(
-         res => res.data
-      );
+      const productDetail = await axiosInstance(
+         `store/products/get_update_destroy/?quantity_in_cart=true&title=${query?.productTitle}`
+      ).then(res => res.data);
 
       const categoryItems = await axiosInstance(`store/products/list_create/?category=${productDetail?.category}`).then(
          res => res.data?.result?.filter(item => item?.title !== productDetail?.title)

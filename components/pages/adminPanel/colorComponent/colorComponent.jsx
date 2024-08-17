@@ -11,8 +11,6 @@ function ColorComponent({ colorsAndCount, setColorsAndCount, detail }) {
 
    const matchItem = colorsAndCount?.find(item => item?.color === detail?.color);
 
-   console.log(colorsAndCount);
-
    return (
       <ColorComponentStyle className="flex flex-col items-center gap-2">
          <div

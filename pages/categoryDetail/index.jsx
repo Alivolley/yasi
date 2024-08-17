@@ -308,7 +308,7 @@ function CategoryDetail({ error, productsList, mostExpensivePrice, categoryList 
                   </div>
                   <p>تعداد کالاها : {productsList?.total_objects}</p>
                </div>
-               <div className="flex flex-wrap items-center justify-between rounded-2xl bg-white px-5 py-3 customLg:hidden">
+               <div className="sticky top-[80px] z-10 flex flex-wrap items-center justify-between rounded-2xl bg-white px-5 py-3 shadow-md customLg:hidden">
                   <Button
                      startIcon={<Image src={filterIcon} alt="filter" />}
                      className="!text-xs !font-bold customSm:!text-sm"
@@ -397,7 +397,7 @@ export async function getServerSideProps(context) {
    try {
       const categoryList = await axiosInstance(`store/categories/list_create/`).then(res => res.data);
 
-      let queryString = `store/products/list_create/?highest_price=true`;
+      let queryString = `store/products/list_create/?highest_price=true&page_size=42`;
 
       if (query?.available) {
          queryString += '&available=true';

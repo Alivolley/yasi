@@ -71,9 +71,11 @@ function ProductCard({ detail }) {
                </p>
             ) : null}
 
-            {/* <p className="absolute bottom-1 end-1 flex items-center rounded-lg bg-white px-1.5 py-0.5 text-xs font-bold customMd:bottom-2 customMd:end-2">
-               {detail?.average_score} <StarIcon fontSize="small" color="customGold" />
-            </p> */}
+            {detail?.not_exist && (
+               <p className="absolute bottom-1 end-1 rounded-lg bg-[#F2485D] px-1.5 py-0.5 text-xs text-white customMd:bottom-2 customMd:end-2">
+                  ناموجود
+               </p>
+            )}
          </div>
          <Link href={`/productDetail/${detail?.title}`}>
             <div className="flex items-center justify-between gap-1">
