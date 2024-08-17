@@ -93,7 +93,7 @@ function ProductCard({ detail }) {
                   {detail?.category}
                </p>
                <p className="whitespace-nowrap text-[13px] font-bold text-customPinkHigh customMd:text-base">
-                  {detail?.colors ? `${Number(detail?.price).toLocaleString()} تومان` : 'ناموجود'}
+                  {Number(detail?.price).toLocaleString()} تومان
                </p>
             </div>
          </Link>
