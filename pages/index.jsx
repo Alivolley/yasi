@@ -21,7 +21,7 @@ export default function Home({ categoryList, newestList, bestSellersList, boldPr
          {/* <OffersBanner /> */}
          {/* <Introduce /> */}
          <Newest detail={newestList} />
-         <BoldProducts detail={boldProducts} />
+         {boldProducts?.result?.length ? <BoldProducts detail={boldProducts} /> : null}
          <BestSellers detail={bestSellersList} />
       </div>
    );

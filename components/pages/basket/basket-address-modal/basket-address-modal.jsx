@@ -28,6 +28,8 @@ function BasketAddressModal({ show, onClose, isEdit = false, detail, usersMutate
          fullAddress: '',
          transfereeFullName: '',
          transfereePhoneNumber: '',
+         province: '',
+         city: '',
       },
       mode: 'onSubmit',
    });
@@ -40,8 +42,10 @@ function BasketAddressModal({ show, onClose, isEdit = false, detail, usersMutate
    };
 
    const formSubmit = data => {
+      const addressString = `${data?.province} | ${data?.city} | ${data?.fullAddress}`;
+
       const newAddress = {
-         address: data?.fullAddress,
+         address: addressString,
          recipient_name: data?.transfereeFullName,
          phone_number: data?.transfereePhoneNumber,
          postal_code: data?.postCode,
@@ -73,7 +77,10 @@ function BasketAddressModal({ show, onClose, isEdit = false, detail, usersMutate
 
    useEffect(() => {
       if (isEdit) {
-         setValue('fullAddress', detail?.address);
+         const separateAddress = detail?.address?.split(' | ');
+         setValue('province', separateAddress?.[0] || '');
+         setValue('city', separateAddress?.[1] || '');
+         setValue('fullAddress', separateAddress?.[2] || '');
          setValue('postCode', detail?.postal_code);
          setValue('transfereeFullName', detail?.recipient_name);
          setValue('transfereePhoneNumber', detail?.phone_number);
@@ -115,18 +122,68 @@ function BasketAddressModal({ show, onClose, isEdit = false, detail, usersMutate
                   />
                </div>
 
+               <div className="flex flex-col gap-3 customSm:flex-row customSm:items-stretch">
+                  <div className="flex flex-1 flex-col gap-1">
+                     <p className="text-sm text-[#7E8AAB]">استان *</p>
+                     <TextField
+                        variant="outlined"
+                        fullWidth
+                        color="customPink"
+                        {...register('province', {
+                           required: {
+                              value: true,
+                              message: 'این فیلد اجباری است',
+                           },
+                           pattern: {
+                              value: /^[^|]*$/g,
+                              message: 'لطفا در متن خود از | استفاده نکنید',
+                           },
+                        })}
+                        error={!!errors?.province}
+                        helperText={errors?.province?.message}
+                        disabled={addAddressIsMutating || editAddressIsMutating}
+                     />
+                  </div>
+
+                  <div className="flex flex-1 flex-col gap-1">
+                     <p className="text-sm text-[#7E8AAB]">شهر یا شهرستان *</p>
+                     <TextField
+                        variant="outlined"
+                        fullWidth
+                        color="customPink"
+                        {...register('city', {
+                           required: {
+                              value: true,
+                              message: 'این فیلد اجباری است',
+                           },
+                           pattern: {
+                              value: /^[^|]*$/g,
+                              message: 'لطفا در متن خود از | استفاده نکنید',
+                           },
+                        })}
+                        error={!!errors?.city}
+                        helperText={errors?.city?.message}
+                        disabled={addAddressIsMutating || editAddressIsMutating}
+                     />
+                  </div>
+               </div>
+
                <div className="flex flex-col gap-1">
                   <p className="text-sm text-[#7E8AAB]">آدرس دقیق شما *</p>
                   <TextField
                      variant="outlined"
                      fullWidth
                      multiline
-                     rows={5}
+                     rows={3}
                      color="customPink"
                      {...register('fullAddress', {
                         required: {
                            value: true,
                            message: 'این فیلد اجباری است',
+                        },
+                        pattern: {
+                           value: /^[^|]*$/g,
+                           message: 'لطفا در متن خود از | استفاده نکنید',
                         },
                      })}
                      error={!!errors?.fullAddress}

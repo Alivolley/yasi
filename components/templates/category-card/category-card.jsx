@@ -15,7 +15,7 @@ function CategoryCard({ detail }) {
    return (
       <CategoryCardStyle
          href={`/categoryDetail?category=${detail?.title}`}
-         className="w-[162px] shrink-0 rounded-2xl bg-white p-5 customMd:flex-1"
+         className="w-[162px] shrink-0 rounded-2xl bg-white p-5 customMd:w-[236px]"
       >
          <div
             className="relative mb-5 flex h-[100px] items-center justify-center rounded-xl bg-[#F5F8FC] customMd:h-[180px]"

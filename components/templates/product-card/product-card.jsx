@@ -47,7 +47,7 @@ function ProductCard({ detail }) {
             }`}
             id="categoryImage"
          >
-            <Link href={`/productDetail/${detail?.title}`} className="relative size-full">
+            <Link href={`/productDetail/${detail?.title}`} className="relative size-full" target="_blank">
                <Image src={detail?.cover || noImage} alt={detail?.title} className="rounded-10 object-cover" fill />
             </Link>
             <div className="absolute end-1.5 top-1.5 customMd:end-2 customMd:top-2">
@@ -77,7 +77,7 @@ function ProductCard({ detail }) {
                </p>
             )}
          </div>
-         <Link href={`/productDetail/${detail?.title}`}>
+         <Link href={`/productDetail/${detail?.title}`} target="_blank">
             <div className="flex items-center justify-between gap-1">
                <p className="h-[22px] overflow-hidden text-sm font-bold [-webkit-box-orient:vertical] [-webkit-line-clamp:1] [display:-webkit-box] customMd:text-base">
                   {detail?.title}

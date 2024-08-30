@@ -30,7 +30,9 @@ function Categories({ detail = [] }) {
          </div>
 
          <div className="mt-10 flex items-stretch gap-5 overflow-auto pb-5">
-            {detail?.map((item, index) => index < 5 && <CategoryCard key={item?.id} detail={item} />)}
+            {detail?.map(item => (
+               <CategoryCard key={item?.id} detail={item} />
+            ))}
          </div>
 
          <Link href="/categoryDetail" className="mt-8 block customMd:hidden">
