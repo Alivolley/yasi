@@ -130,7 +130,7 @@ function Orders() {
             ) : data?.status === 'delivered' ? (
                <div className="mx-auto flex w-fit items-center gap-1 rounded-lg bg-[#2EC4B6] px-2 py-1 text-xs text-white">
                   <CheckCircleOutlinedIcon className="!text-base" />
-                  <p>تحویل داده شده</p>
+                  <p>تحویل اداره پست</p>
                </div>
             ) : data?.status === 'returned' ? (
                <div className="mx-auto flex w-fit items-center gap-1 rounded-lg bg-[#CBB464] px-2 py-1 text-xs text-white">
@@ -235,7 +235,7 @@ function Orders() {
                      className={`w-full cursor-pointer h-full border border-solid border-[#DFEBF1] bg-white
                       customMd:px-5 customMd:py-6 p-3 text-center text-base customMd:text-xl font-dana`}
                   >
-                     <p className={chosenFilter === 'delivered' ? 'text-black' : 'text-[#98A2B2]'}>تحویل داده شده</p>
+                     <p className={chosenFilter === 'delivered' ? 'text-black' : 'text-[#98A2B2]'}>تحویل اداره پست</p>
                      <p
                         className={`font-bold ${
                            chosenFilter === 'delivered' ? 'mt-3 text-customPinkHigh customMd:mt-5' : 'text-[#98A2B2]'

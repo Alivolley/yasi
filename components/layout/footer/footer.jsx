@@ -39,24 +39,22 @@ function Footer() {
                      سفارش بدی و درب منزل تحویل بگیری ، پس دیگه نگران خرید جهیزیه نباش
                   </p>
 
-                  <div className="max-customMd:mt-3">
-                     {/* <Image src={enamadIcon} alt="enamad" className="size-full" /> */}
-
+                  <div className="size-24 max-customMd:mt-3">
                      <a
                         referrerPolicy="origin"
                         target="_blank"
                         href="https://trustseal.enamad.ir/?id=508427&Code=twV0Bcwf02EolvbwPZhTWRUGEhcdjGSH"
                         rel="noreferrer"
                      >
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
+                        <Image src={enamadIcon} alt="enamad" className="size-full" />
+                     </a>
+                     {/* <img
                            referrerPolicy="origin"
                            src="https://trustseal.enamad.ir/logo.aspx?id=508427&Code=twV0Bcwf02EolvbwPZhTWRUGEhcdjGSH"
                            alt=""
                            code="twV0Bcwf02EolvbwPZhTWRUGEhcdjGSH"
                            className="size-24"
-                        />
-                     </a>
+                        /> */}
                   </div>
                </Grid>
                <Grid item xs={12} sm={6} md={2.5}>

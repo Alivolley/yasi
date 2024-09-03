@@ -50,7 +50,7 @@ function Orders() {
                   <Tab
                      icon={<CheckCircleOutlinedIcon />}
                      iconPosition="start"
-                     label="تحویل داده شده"
+                     label="تحویل اداره پست"
                      value="delivered"
                   />
                   <Tab icon={<ReplayIcon />} iconPosition="start" label="مرجوعی" value="returned" />

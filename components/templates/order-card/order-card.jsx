@@ -36,7 +36,7 @@ function OrderCard({ detail }) {
             ) : detail?.status === 'delivered' ? (
                <div className="flex items-center gap-2 rounded-lg bg-[#2EC4B6] p-2 text-sm text-white">
                   <CheckCircleOutlinedIcon fontSize="small" />
-                  <p>تحویل داده شده</p>
+                  <p>تحویل اداره پست</p>
                </div>
             ) : detail?.status === 'returned' ? (
                <div className="flex items-center gap-2 rounded-lg bg-[#CBB464] p-2 text-sm text-white">

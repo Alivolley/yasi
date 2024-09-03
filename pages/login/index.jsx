@@ -1,11 +1,20 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 // MUI
-import { Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField } from '@mui/material';
+import {
+   Button,
+   FormControl,
+   IconButton,
+   InputAdornment,
+   InputLabel,
+   OutlinedInput,
+   TextField,
+   useMediaQuery,
+} from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { MuiOtpInput } from 'mui-one-time-password-input';
 
@@ -29,17 +38,32 @@ import useSendCode from '@/apis/login/useSendCode';
 import useSendPassword from '@/apis/login/useSendPassword';
 
 function Login() {
+   const isMobile = useMediaQuery('(max-width:400px)');
+
    const [loginStep, setLoginStep] = useState(1);
    const [phoneNumber, setPhoneNumber] = useState('');
    const [codeValue, setCodeValue] = useState('');
    const [passwordValue, setPasswordValue] = useState('');
    const [disableResend, setDisableResend] = useState(true);
    const [showPassword, setShowPassword] = useState(false);
+   const [deviceHeight, setDeviceHeight] = useState(window.innerHeight);
    const { back } = useRouter();
 
    const { trigger: verificationCodeTrigger, isMutating: verificationCodeIsMutating } = useVerificationCode();
    const { trigger: sendCodeTrigger, isMutating: sendCodeIsMutating } = useSendCode();
    const { trigger: sendPasswordTrigger, isMutating: sendPasswordIsMutating } = useSendPassword();
+
+   const handleResize = () => {
+      setDeviceHeight(window.innerHeight);
+   };
+
+   useEffect(() => {
+      window.addEventListener('resize', handleResize);
+
+      return () => {
+         window.removeEventListener('resize', handleResize);
+      };
+   }, []);
 
    const sendPhoneNumber = () => {
       if (phoneNumber) {
@@ -90,7 +114,7 @@ function Login() {
    };
 
    return (
-      <LoginStyle className="fixed inset-0 px-5 py-12 customMd:p-16">
+      <LoginStyle className={`px-5 py-12 customMd:p-16 ${deviceHeight > 625 ? 'fixed inset-0' : ''}`}>
          <Head>
             <title>یاسی هوم - ورود</title>
          </Head>
@@ -167,6 +191,7 @@ function Login() {
                         onChange={e => setCodeValue(e)}
                         length={5}
                         TextFieldsProps={{ type: 'number' }}
+                        gap={isMobile ? '2px' : '20px'}
                         onKeyDown={e => {
                            if (e.key === 'Enter') {
                               if (codeValue.length === 5) {
