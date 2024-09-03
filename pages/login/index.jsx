@@ -46,7 +46,7 @@ function Login() {
    const [passwordValue, setPasswordValue] = useState('');
    const [disableResend, setDisableResend] = useState(true);
    const [showPassword, setShowPassword] = useState(false);
-   const [deviceHeight, setDeviceHeight] = useState(window.innerHeight);
+   const [deviceHeight, setDeviceHeight] = useState(0);
    const { back } = useRouter();
 
    const { trigger: verificationCodeTrigger, isMutating: verificationCodeIsMutating } = useVerificationCode();
