@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -46,24 +46,11 @@ function Login() {
    const [passwordValue, setPasswordValue] = useState('');
    const [disableResend, setDisableResend] = useState(true);
    const [showPassword, setShowPassword] = useState(false);
-   const [deviceHeight, setDeviceHeight] = useState(0);
    const { back } = useRouter();
 
    const { trigger: verificationCodeTrigger, isMutating: verificationCodeIsMutating } = useVerificationCode();
    const { trigger: sendCodeTrigger, isMutating: sendCodeIsMutating } = useSendCode();
    const { trigger: sendPasswordTrigger, isMutating: sendPasswordIsMutating } = useSendPassword();
-
-   const handleResize = () => {
-      setDeviceHeight(window.innerHeight);
-   };
-
-   useEffect(() => {
-      window.addEventListener('resize', handleResize);
-
-      return () => {
-         window.removeEventListener('resize', handleResize);
-      };
-   }, []);
 
    const sendPhoneNumber = () => {
       if (phoneNumber) {
@@ -114,11 +101,11 @@ function Login() {
    };
 
    return (
-      <LoginStyle className={`px-5 py-12 customMd:p-16 ${deviceHeight > 625 ? 'fixed inset-0' : ''}`}>
+      <LoginStyle className="fixed inset-0 overflow-y-auto px-5 py-12 customMd:p-16">
          <Head>
             <title>یاسی هوم - ورود</title>
          </Head>
-         <div className="h-full max-w-[486px] rounded-2xl bg-white p-7 2xl:max-w-[550px]" id="container">
+         <div className="mx-auto max-w-[486px] rounded-2xl bg-white p-7 2xl:max-w-[550px]" id="container">
             <Link href="/" className="flex w-fit items-center gap-2 customMd:gap-3">
                <div className="w-[73px] shrink-0">
                   <Image src={logoPic} alt="logo" className="size-full" />
@@ -264,7 +251,7 @@ function Login() {
                </>
             ) : null}
 
-            <div className="space-y-4 self-end">
+            <div className="mt-[30px] space-y-4 self-end customMd:mt-[45px]">
                {loginStep === 2 && (
                   <LoadingButton
                      fullWidth
