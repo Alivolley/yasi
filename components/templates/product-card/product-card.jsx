@@ -21,7 +21,7 @@ import noImage from '@/assets/images/noImage.png';
 import useToggleFavorites from '@/apis/favorites/useToggleFavorites';
 import useGetFavorites from '@/apis/favorites/useGetFavorites';
 
-function ProductCard({ detail }) {
+function ProductCard({ detail, fullWidth }) {
    const isLogin = useSelector(state => state?.loginStatusReducer);
 
    const { trigger: toggleFavoriteTrigger, isMutating: toggleFavoriteIsMutating } = useToggleFavorites();
@@ -39,12 +39,14 @@ function ProductCard({ detail }) {
    return (
       <ProductCardStyle
          href={`/productDetail/${detail?.title}`}
-         className="w-full shrink-0 rounded-10 bg-white p-2 custom400:w-[162px] customMd:w-[250px]"
+         className={`w-full shrink-0 rounded-10 bg-white p-2 ${
+            fullWidth ? 'border border-solid border-[#E4EAF0]' : 'custom400:w-[162px] customMd:w-[250px]'
+         }`}
       >
          <div
-            className={`relative mb-5 flex h-[140px] items-center justify-center rounded-xl customMd:h-[230px] ${
+            className={`relative mb-5 flex items-center justify-center rounded-xl ${
                detail?.percentage ? 'bg-[#FCF7F7]' : 'bg-[#F5F8FC]'
-            }`}
+            } ${fullWidth ? 'max-2xl:aspect-square max-customSm:aspect-video 2xl:h-[270px]' : 'h-[140px] customMd:h-[230px]'}`}
             id="categoryImage"
          >
             <Link href={`/productDetail/${detail?.title}`} className="relative size-full" target="_blank">

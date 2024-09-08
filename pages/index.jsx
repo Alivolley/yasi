@@ -10,13 +10,13 @@ import Newest from '@/components/pages/home/newest/newest';
 import BoldProducts from '@/components/pages/home/bold-products/bold-products';
 import BestSellers from '@/components/pages/home/best-sellers/best-sellers';
 
-export default function Home({ categoryList, newestList, bestSellersList, boldProducts }) {
+export default function Home({ categoryList, newestList, bestSellersList, discountProductList, boldProducts }) {
    return (
       <div>
          <Head>
             <title>یاسی هوم</title>
          </Head>
-         <Banner />
+         <Banner discountProductList={discountProductList} />
          <Categories detail={categoryList} />
          {/* <OffersBanner /> */}
          {/* <Introduce /> */}
@@ -31,6 +31,9 @@ export async function getStaticProps() {
    const categoryList = await axiosInstance(`store/categories/list_create/`).then(res => res.data);
    const newestList = await axiosInstance(`store/products/list_create/?ordering=created`).then(res => res.data);
    const bestSellersList = await axiosInstance(`store/products/list_create/?ordering=sales`).then(res => res.data);
+   const discountProductList = await axiosInstance(`store/products/list_create/?has_discount=true&available=true`).then(
+      res => res.data
+   );
    const boldProducts = await axiosInstance(`store/products/list_create/?is_bold=true&page_size=3`).then(
       res => res.data
    );
@@ -40,6 +43,7 @@ export async function getStaticProps() {
          categoryList,
          newestList,
          bestSellersList,
+         discountProductList,
          boldProducts,
       },
       revalidate: 300,

@@ -1,7 +1,5 @@
 import Image from 'next/image';
-
-// MUI
-import { Button, Grid } from '@mui/material';
+import Link from 'next/link';
 
 // Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -10,96 +8,120 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 // Assets
-import Link from 'next/link';
 import bagIcon from '@/assets/icons/Bag 2.svg';
-import bannerPic1 from '@/assets/images/bannerPic12.jpg';
-import bannerPic2 from '@/assets/images/bannerPic13.jpg';
-import bannerPic4 from '@/assets/images/bannerPic20.jpg';
+import bannerPic1 from '@/assets/images/bannerPic103.jpg';
+import bannerPic2 from '@/assets/images/bannerPic104.jpg';
+import bannerPic4 from '@/assets/images/bannerPic105.jpg';
+import offersButton from '@/assets/images/offers-button.png';
 
-function Banner() {
+// Components
+import ProductCard from '@/components/templates/product-card/product-card';
+
+// Styles
+import BannerStyle from './banner.style';
+
+function Banner({ discountProductList }) {
    return (
-      <>
-         <div className="max-customMd:mt-[-40px] customMd:bg-[#e5dbee] customMd:ps-16">
-            <Grid container columnSpacing={{ md: '50px' }}>
-               <Grid item xs={12} md={7}>
-                  <div className="flex size-full flex-col justify-center py-6 customMd:py-12">
-                     <p className="text-xl font-bold text-black max-customMd:hidden customMd:text-5xl">
+      <BannerStyle style={{ background: 'linear-gradient(0deg, rgba(255,255,255,1) 35%, rgba(246,243,249,1) 100%)' }}>
+         <div className="px-8 py-[55px] customMd:px-16">
+            <div className="customMd:grid customMd:h-[505px] customMd:grid-cols-4 customMd:gap-x-[65px]">
+               <div className="relative col-span-3 customMd:h-[505px]">
+                  <div
+                     className="absolute start-5 top-1/2 z-[2] -translate-y-1/2 text-white customMd:start-[55px]"
+                     style={{
+                        MozUserSelect: 'none',
+                        WebkitUserSelect: 'none',
+                        msUserSelect: 'none',
+                        userSelect: 'none',
+                     }}
+                  >
+                     <p className="text-sm customMd:text-2xl">یاسی هوم</p>
+                     <p className="mt-[7px] text-[16px] font-extrabold leading-[25px] customMd:mt-[13px] customMd:text-[36px] customMd:leading-[50px]">
                         اینجا کمترین قیمت گارانتی شده
                      </p>
-                     <p className="text-xl font-bold text-black max-customMd:hidden customMd:mt-5 customMd:text-5xl">
+                     <p className="text-[36px] font-extrabold leading-[50px] max-customMd:hidden">
                         چون فروش آغاز تعهد ماست
                      </p>
-                     <p className="mt-8 hidden max-w-[700px] leading-[30px] customMd:block">
-                        ما مجموعه‌ای گسترده از انواع لوازم آشپزخانه با کیفیت بالا و قیمت مناسب را برای شما فراهم
-                        کرده‌ایم. از ابزارهای پخت و پز تا وسایل بسته بندی و همه چیزهایی که برای تبدیل آشپزخانه خود به یک
-                        فضای کارآمد و زیبا نیاز دارید
-                     </p>
-
-                     <Link href="/categoryDetail" className="mt-11 hidden w-fit customMd:block">
-                        <Button
-                           color="customPinkHigh"
-                           variant="contained"
-                           size="large"
-                           className="!rounded-10 !py-4 !text-white"
-                           startIcon={<Image src={bagIcon} alt="bag" />}
-                        >
-                           همین حالا خرید کنید
-                        </Button>
+                     <Link
+                        href="/"
+                        className="mt-4 flex h-10 w-fit items-center gap-[6px] rounded-lg bg-[#9B7DB3] px-[16px] shadow-sm
+                         customMd:mt-[34px] customMd:h-[60px] customMd:w-[233px] customMd:gap-2 customMd:rounded-10 customMd:px-[31px]"
+                     >
+                        <Image src={bagIcon} />
+                        <p className="max-customMd:text-[13px]">همین حالا خرید کنید</p>
                      </Link>
                   </div>
-               </Grid>
-               <Grid item xs={12} md={5}>
-                  <div className="size-full">
+                  <Swiper
+                     autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false,
+                     }}
+                     spaceBetween="20px"
+                     pagination={{ clickable: true }}
+                     style={{ height: '100%' }}
+                     modules={[Autoplay, Pagination]}
+                     // eslint-disable-next-line tailwindcss/no-custom-classname
+                     className="mySwiper"
+                     loop
+                  >
+                     <SwiperSlide>
+                        <div className="size-full rounded-[15px] customMd:rounded-[35px]">
+                           <Image
+                              src={bannerPic1}
+                              alt="banner"
+                              className="size-full rounded-[15px] object-cover customMd:rounded-[35px]"
+                           />
+                        </div>
+                     </SwiperSlide>
+                     <SwiperSlide>
+                        <div className="size-full rounded-[15px] customMd:rounded-[35px]">
+                           <Image
+                              src={bannerPic2}
+                              alt="banner"
+                              className="size-full rounded-[15px] object-cover customMd:rounded-[35px]"
+                           />
+                        </div>
+                     </SwiperSlide>
+                     <SwiperSlide>
+                        <div className="size-full rounded-[15px] customMd:rounded-[35px]">
+                           <Image
+                              src={bannerPic4}
+                              alt="banner"
+                              className="size-full rounded-[15px] object-cover customMd:rounded-[35px]"
+                           />
+                        </div>
+                     </SwiperSlide>
+                  </Swiper>
+               </div>
+               <div className="col-span-1 max-customMd:mt-[30px] customMd:flex customMd:flex-col customMd:justify-between">
+                  <div className="max-customSm:px-7">
+                     <Image src={offersButton} alt="btn" className="size-full" unoptimized />
+                  </div>
+
+                  <div className="max-customMd:mt-5">
                      <Swiper
                         autoplay={{
-                           delay: 3000,
+                           delay: 5000,
                            disableOnInteraction: false,
                         }}
-                        pagination={{ clickable: true }}
+                        spaceBetween="10px"
                         style={{ height: '100%' }}
-                        modules={[Autoplay, Pagination]}
+                        modules={[Autoplay]}
                         // eslint-disable-next-line tailwindcss/no-custom-classname
                         className="mySwiper"
                         loop
                      >
-                        <SwiperSlide>
-                           <div className="w-full rounded-[4px]">
-                              <Image src={bannerPic1} alt="banner" className="size-full rounded-[4px]" />
-                           </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                           <div className="w-full rounded-[4px]">
-                              <Image src={bannerPic2} alt="banner" className="size-full rounded-[4px]" />
-                           </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                           <div className="w-full rounded-[4px]">
-                              <Image src={bannerPic4} alt="banner" className="size-full rounded-[4px]" />
-                           </div>
-                        </SwiperSlide>
+                        {discountProductList?.result?.map(item => (
+                           <SwiperSlide key={item?.id}>
+                              <ProductCard detail={item} fullWidth />
+                           </SwiperSlide>
+                        ))}
                      </Swiper>
                   </div>
-               </Grid>
-            </Grid>
+               </div>
+            </div>
          </div>
-         <div className="px-8 customMd:px-16">
-            <p className="mt-8 text-center text-xl font-bold leading-[30px] text-black customMd:hidden">
-               اینجا کمترین قیمت گارانتی شده، <br /> چون فروش آغاز تعهد ماست
-            </p>
-
-            <Link href="/categoryDetail" className="mt-10 block customMd:hidden">
-               <Button
-                  fullWidth
-                  color="customPinkHigh"
-                  variant="contained"
-                  className="!rounded-10 !py-3 !text-white"
-                  startIcon={<Image src={bagIcon} alt="bag" />}
-               >
-                  همین حالا خرید کنید
-               </Button>
-            </Link>
-         </div>
-      </>
+      </BannerStyle>
    );
 }
 
