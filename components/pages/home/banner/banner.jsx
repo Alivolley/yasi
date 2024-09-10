@@ -43,7 +43,7 @@ function Banner({ discountProductList }) {
                         چون فروش آغاز تعهد ماست
                      </p>
                      <Link
-                        href="/"
+                        href="/categoryDetail"
                         className="mt-4 flex h-10 w-fit items-center gap-[6px] rounded-lg bg-[#9B7DB3] px-[16px] shadow-sm
                          customMd:mt-[34px] customMd:h-[60px] customMd:w-[233px] customMd:gap-2 customMd:rounded-10 customMd:px-[31px]"
                      >
