@@ -46,27 +46,26 @@ function ProductCard({ detail, fullWidth }) {
          <div
             className={`relative mb-5 flex items-center justify-center rounded-xl ${
                detail?.percentage ? 'bg-[#FCF7F7]' : 'bg-[#F5F8FC]'
-            } ${fullWidth ? 'max-2xl:aspect-square max-customSm:aspect-video 2xl:h-[270px]' : 'h-[140px] customMd:h-[230px]'}`}
+            } ${fullWidth ? 'max-2xl:aspect-[1/1.1] max-customSm:aspect-video 2xl:h-[270px]' : 'h-[140px] customMd:h-[230px]'}`}
             id="categoryImage"
          >
             <Link href={`/productDetail/${detail?.title}`} className="relative size-full" target="_blank">
                <Image src={detail?.cover || noImage} alt={detail?.title} className="rounded-10 object-cover" fill />
             </Link>
-            <div className="absolute end-1.5 top-1.5 customMd:end-2 customMd:top-2">
+            <div className="absolute end-1 top-1">
                <LoadingButton
-                  className="!h-[25px] !w-[25px] !min-w-0 !p-0 customMd:!h-[30px] customMd:!w-[30px]"
+                  className="!h-[25px] !w-[25px] !min-w-0 !bg-[#F5F8FC69] !p-0 customMd:!h-[30px] customMd:!w-[30px]"
                   variant="contained"
-                  color="white"
                   onClick={toggleLike}
                   loading={toggleFavoriteIsMutating}
                >
-                  {isLiked ? <FavoriteIcon color="customPink" /> : <FavoriteBorderIcon color="customPink" />}
+                  {isLiked ? <FavoriteIcon color="customPinkHigh" /> : <FavoriteBorderIcon color="customPinkHigh" />}
                </LoadingButton>
             </div>
             {detail?.percentage ? (
                <p
-                  className="absolute start-1.5 top-1.5 bg-[#F2485D] px-0.5 pb-3 pt-1.5 text-xs text-white
-                   customMd:start-2 customMd:top-2 customMd:px-[3px] customMd:pb-4 customMd:pt-2 customMd:text-sm"
+                  className="absolute start-1 top-1 bg-[#F2485D] px-0.5 pb-3 pt-1.5 text-xs text-white
+                   customMd:px-[3px] customMd:pb-4 customMd:pt-2 customMd:text-sm"
                   id="discount"
                >
                   {detail?.percentage}%

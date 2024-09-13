@@ -186,12 +186,12 @@ function Header() {
                      </Fab>
                   </Link>
                )}
-               {!isUserLogin ? (
+               {isUserLogin ? (
                   <Link href="/login">
                      <Button
                         variant="contained"
                         color="customPink"
-                        className="!h-[60px] !rounded-10 !text-white"
+                        className="!h-[60px] !rounded-10 !px-12 !text-white"
                         size="large"
                         sx={{ ':hover': { backgroundColor: '#866d9f' } }}
                      >
