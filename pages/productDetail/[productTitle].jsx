@@ -240,11 +240,11 @@ function ProductDetail({ error, productDetail, categoryItems }) {
                      </p>
                   </div> */}
 
-                  {!productDetail?.colors && (
+                  {!productDetail?.colors?.length ? (
                      <p className="mt-16 rounded-10 bg-customPink2 p-5 text-center">محصول موجود نیست</p>
-                  )}
+                  ) : null}
 
-                  {productDetail?.colors && (
+                  {productDetail?.colors?.length ? (
                      <div className="mt-14 flex flex-col items-start justify-between gap-7 border-b border-solid border-[#E4EAF0] pb-5 customMd:flex-row customMd:gap-3">
                         <div className="flex shrink-0 items-center gap-1 text-sm">
                            <ColorLensOutlinedIcon fontSize="small" color="customBlue" />
@@ -272,9 +272,9 @@ function ProductDetail({ error, productDetail, categoryItems }) {
                            ))}
                         </div>
                      </div>
-                  )}
+                  ) : null}
 
-                  {productDetail?.colors && (
+                  {productDetail?.colors?.length ? (
                      <div className="mt-8 flex items-start justify-between">
                         <p>قیمت :</p>
                         <div className="space-y-3">
@@ -291,12 +291,12 @@ function ProductDetail({ error, productDetail, categoryItems }) {
                            <p className="text-xl font-bold">{Number(productDetail?.price).toLocaleString()} تومان</p>
                         </div>
                      </div>
-                  )}
+                  ) : null}
                   <p className="mt-5 h-6 text-sm text-customPinkHigh">
                      {chosenColorStock !== 0 && chosenColorStock <= 5 && `تنها ${chosenColorStock} عدد باقی مانده`}
                   </p>
 
-                  {productDetail?.colors && (
+                  {productDetail?.colors?.length ? (
                      <div className="mt-16 w-full customMd:mt-32 customLg:max-w-[390px]">
                         {!isInCart ? (
                            chosenColorStock !== 0 ? (
@@ -356,7 +356,7 @@ function ProductDetail({ error, productDetail, categoryItems }) {
                            </div>
                         )}
                      </div>
-                  )}
+                  ) : null}
                </div>
             </Grid>
          </Grid>
