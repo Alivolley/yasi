@@ -248,12 +248,12 @@ function MobileMenu({ open, onClose, isUserLogin }) {
                               </Button>
                            </Link>
                         )}
-                        <Link href="/categoryDetail?ordering=sales">
+                        <Link href="/categoryDetail?ordering=-sales">
                            <Button size="small" color="customBlue" startIcon={<WhatshotIcon />}>
                               پر فروش ترین ها
                            </Button>
                         </Link>
-                        <Link href="/categoryDetail?ordering=created">
+                        <Link href="/categoryDetail?ordering=-created">
                            <Button size="small" color="customBlue" startIcon={<FiberNewIcon />}>
                               جدید ترین ها
                            </Button>

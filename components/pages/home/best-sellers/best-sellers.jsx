@@ -37,7 +37,7 @@ function BestSellers({ detail }) {
                   <Image src={bestSellersPic} alt="best sellers" className="size-full rounded-10" />
                </div>
 
-               <Link href="/categoryDetail?ordering=sales" className="mt-8 hidden customMd:block">
+               <Link href="/categoryDetail?ordering=-sales" className="mt-8 hidden customMd:block">
                   <Button
                      color="white"
                      variant="contained"
@@ -81,7 +81,7 @@ function BestSellers({ detail }) {
                </IconButton>
             </div>
          </div>
-         <Link href="/categoryDetail?ordering=sales" className="customMd:hidden">
+         <Link href="/categoryDetail?ordering=-sales" className="customMd:hidden">
             <Button
                color="white"
                variant="contained"

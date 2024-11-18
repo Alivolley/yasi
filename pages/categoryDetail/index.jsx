@@ -300,10 +300,10 @@ function CategoryDetail({ error, productsList, mostExpensivePrice, categoryList 
                         variant="scrollable"
                      >
                         <Tab label="همه" value="" className="!normal-case" />
-                        <Tab label="جدیدترین" value="created" className="!normal-case" />
+                        <Tab label="جدیدترین" value="-created" className="!normal-case" />
                         <Tab label="ارزان ترین" value="price" className="!normal-case" />
                         <Tab label="گران ترین" value="-price" className="!normal-case" />
-                        <Tab label="پرفروش ترین" value="sales" className="!normal-case" />
+                        <Tab label="پرفروش ترین" value="-sales" className="!normal-case" />
                      </Tabs>
                   </div>
                   <p>تعداد کالاها : {productsList?.total_objects}</p>
@@ -324,13 +324,13 @@ function CategoryDetail({ error, productsList, mostExpensivePrice, categoryList 
                      color="black"
                      onClick={() => setShowSortingMobile(true)}
                   >
-                     {sortingValue === 'created'
+                     {sortingValue === '-created'
                         ? 'جدیدترین'
                         : sortingValue === `price`
                           ? 'ارزان ترین'
                           : sortingValue === `-price`
                             ? 'گران ترین'
-                            : sortingValue === 'sales'
+                            : sortingValue === '-sales'
                               ? 'پرفروش ترین'
                               : 'همه'}
                   </Button>

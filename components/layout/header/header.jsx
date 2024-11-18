@@ -321,12 +321,12 @@ function Header() {
                   <HeaderCategories />
                </div>
 
-               <Link href="/categoryDetail?ordering=sales">
+               <Link href="/categoryDetail?ordering=-sales">
                   <Button size="small" color="textColor" startIcon={<WhatshotIcon />}>
                      پر فروش ترین ها
                   </Button>
                </Link>
-               <Link href="/categoryDetail?ordering=created">
+               <Link href="/categoryDetail?ordering=-created">
                   <Button size="small" color="textColor" startIcon={<FiberNewIcon />}>
                      جدیدترین ها
                   </Button>

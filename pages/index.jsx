@@ -29,8 +29,8 @@ export default function Home({ categoryList, newestList, bestSellersList, discou
 
 export async function getStaticProps() {
    const categoryList = await axiosInstance(`store/categories/list_create/`).then(res => res.data);
-   const newestList = await axiosInstance(`store/products/list_create/?ordering=created`).then(res => res.data);
-   const bestSellersList = await axiosInstance(`store/products/list_create/?ordering=sales`).then(res => res.data);
+   const newestList = await axiosInstance(`store/products/list_create/?ordering=-created`).then(res => res.data);
+   const bestSellersList = await axiosInstance(`store/products/list_create/?ordering=-sales`).then(res => res.data);
    const discountProductList = await axiosInstance(`store/products/list_create/?has_discount=true&available=true`).then(
       res => res.data
    );

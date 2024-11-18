@@ -22,7 +22,7 @@ function Newest({ detail }) {
                <Image src={categoriesIcon} alt="categories" />
                <p className="text-lg font-bold text-textColor">جدیدترین ها</p>
             </div>
-            <Link href="/categoryDetail?ordering=created" className="hidden customMd:block">
+            <Link href="/categoryDetail?ordering=-created" className="hidden customMd:block">
                <Button endIcon={<KeyboardArrowLeftIcon />} color="textColor">
                   نمایش همه
                </Button>
@@ -35,7 +35,7 @@ function Newest({ detail }) {
             ))}
          </div>
 
-         <Link href="/categoryDetail?ordering=created" className="mt-8 block customMd:hidden">
+         <Link href="/categoryDetail?ordering=-created" className="mt-8 block customMd:hidden">
             <Button
                color="white"
                variant="contained"
