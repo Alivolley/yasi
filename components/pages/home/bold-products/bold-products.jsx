@@ -18,7 +18,7 @@ function BoldProducts({ detail }) {
                      className="flex flex-col rounded-2xl border border-solid border-[#E4EAF0] hover:[&>#text]:text-customPinkHigh"
                   >
                      <div className="relative aspect-[10/7] size-full customMd:aspect-[10/8]">
-                        <Image src={item?.cover} alt="bold product" className="rounded-t-2xl object-cover" fill />
+                        <Image src={item?.cover} alt="bold product" className="rounded-t-2xl object-contain" fill />
                      </div>
 
                      <p className="flex items-center gap-2 px-7 py-4 transition-all duration-200" id="text">

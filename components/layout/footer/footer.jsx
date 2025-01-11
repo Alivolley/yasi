@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import Image from 'next/image';
 
@@ -44,10 +46,23 @@ function Footer() {
                         referrerPolicy="origin"
                         target="_blank"
                         href="https://trustseal.enamad.ir/?id=508427&Code=twV0Bcwf02EolvbwPZhTWRUGEhcdjGSH"
+                     >
+                        <img
+                           referrerPolicy="origin"
+                           src="https://trustseal.enamad.ir/logo.aspx?id=508427&Code=twV0Bcwf02EolvbwPZhTWRUGEhcdjGSH"
+                           alt=""
+                           style={{ cursor: 'pointer' }}
+                           code="twV0Bcwf02EolvbwPZhTWRUGEhcdjGSH"
+                        />
+                     </a>
+                     {/* <a
+                        referrerPolicy="origin"
+                        target="_blank"
+                        href="https://trustseal.enamad.ir/?id=508427&Code=twV0Bcwf02EolvbwPZhTWRUGEhcdjGSH"
                         rel="noreferrer"
                      >
                         <Image src={enamadIcon} alt="enamad" className="size-full" />
-                     </a>
+                     </a> */}
                      {/* <img
                            referrerPolicy="origin"
                            src="https://trustseal.enamad.ir/logo.aspx?id=508427&Code=twV0Bcwf02EolvbwPZhTWRUGEhcdjGSH"

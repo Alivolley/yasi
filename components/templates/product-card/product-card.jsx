@@ -50,7 +50,7 @@ function ProductCard({ detail, fullWidth }) {
             id="categoryImage"
          >
             <Link href={`/productDetail/${detail?.title}`} className="relative size-full" target="_blank">
-               <Image src={detail?.cover || noImage} alt={detail?.title} className="rounded-10 object-cover" fill />
+               <Image src={detail?.cover || noImage} alt={detail?.title} className="rounded-10 object-contain" fill />
             </Link>
             <div className="absolute end-1 top-1">
                <LoadingButton

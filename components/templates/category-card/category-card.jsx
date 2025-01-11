@@ -25,7 +25,7 @@ function CategoryCard({ detail }) {
             <Image
                src={detail?.cover || noImage}
                alt={detail?.title}
-               className="rounded-xl object-cover object-center"
+               className="rounded-xl object-contain object-center"
                fill
             />
          </div>
