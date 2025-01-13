@@ -35,9 +35,9 @@ function Favorites() {
             </div>
             <div className="mt-6">
                {favoritesData?.length ? (
-                  <div className="flex flex-wrap items-center justify-center gap-2 customMd:justify-start customMd:gap-5">
+                  <div className="grid grid-cols-2 gap-x-1.5 gap-y-4 sm:grid-cols-3 customMd:gap-8 xl:grid-cols-4">
                      {favoritesData?.map(item => (
-                        <ProductCard key={item.id} detail={item} />
+                        <ProductCard key={item.id} detail={item} fullWidth />
                      ))}
                   </div>
                ) : (

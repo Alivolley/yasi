@@ -39,14 +39,14 @@ function ProductCard({ detail, fullWidth }) {
    return (
       <ProductCardStyle
          href={`/productDetail/${detail?.title}`}
-         className={`w-full shrink-0 rounded-10 bg-white p-2 ${
-            fullWidth ? 'border border-solid border-[#E4EAF0]' : 'custom400:w-[162px] customMd:w-[250px]'
+         className={`shrink-0 rounded-10 bg-white p-2 ${
+            fullWidth ? 'border border-solid border-[#E4EAF0]' : 'w-[180px] customMd:w-[250px]'
          }`}
       >
          <div
             className={`relative mb-5 flex items-center justify-center rounded-xl ${
                detail?.percentage ? 'bg-[#FCF7F7]' : 'bg-[#F5F8FC]'
-            } ${fullWidth ? 'max-2xl:aspect-[1/1.1] max-customSm:aspect-video 2xl:h-[270px]' : 'h-[140px] customMd:h-[230px]'}`}
+            } ${fullWidth ? 'max-2xl:aspect-[1/1.1] max-customSm:aspect-square 2xl:h-[270px]' : 'h-[140px] customMd:h-[230px]'}`}
             id="categoryImage"
          >
             <Link href={`/productDetail/${detail?.title}`} className="relative size-full" target="_blank">
@@ -80,7 +80,7 @@ function ProductCard({ detail, fullWidth }) {
          </div>
          <Link href={`/productDetail/${detail?.title}`} target="_blank">
             <div className="flex items-center justify-between gap-1">
-               <p className="h-[22px] overflow-hidden text-sm font-bold [-webkit-box-orient:vertical] [-webkit-line-clamp:1] [display:-webkit-box] customMd:text-base">
+               <p className="line-clamp-1 h-[22px] overflow-hidden text-sm font-bold customMd:text-base">
                   {detail?.title}
                </p>
                {detail?.colors && detail?.percentage ? (
@@ -90,7 +90,7 @@ function ProductCard({ detail, fullWidth }) {
                ) : null}
             </div>
             <div className="mt-3 flex items-center justify-between gap-1">
-               <p className="h-5 overflow-hidden text-xs text-[#7E95B0] [-webkit-box-orient:vertical] [-webkit-line-clamp:1] [display:-webkit-box] customMd:text-sm">
+               <p className="line-clamp-1 h-5 overflow-hidden text-10 text-[#7E95B0] max-customMd:leading-4 customMd:text-sm">
                   {detail?.category}
                </p>
                <p className="whitespace-nowrap text-[13px] font-bold text-customPinkHigh customMd:text-base">

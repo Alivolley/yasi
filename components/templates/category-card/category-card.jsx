@@ -19,7 +19,7 @@ function CategoryCard({ detail }) {
       >
          <Cube />
          <div
-            className="relative mb-5 flex h-[100px] items-center justify-center rounded-xl bg-[#F5F8FC] customMd:h-[180px]"
+            className="relative mb-5 flex items-center justify-center rounded-xl bg-[#F5F8FC] max-lg:aspect-square customMd:h-[180px]"
             id="categoryImage"
          >
             <Image

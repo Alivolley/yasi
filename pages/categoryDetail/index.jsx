@@ -362,9 +362,9 @@ function CategoryDetail({ error, productsList, mostExpensivePrice, categoryList 
 
                <div className="mt-6">
                   {productsList?.result?.length ? (
-                     <div className="flex flex-wrap justify-center gap-4 customMd:gap-8">
+                     <div className="grid grid-cols-2 gap-x-1.5 gap-y-4 sm:grid-cols-3 customMd:gap-8 xl:grid-cols-4">
                         {productsList?.result?.map(item => (
-                           <ProductCard key={item.id} detail={item} />
+                           <ProductCard key={item.id} detail={item} fullWidth />
                         ))}
                      </div>
                   ) : (

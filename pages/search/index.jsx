@@ -46,7 +46,7 @@ function Search({ searchResultList, error, suggestsList }) {
                نتایج جستجو برای : <span className="text-customPinkHigh">{productNameQuery}</span>
             </p>
 
-            <div className="mt-14 flex flex-wrap justify-center gap-5">
+            <div className="mt-14 grid grid-cols-2 gap-x-1.5 gap-y-4 sm:grid-cols-3 customMd:gap-8 xl:grid-cols-4">
                {searchResultList?.total_objects === 0 ? (
                   <div>
                      <p className="mb-10 text-center font-bold">محصول مورد نظر یافت نشد</p>
@@ -55,7 +55,7 @@ function Search({ searchResultList, error, suggestsList }) {
                      </div>
                   </div>
                ) : (
-                  searchResultList?.result?.map(item => <ProductCard key={item.id} detail={item} />)
+                  searchResultList?.result?.map(item => <ProductCard key={item.id} detail={item} fullWidth />)
                )}
             </div>
             {searchResultList?.total_objects !== 0 && (
