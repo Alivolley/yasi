@@ -31,7 +31,9 @@ function Newest({ detail }) {
 
          <div className="mt-10 flex items-center gap-4 overflow-auto pb-8">
             {detail?.result?.map(item => (
-               <ProductCard key={item.id} detail={item} />
+               <div className="w-[160px] shrink-0 xl:w-[240px]" key={item.id}>
+                  <ProductCard detail={item} fullWidth />
+               </div>
             ))}
          </div>
 

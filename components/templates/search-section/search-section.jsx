@@ -84,7 +84,9 @@ function SearchSection({ onClose, isUserLogin }) {
             <div className="relative flex items-center gap-4 customMd:gap-12">
                <div className="mt-5 flex items-center gap-4 overflow-auto scroll-smooth pb-5" ref={productsRef}>
                   {suggestionsData?.result?.map(item => (
-                     <ProductCard key={item.id} detail={item} />
+                     <div className="w-[240px] shrink-0" key={item.id}>
+                        <ProductCard detail={item} fullWidth />
+                     </div>
                   ))}
                </div>
                <div className="absolute end-[-10px] hidden customMd:block">

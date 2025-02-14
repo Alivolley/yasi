@@ -87,7 +87,9 @@ function Search({ searchResultList, error, suggestsList }) {
 
             <div className="mt-10 flex items-center gap-4 overflow-auto pb-5">
                {suggestsList?.result?.map(item => (
-                  <ProductCard key={item.id} detail={item} />
+                  <div className="w-[160px] shrink-0 xl:w-[240px]" key={item.id}>
+                     <ProductCard detail={item} fullWidth />
+                  </div>
                ))}
             </div>
 

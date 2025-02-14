@@ -46,7 +46,7 @@ function ProductCard({ detail, fullWidth }) {
          <div
             className={`relative mb-5 flex items-center justify-center rounded-xl ${
                detail?.percentage ? 'bg-[#FCF7F7]' : 'bg-[#F5F8FC]'
-            } ${fullWidth ? 'max-2xl:aspect-[1/1.1] max-customSm:aspect-square 2xl:h-[270px]' : 'h-[140px] customMd:h-[230px]'}`}
+            } ${fullWidth ? 'aspect-square' : 'h-[140px] customMd:h-[230px]'}`}
             id="categoryImage"
          >
             <Link href={`/productDetail/${detail?.title}`} className="relative size-full" target="_blank">

@@ -29,8 +29,8 @@ function BestSellers({ detail }) {
    return (
       <div className="bg-[#F5F8FC] px-2 py-6 customMd:px-16 customMd:py-[70px]">
          <div className="relative flex items-center gap-4 customMd:gap-12">
-            <div className="w-[145px] shrink-0 customMd:w-[330px]">
-               <p className="text-center text-xl font-bold text-customPinkHigh customMd:text-2xl">
+            <div className="w-[130px] shrink-0 customMd:w-[330px]">
+               <p className="text-center text-base font-bold text-customPinkHigh customMd:text-2xl">
                   پرفروش ترین محصولات
                </p>
                <div className="mt-7 customMd:mb-3">
@@ -53,7 +53,9 @@ function BestSellers({ detail }) {
 
             <div className="mt-10 flex items-center gap-4 overflow-auto scroll-smooth pb-10" ref={productsRef}>
                {detail?.result?.map(item => (
-                  <ProductCard key={item.id} detail={item} />
+                  <div className="w-[160px] shrink-0 xl:w-[240px]" key={item.id}>
+                     <ProductCard detail={item} fullWidth />
+                  </div>
                ))}
             </div>
             <div className="absolute end-[-20px] hidden customMd:block">
