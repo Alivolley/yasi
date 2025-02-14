@@ -9,9 +9,9 @@ import 'swiper/css/pagination';
 
 // Assets
 import bagIcon from '@/assets/icons/Bag 2.svg';
-import bannerPic1 from '@/assets/images/bannerPic103.jpg';
-import bannerPic2 from '@/assets/images/bannerPic104.jpg';
-import bannerPic4 from '@/assets/images/bannerPic105.jpg';
+import bannerPic1 from '@/assets/images/yasiihome-1.webp';
+import bannerPic2 from '@/assets/images/yasiihome-2.webp';
+import bannerPic4 from '@/assets/images/yasiihome-3.webp';
 import offersButton from '@/assets/images/offers-button.png';
 
 // Components

@@ -16,7 +16,6 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 // Assets
 import Link from 'next/link';
 import logoPic from '@/assets/images/logo.png';
-import enamadIcon from '@/assets/images/enamadIcon.png';
 
 function Footer() {
    return (
@@ -41,7 +40,7 @@ function Footer() {
                      سفارش بدی و درب منزل تحویل بگیری ، پس دیگه نگران خرید جهیزیه نباش
                   </p>
 
-                  <div className="size-24 max-customMd:mt-3">
+                  <div className="max-customMd:mt-3">
                      <a
                         referrerPolicy="origin"
                         target="_blank"
@@ -55,21 +54,7 @@ function Footer() {
                            code="twV0Bcwf02EolvbwPZhTWRUGEhcdjGSH"
                         />
                      </a>
-                     {/* <a
-                        referrerPolicy="origin"
-                        target="_blank"
-                        href="https://trustseal.enamad.ir/?id=508427&Code=twV0Bcwf02EolvbwPZhTWRUGEhcdjGSH"
-                        rel="noreferrer"
-                     >
-                        <Image src={enamadIcon} alt="enamad" className="size-full" />
-                     </a> */}
-                     {/* <img
-                           referrerPolicy="origin"
-                           src="https://trustseal.enamad.ir/logo.aspx?id=508427&Code=twV0Bcwf02EolvbwPZhTWRUGEhcdjGSH"
-                           alt=""
-                           code="twV0Bcwf02EolvbwPZhTWRUGEhcdjGSH"
-                           className="size-24"
-                        /> */}
+                
                   </div>
                </Grid>
                <Grid item xs={12} sm={6} md={2.5}>

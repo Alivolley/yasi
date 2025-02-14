@@ -8,25 +8,16 @@ import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
 
 // MUI
-import {
-   Button,
-   Fab,
-   Grid,
-   IconButton,
-   // CircularProgress,
-   //   Rating
-} from '@mui/material';
+import { Button, Fab, Grid, IconButton } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 
 // Icons
-// import QuestionAnswerOutlinedIcon from '@mui/icons-material/QuestionAnswerOutlined';
 import SubjectIcon from '@mui/icons-material/Subject';
 import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShoppingBasketOutlinedIcon from '@mui/icons-material/ShoppingBasketOutlined';
 import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
-// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AddIcon from '@mui/icons-material/Add';
@@ -37,8 +28,6 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 import categoriesIcon from '@/assets/icons/categories-icon.svg';
 
 // Components
-// import Comment from '@/components/pages/productDetail/comment/comment';
-// import AddComment from '@/components/pages/productDetail/add-comment/add-comment';
 import ProductCard from '@/components/templates/product-card/product-card';
 
 // Configs
@@ -47,7 +36,6 @@ import axiosInstance from '@/configs/axiosInstance';
 // Apis
 import useGetFavorites from '@/apis/favorites/useGetFavorites';
 import useToggleFavorites from '@/apis/favorites/useToggleFavorites';
-// import useGetComments from '@/apis/comments/useGetComments';
 import useAddToBasket from '@/apis/basket/useAddToBasket';
 import useRemoveFromBasket from '@/apis/basket/useRemoveFromBasket';
 import useGetBasket from '@/apis/basket/useGetBasket';
@@ -70,14 +58,6 @@ function ProductDetail({ error, productDetail, categoryItems }) {
 
    const { trigger: toggleFavoriteTrigger, isMutating: toggleFavoriteIsMutating } = useToggleFavorites();
    const { data: favoritesData } = useGetFavorites(isLogin);
-   // const {
-   //    mutate: commentsMutate,
-   //    data: commentsData,
-   //    isLoading: commentsIsLoading,
-   //    size: commentsSize,
-   //    setSize: commentsSetSize,
-   //    isValidating: commentsIsValidating,
-   // } = useGetComments(productDetail?.id);
 
    const { isMutating: addToBasketIsMutating, trigger: addToBasketTrigger } = useAddToBasket();
    const { isMutating: removeFromBasketIsMutating, trigger: removeFromBasketTrigger } = useRemoveFromBasket();
@@ -128,6 +108,12 @@ function ProductDetail({ error, productDetail, categoryItems }) {
       <div className="bg-[#fcf7f7] px-8 py-[60px] customMd:px-16">
          <Head>
             <title>یاسی هوم - {productDetail?.title}</title>
+            <meta name="product_id" content={productDetail.id} />
+            <meta name="product_name" content={productDetail.title} />
+            <meta property="og:image" content={productDetail.cover} />
+            <meta name="product_price" content={productDetail.price} />
+            <meta name="product_old_price" content={productDetail.before_discount_price || productDetail.price} />
+            <meta name="availability" content={productDetail.not_exist ? 'outofstock' : 'instock'} />
          </Head>
          <Grid container columnSpacing={4}>
             <Grid item xs={12} md={6}>
@@ -148,28 +134,6 @@ function ProductDetail({ error, productDetail, categoryItems }) {
                         )}
                      </LoadingButton>
                   </div>
-
-                  {/* <div className="mt-5 flex flex-wrap items-center gap-5 text-xs customMd:flex-nowrap">
-                     <p>
-                        <Rating
-                           precision={0.1}
-                           value={productDetail?.average_score}
-                           readOnly
-                           size="small"
-                           sx={{ color: '#FF9F1C' }}
-                        />
-                     </p>
-                     <div className="flex items-center gap-1 text-10">
-                        <p>{productDetail?.average_score}</p>
-                        <p className="text-textColor">
-                           ( از {commentsData?.[Number(commentsData?.length) - 1]?.total_objects} نظر )
-                        </p>
-                     </div>
-                     <p className="flex items-center gap-1 text-textColor">
-                        <QuestionAnswerOutlinedIcon color="customPink" fontSize="small" />{' '}
-                        {commentsData?.[Number(commentsData?.length) - 1]?.total_objects} دیدگاه
-                     </p>
-                  </div> */}
                </div>
                <div className="relative h-[250px] w-full customSm:h-[500px]">
                   <Image src={chosenPicture?.image} alt="product" className="rounded-2xl object-cover" fill />
@@ -217,28 +181,6 @@ function ProductDetail({ error, productDetail, categoryItems }) {
                         )}
                      </LoadingButton>
                   </div>
-
-                  {/* <div className="mt-5 hidden flex-wrap items-center gap-5 text-xs customMd:flex customMd:flex-nowrap">
-                     <p>
-                        <Rating
-                           precision={0.1}
-                           value={productDetail?.average_score}
-                           readOnly
-                           size="small"
-                           sx={{ color: '#FF9F1C' }}
-                        />
-                     </p>
-                     <div className="flex items-center gap-1 text-10">
-                        <p>{productDetail?.average_score}</p>
-                        <p className="text-textColor">
-                           ( از {commentsData?.[Number(commentsData?.length) - 1]?.total_objects} نظر )
-                        </p>
-                     </div>
-                     <p className="flex items-center gap-1 text-textColor">
-                        <QuestionAnswerOutlinedIcon color="customPink" fontSize="small" />{' '}
-                        {commentsData?.[Number(commentsData?.length) - 1]?.total_objects} دیدگاه
-                     </p>
-                  </div> */}
 
                   {!productDetail?.colors?.length ? (
                      <p className="mt-16 rounded-10 bg-customPink2 p-5 text-center">محصول موجود نیست</p>
@@ -292,9 +234,6 @@ function ProductDetail({ error, productDetail, categoryItems }) {
                         </div>
                      </div>
                   ) : null}
-                  <p className="mt-5 h-6 text-sm text-customPinkHigh">
-                     {chosenColorStock !== 0 && chosenColorStock <= 5 && `تنها ${chosenColorStock} عدد باقی مانده`}
-                  </p>
 
                   {productDetail?.colors?.length ? (
                      <div className="mt-16 w-full customMd:mt-32 customLg:max-w-[390px]">
@@ -403,56 +342,6 @@ function ProductDetail({ error, productDetail, categoryItems }) {
                   </Grid>
                </Grid>
             </div>
-
-            {/* <div className="mt-16 border border-solid border-[#E4EAF0] p-5 customMd:mt-10">
-               <div className="flex flex-wrap items-center gap-3 text-customBlue customSm:flex-nowrap customSm:gap-6">
-                  <div className="flex items-center gap-2">
-                     <QuestionAnswerOutlinedIcon fontSize="small" />
-                     <p className="text-lg">نظرات کاربران</p>
-                  </div>
-                  <p className="text-[13px]">
-                     {commentsData?.[Number(commentsData?.length) - 1]?.total_objects} نظر ثبت شده
-                  </p>
-               </div>
-
-               <div className="mt-10 max-w-[800px]">
-                  {commentsIsLoading ? (
-                     <div className="flex items-center justify-center">
-                        <CircularProgress color="customPink" />
-                     </div>
-                  ) : commentsData?.[Number(commentsData?.length) - 1]?.total_objects === 0 ? (
-                     <div className="flex h-full flex-col items-center justify-center customMd:mt-6">
-                        <p className="text-center text-sm text-textColor">نظری برای این محصول ثبت نشده است</p>
-                        <p className="mt-2 text-center text-lg font-bold">همین الان نظر خود را ثبت کنید</p>
-                     </div>
-                  ) : (
-                     <div className="space-y-8">
-                        {commentsData?.map(item =>
-                           item?.result?.map(innerItem => (
-                              <Comment key={innerItem?.id} detail={innerItem} commentsMutate={commentsMutate} />
-                           ))
-                        )}
-
-                        {commentsData?.length !== commentsData?.[Number(commentsData?.length) - 1]?.total_pages && (
-                           <div className="flex justify-center">
-                              <LoadingButton
-                                 color="customPink"
-                                 endIcon={<KeyboardArrowDownIcon />}
-                                 onClick={() => commentsSetSize(commentsSize + 1)}
-                                 loading={commentsIsValidating}
-                              >
-                                 مشاهده نظرات بیشتر
-                              </LoadingButton>
-                           </div>
-                        )}
-                     </div>
-                  )}
-
-                  <div className="customMd:mt-16">
-                     <AddComment productDetail={productDetail} commentsMutate={commentsMutate} />
-                  </div>
-               </div>
-            </div> */}
          </div>
          <section className="mt-20">
             <div className="flex items-center justify-between border-b border-solid border-[#E4EAF0] pb-2">
