@@ -84,8 +84,9 @@ function PaymentSummery({ detail, setBasketStep, basketStep, chosenAddress, orde
             <div className="flex items-center justify-between text-textColor">
                <p className="text-sm">هزینه ارسال</p>
                <p>
-                  {isNaN(detail?.shipping_cost) ? detail.shipping_cost : Number(detail?.shipping_cost).toLocaleString()}{' '}
-                  تومان
+                  {/* {isNaN(detail?.shipping_cost) ? detail.shipping_cost : Number(detail?.shipping_cost).toLocaleString()}{' '} */}
+                  {/* تومان */}
+                  پست پرداخت
                </p>
             </div>
          </div>
