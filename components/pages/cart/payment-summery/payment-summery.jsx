@@ -86,7 +86,7 @@ function PaymentSummery({ detail, setBasketStep, basketStep, chosenAddress, orde
                <p>
                   {/* {isNaN(detail?.shipping_cost) ? detail.shipping_cost : Number(detail?.shipping_cost).toLocaleString()}{' '} */}
                   {/* تومان */}
-                  پست پرداخت
+                  پس پرداخت
                </p>
             </div>
          </div>
